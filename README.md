@@ -8,6 +8,88 @@ personas con TDA (Trastorno por déficit de atención), aunque puede ser útil p
 usarla.
 
 
+* ! IMPORTANTE !!!!!! Sprint One!!!!
+
+    * TODO --> Hasta el 04/07 
+
+
+# SPRINT I --> Backend 
+
+* Análisis
+
+    **  ● Wireframe 
+
+* Backend
+
+        * // ● Creación repositorio en gitHub y configuración
+
+    **  ● Creación de la base de datos con datos fijos ( familia tarea y usuario admin)
+
+        * //   ● Creación de proyecto de Node y estructura inicial de carpetas
+
+        * //   ● Creación del servidor con Express
+
+    **   ● Creación de la conexión con la base de datos desde Node
+
+    **   ● Middleware 404 not found
+
+    **   ● Middleware gestión de errores
+
+    **   ● Middleware parseo del body de la petición
+
+    **   ● Middleware upload de files
+
+    **   ● Middleware definición directorio recursos estáticos (imágenes)
+
+    **   ● Middleware: cors
+
+    **   ● Endpoint registro de usuarios
+
+    **   ● Endpoint validación usuario
+
+    **   ● Endpoint login de usuarios
+
+    ● Endpoint recuperación contraseña
+
+    ● Endpoint cambio contraseña
+
+    ● Middleware verificación de autenticación de usuarios
+
+    **   ● Endpoint lista familias tareas
+
+    **   ● Endpoint creación de una tarea
+
+    **   ● Endpoint para crear una nota (genérica o de tarea)
+
+    **   ● Endpoint para eliminar una nota (genérica o de tarea)
+
+    **   ● Endpoint para editar una nota (genérica o de tarea)
+
+    **   ● Endpoint listado tareas con filtro/búsqueda y ordenación.
+
+    **   ● Endpoint detalle tarea
+
+    **   ● Endpoint para finalizar una tarea
+
+    **   ● Endpoint para finalizar una subtarea
+
+    **   ● Endpoint para deshabilitar/habilitar un usuario (solo administrator)
+
+    **   ● Endpoint para eliminar un usuario con todas sus tareas (solo administrator)
+
+    **   ● Colección de Postman con los endpoints implementados
+
+    ● Creación de una breve documentación en un fichero README.md. 
+        Esta documentación debe incluir al menos una breve descripción de la app, los pasos para arrancar el backend y el listado de los endpoints
+
+    ● Testing y preparación del Sprint Review
+    
+* * Notas
+
+  **  - Validar el body de la petición con Joi en todos los endpoints.
+
+
+
 
 # CARACTERÍSTICAS MÍNIMAS:
 
@@ -24,6 +106,7 @@ usarla.
     * Valoración del servicio/producto (rating, like, …)
 
     * Gestión de mínimo dos tipos de usuarios (ejemplos: normal y admin, normal y experto, paciente y médico, …)
+
 
 
 
@@ -107,10 +190,9 @@ El usuario admin (se creará de forma fija desde código) y, una vez logueado, p
     ● eliminar un usuario con todas sus tareas
 
 
-
-
-   
    
 (*) El equipo puede añadir y/o modificar los requisitos para personalizar la plataforma y tomar las decisiones
 adecuadas en las partes en las cuales no se entra en el detalle.
 */
+
+
