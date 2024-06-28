@@ -3,7 +3,7 @@ import getPool from "./getpool.js";
 const createTables = async () => {
   try {
     const pool = await getPool();
-
+    await pool.query(`DROP TABLE IF EXISTS  family,tasks,users`);
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
         username VARCHAR(100) UNIQUE NOT NULL,
@@ -30,7 +30,7 @@ const createTables = async () => {
     start_on DATE NOT NULL,
     finish_on DATE NOT NULL,
     user_id INT UNSIGNED NOT NULL,
-    done BOOLEAN NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT FALSE,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (user_id)

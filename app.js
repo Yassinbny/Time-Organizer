@@ -1,15 +1,25 @@
 import express from "express";
+import { taskRoutes } from "./src/routes/index.js";
+import cors from "cors";
+import dotenv from "dotenv";
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.get("/prueba", (req, res) => {
-  res.send("esto es una prueba");
-});
+app.use(cors());
 
-app.use((req, res) => {
-  res.send("hola mundo");
-});
+app.use(express.json());
+
+// enrutadores
+app.use("/tasks", taskRoutes);
+
+// app.get("/prueba", (req, res) => {
+//   res.send("esto es una prueba");
+// });
+
+// app.use((req, res) => {
+//   res.send("hola mundo");
+// });
 
 app.listen(PORT, () => {
   console.log(`se esta escuchando en el puerto ${PORT}`);
