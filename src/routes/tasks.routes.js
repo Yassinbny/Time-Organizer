@@ -1,11 +1,14 @@
 import express from "express";
 
-import { createTaskController } from "../controllers/index.js";
+import {
+  createTaskController,
+  listTaskController,
+} from "../controllers/index.js";
 
 const router = express.Router();
 
 // tasks
 
-router.post("/", createTaskController);
+router.get("/", listTaskController).post("/", createTaskController);
 
 export default router;
