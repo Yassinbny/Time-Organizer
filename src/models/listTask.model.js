@@ -1,10 +1,9 @@
 import getPool from "../db/getpool.js";
 
-export default async function listTaskModel(search, sort, order) {
+export default async function listTaskModel(search = 0, sort = 0, order = 0) {
   try {
     const pool = await getPool();
     let query = "SELECT * FROM tasks";
-    const queryParams = [];
 
     // Búsqueda
     if (search) {
@@ -14,7 +13,6 @@ export default async function listTaskModel(search, sort, order) {
 
     // Ordenación
     if (sort) {
-      const orderDirection = order === "desc" ? "DESC" : "ASC";
       query += ` ORDER BY ${sort} ${order}`;
     }
 
