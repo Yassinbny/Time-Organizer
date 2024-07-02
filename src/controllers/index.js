@@ -1,4 +1,9 @@
 import createTaskController from "./createTask.controller.js";
 import listTaskController from "./listTask.controller.js";
 import listTaskByIdcontroller from "./listTaskById.controller.js";
-export { createTaskController, listTaskController, listTaskByIdcontroller };
+import createNoteController from "./createNote.controller.js";
+
+export {
+  createTaskController, listTaskController, listTaskByIdcontroller, createNoteController,
+};
+
