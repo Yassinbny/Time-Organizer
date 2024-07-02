@@ -3,7 +3,7 @@ import getPool from "./getpool.js";
 const createTables = async () => {
   try {
     const pool = await getPool();
-    await pool.query(`DROP TABLE IF EXISTS  family,tasks,users`);
+    await pool.query(`DROP TABLE IF EXISTS notes,family,tasks,users`);
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
         username VARCHAR(100) UNIQUE NOT NULL,
