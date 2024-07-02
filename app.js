@@ -1,7 +1,7 @@
 import express from "express";
 import { taskRoutes, signUpRoutes } from "./src/routes/index.js";
 import cors from "cors";
-import dotenv from "dotenv";
+
 
 const app = express();
 const PORT = process.env.PORT || 3000;
