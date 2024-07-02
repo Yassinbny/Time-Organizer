@@ -2,7 +2,7 @@ import Joi from "joi";
 import listTaskByIdModel from "../models/listTaskById.model.js";
 export default async function listTaskByIdcontroller(req, res, next) {
   try {
-    const id = req.params.idPost;
+    const id = req.params.idTask;
 
     const idSchema = Joi.number().integer();
     const { error, value } = idSchema.validate(id);
