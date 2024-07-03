@@ -1,6 +1,6 @@
-import CryptoJS from "crypto-js";
+import crypto from "crypto";
 
 export default function generateToken() {
-    const token = CryptoJS.randomBytes(15).toString('hex');
+    const token = crypto.randomBytes(15).toString('hex');
     return token
 }

@@ -19,6 +19,7 @@ export default async function confirmUserController(req, res, next) {
         })
         
     } catch (error) {
+        console.log(error)
         next(error)
     }
 }

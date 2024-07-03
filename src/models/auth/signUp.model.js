@@ -1,4 +1,4 @@
-import hash from 'bcryptjs';
+import {hash} from 'bcrypt';
 import getPool from '../../db/getpool.js';
 
 export default async function signUpModel (username, email, password, token) {
@@ -27,6 +27,7 @@ export default async function signUpModel (username, email, password, token) {
         };
             
     } catch (error) {
+        console.log(error)
         throw error
     }
 }

@@ -1,19 +1,33 @@
-import { request } from "express";
+
 import signUpModel from "../../models/auth/signUp.model.js";
 import generateToken from "../../services/generateToken.js";
+import Joi from "joi";
 import sendMail from "../../services/sendMail.js";
 
-export default async function signUpController(req = request, res, next) {
+export default async function signUpController(req, res, next) {
     try {
+        const newUserSchema = Joi.object({
+            username: Joi.string().required(),
+            password: Joi.string().required(),
+            email: Joi.string().email().required(),
+          });
+      
+          const { error, value } = newUserSchema.validate(req.body);
+          if (error) {
+            return res.status(400).json({
+              ok: false,
+              message: error.details[0].message,
+            });
+          }
         
-        const {username, email, password} = req.body;
+        const {username, email, password} = value;
 
         //Validar lo datos
-        if([username, email, password].includes("") || ([username, email, password]).includes(undefined)) {
-            let error = new Error("Todos los campos son requeridos");
-            error.status= 400;
-            throw error;
-        }
+        // if([username, email, password].includes("") || ([username, email, password]).includes(undefined)) {
+        //     let error = new Error("Todos los campos son requeridos");
+        //     error.status= 400;
+        //     throw error;
+        // }
 
         //Generar token aleatorio
         const token = generateToken();
@@ -44,6 +58,7 @@ export default async function signUpController(req = request, res, next) {
         });
 
     } catch (error) {
+        console.log(error)
         next(error);
     }
 }

@@ -39,6 +39,7 @@ export default async function signInModel(email, password) {
           };
 
     } catch (error) {
+      console.log(error)
         throw error
     }
 }
