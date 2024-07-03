@@ -3,7 +3,7 @@ import getPool from "./getpool.js";
 const createTables = async () => {
   try {
     const pool = await getPool();
-    await pool.query(`DROP TABLE IF EXISTS  family,tasks,users`);
+    await pool.query(`DROP TABLE IF EXISTS subtask,notes,family,tasks,users`);
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
         username VARCHAR(100) UNIQUE NOT NULL,
@@ -50,6 +50,27 @@ const createTables = async () => {
     )`);
 
     console.log("tabla family creada con exito");
+
+    await pool.query(` CREATE TABLE notes (
+    note_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+    task_id INT UNSIGNED NOT NULL,
+    description TEXT NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (task_id) REFERENCES tasks (task_id)
+    )`);
+    console.log("tabla notes creada con exito");
+
+    await pool.query(`CREATE TABLE subtask (
+    subtask_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+    title varchar(200) NOT NULL,
+    task_id INT UNSIGNED NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT FALSE,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (task_id) REFERENCES tasks (task_id))`);
+
+    console.log("tabla subtask creada con exito");
     process.exit(0);
   } catch (err) {
     console.log(err);
