@@ -4,6 +4,7 @@ import listTaskByIdcontroller from "./listTaskById.controller.js";
 import createNoteController from "./createNote.controller.js";
 import createSubTaskController from "./createSubTask.controller.js";
 import createTaskFamilyController from "./createTaskFamily.controller.js";
+import finishTaskController from "./finishTask.controller.js";
 
 export {
   createTaskController,
@@ -12,4 +13,5 @@ export {
   createNoteController,
   createSubTaskController,
   createTaskFamilyController,
+  finishTaskController,
 };

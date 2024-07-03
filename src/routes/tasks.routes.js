@@ -7,6 +7,7 @@ import {
   createNoteController,
   createSubTaskController,
   createTaskFamilyController,
+  finishTaskController,
 } from "../controllers/index.js";
 
 const router = express.Router();
@@ -19,6 +20,7 @@ router
   .post("/", createTaskController)
   .post("/notes", createNoteController)
   .post("/:idTask/subtask", createSubTaskController)
-  .post("/:idTask/family", createTaskFamilyController);
+  .post("/:idTask/family", createTaskFamilyController)
+  .post("/:idTask", finishTaskController);
 
 export default router;
