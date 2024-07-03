@@ -1,4 +1,9 @@
 import taskRoutes from "./tasks.routes.js";
-import signUpRoutes from "./signUp.routes.js";
+import authRoutes from "./auth.routes.js";
+import usersRoutes from "./users.routes.js";
 
-export { taskRoutes, signUpRoutes };
+export { 
+    taskRoutes, 
+    authRoutes,
+    usersRoutes 
+};

@@ -1,7 +1,7 @@
 import { request } from "express";
-import signUpModel from "../models/signUp.model.js";
-import generateToken from "../services/generateToken.js";
-import sendMail from "../services/sendMail.js";
+import signUpModel from "../../models/auth/signUp.model.js";
+import generateToken from "../../services/generateToken.js";
+import sendMail from "../../services/sendMail.js";
 
 export default async function signUpController(req = request, res, next) {
     try {
@@ -9,7 +9,7 @@ export default async function signUpController(req = request, res, next) {
         const {username, email, password} = req.body;
 
         //Validar lo datos
-        if([username, email, password]. includes("" || undefined)){
+        if([username, email, password].includes("") || ([username, email, password]).includes(undefined)) {
             let error = new Error("Todos los campos son requeridos");
             error.status= 400;
             throw error;

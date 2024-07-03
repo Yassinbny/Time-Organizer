@@ -1,5 +1,5 @@
 import express from "express";
-import { taskRoutes, signUpRoutes } from "./src/routes/index.js";
+import { taskRoutes, authRoutes, usersRoutes } from "./src/routes/index.js";
 import cors from "cors";
 
 
@@ -12,7 +12,8 @@ app.use(express.json());
 
 // enrutadores
 app.use("/tasks", taskRoutes);
-app.use("/sign-up", signUpRoutes);
+app.use("/auth", authRoutes);
+app.use("/users", usersRoutes);
 
 // app.get("/prueba", (req, res) => {
 //   res.send("esto es una prueba");

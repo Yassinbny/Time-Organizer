@@ -1,5 +1,5 @@
 import hash from 'bcryptjs';
-import getPool from '../db/getpool.js';
+import getPool from '../../db/getpool.js';
 
 export default async function signUpModel (username, email, password, token) {
     try {
@@ -20,7 +20,7 @@ export default async function signUpModel (username, email, password, token) {
 
         //Registrar el usuario
         await pool.query(
-            `INSERT INTO users (username, email, password, token) VALUES(?,?,?,?)`,[username, email,hashedPassword,token]);
+            `INSERT INTO users(username, email, password, token) VALUES(?,?,?,?)`,[username, email,hashedPassword,token]);
 
         return {
             message: "Te llegará un email con el link para completar tu registracion", 
