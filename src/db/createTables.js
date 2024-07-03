@@ -64,6 +64,7 @@ const createTables = async () => {
     subtask_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     title varchar(200) NOT NULL,
     task_id INT UNSIGNED NOT NULL,
+    done BOOLEAN NOT NULL DEFAULT FALSE,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (task_id) REFERENCES tasks (task_id))`);
