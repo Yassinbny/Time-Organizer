@@ -9,6 +9,7 @@ const createTables = async () => {
         username VARCHAR(100) UNIQUE NOT NULL,
         email VARCHAR(255) UNIQUE NOT NULL,
         password VARCHAR(255) NOT NULL,
+        token CHAR(30) NULL,
         role ENUM('admin', 'normal') DEFAULT 'normal',
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
         updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,

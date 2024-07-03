@@ -1,5 +1,5 @@
 import express from "express";
-import { taskRoutes } from "./src/routes/index.js";
+import { taskRoutes, authRoutes, usersRoutes } from "./src/routes/index.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import fileUpload from "express-fileupload";
@@ -18,6 +18,9 @@ app.use(express.static(PUBLIC_FOLDER));
 app.use(fileUpload());
 // enrutadores
 app.use("/tasks", taskRoutes);
+app.use("/auth", authRoutes);
+app.use("/users", usersRoutes);
+
 // middleware 404 not founded
 app.use((req, res) => {
   return res.status(404).json({
