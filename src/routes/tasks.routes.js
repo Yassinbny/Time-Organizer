@@ -6,7 +6,6 @@ import {
   listTaskByIdcontroller,
   createNoteController,
   createSubTaskController,
-  createTaskFamilyController,
   finishTaskController,
   updateNoteController,
   finishSubTaskController,
@@ -23,7 +22,6 @@ router
   .post("/:idTask/notes", createNoteController)
   .patch("/:idTask/notes/:idNote", updateNoteController)
   .post("/:idTask/subtask", createSubTaskController)
-  .post("/:idTask/family", createTaskFamilyController)
   .post("/:idTask", finishTaskController)
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController);
 
