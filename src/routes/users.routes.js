@@ -1,8 +1,8 @@
-import express from 'express';
-import {confirmUserController} from '../controllers/users/index.js';
+import express from "express";
+import { confirmUserController } from "../controllers/users/index.js";
 
 const router = express.Router();
 
-router.get("/confirm", confirmUserController)
+router.post("/confirm", confirmUserController);
 
-export default router
+export default router;
