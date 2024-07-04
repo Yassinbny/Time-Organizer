@@ -1,5 +1,5 @@
 import express from "express";
-import { taskRoutes, authRoutes, usersRoutes } from "./src/routes/index.js";
+import { taskRoutes, familyRoutes, authRoutes, usersRoutes } from "./src/routes/index.js";
 import cors from "cors";
 import dotenv from "dotenv";
 import fileUpload from "express-fileupload";
@@ -18,6 +18,7 @@ app.use(express.static(PUBLIC_FOLDER));
 app.use(fileUpload());
 // enrutadores
 app.use("/tasks", taskRoutes);
+app.use("/family", familyRoutes);
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 
