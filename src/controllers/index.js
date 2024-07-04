@@ -8,7 +8,7 @@ import listTaskFamilyController from "./ListTaskFamily.controller.js";
 import finishTaskController from "./finishTask.controller.js";
 import updateNoteController from "./updateNote.controller.js";
 import finishSubTaskController from "./finishSubTask.controller.js";
-
+import deleteNotecontroller from "./deleteNote.controller.js";
 export {
   createTaskController,
   listTaskController,
@@ -20,4 +20,5 @@ export {
   finishTaskController,
   updateNoteController,
   finishSubTaskController,
+  deleteNotecontroller,
 };
