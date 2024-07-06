@@ -3,6 +3,6 @@ import { confirmUserController } from "../controllers/users/index.js";
 
 const router = express.Router();
 
-router.post("/confirm", confirmUserController);
+router.get("/confirm", confirmUserController);
 
 export default router;
