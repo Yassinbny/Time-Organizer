@@ -44,7 +44,7 @@ export default async function signUpController(req, res, next) {
           <html lang="es">
           <body>
               <h2>Bienvenid@ ${username}</h2>
-              <h4>¡Gracias por registrate en Travel Journal</h4>
+              <h4>¡Gracias por registrate en Time Organizer</h4>
               <hr>
               <p>Haz click en el siguiente <a href="${emailLink}">enlace</a> para confirmar tu registración</p>
           </body>

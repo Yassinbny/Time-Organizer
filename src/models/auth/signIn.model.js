@@ -29,6 +29,7 @@ export default async function signInModel(email, password) {
 
     const token = jwt.sign(
       {
+        id: user.user_id,
         username: user.username,
         email: user.email,
       },
@@ -37,7 +38,6 @@ export default async function signInModel(email, password) {
         expiresIn: "30d",
       }
     );
-
     return {
       token,
     };
