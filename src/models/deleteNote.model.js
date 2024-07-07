@@ -8,8 +8,8 @@ export default async function deleteNoteModel(note_id) {
 WHERE note_id = 1 `);
     return {
       message: result.affectedRows
-        ? "la nota ha sido eliminada con exito"
-        : "no existe ninguna nota con ese id",
+        ? "La nota ha sido eliminada con éxito."
+        : "No existe ninguna nota con ese id.",
     };
   } catch (error) {
     console.log(error);

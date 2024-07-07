@@ -7,7 +7,7 @@ export default async function signUpController(req, res, next) {
   try {
     const newUserSchema = Joi.object({
       username: Joi.string().required(),
-      password: Joi.string().required(),
+      password: Joi.string().min(8).max(2000).required(),
       email: Joi.string().email().required(),
     });
 
@@ -20,13 +20,6 @@ export default async function signUpController(req, res, next) {
     }
 
     const { username, email, password } = value;
-
-    //Validar lo datos
-    // if([username, email, password].includes("") || ([username, email, password]).includes(undefined)) {
-    //     let error = new Error("Todos los campos son requeridos");
-    //     error.status= 400;
-    //     throw error;
-    // }
 
     //Generar token aleatorio
     const token = generateToken();

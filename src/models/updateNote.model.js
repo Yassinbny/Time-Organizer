@@ -10,7 +10,7 @@ export default async function updateNoteModel(description, idNote) {
     );
     console.log(result.changedRows);
     return {
-      message: result.changedRows ? "cambio realizado" : "no hubo cambios",
+      message: result.changedRows ? "Cambio realizado con éxito." : "No hubo cambios.",
     };
   } catch (error) {
     console.log(error);

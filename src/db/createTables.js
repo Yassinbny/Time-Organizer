@@ -11,19 +11,20 @@ const createTables = async () => {
         password VARCHAR(255) NOT NULL,
         token CHAR(30) NULL,
         enabled BOOLEAN NOT NULL DEFAULT TRUE,
+        recoverPassCode VARCHAR(255)  NULL,
         role ENUM('admin', 'normal') DEFAULT 'normal',
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
         updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
         deletedAt DATETIME NULL
         )`);
 
-    console.log("Tabla de users creada con éxito");
+    console.log("Tabla de users creada con éxito.");
 
     await pool.query(
       `INSERT INTO users(username, email, password, role) VALUES ("admin","admin@gmail.com","123456",'admin')`
     );
 
-    console.log("usuario admin creado con exito");
+    console.log("Usuario Admin creado con éxito.");
 
     await pool.query(`CREATE TABLE tasks (
 	task_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
@@ -38,7 +39,7 @@ const createTables = async () => {
     FOREIGN KEY (user_id) REFERENCES users (user_id)
     )`);
 
-    console.log("tabla tasks creada con exito");
+    console.log("Tabla tasks creada con éxito.");
 
     await pool.query(`CREATE TABLE family (
     family_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
@@ -50,7 +51,7 @@ const createTables = async () => {
     FOREIGN KEY (task_id) REFERENCES tasks (task_id)
     )`);
 
-    console.log("tabla family creada con exito");
+    console.log("Tabla family creada con éxito.");
 
     await pool.query(` CREATE TABLE notes (
     note_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
@@ -60,7 +61,7 @@ const createTables = async () => {
 	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (task_id) REFERENCES tasks (task_id)
     )`);
-    console.log("tabla notes creada con exito");
+    console.log("Tabla notes creada con éxito.");
 
     await pool.query(`CREATE TABLE subtask (
     subtask_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
@@ -71,7 +72,7 @@ const createTables = async () => {
 	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (task_id) REFERENCES tasks (task_id))`);
 
-    console.log("tabla subtask creada con exito");
+    console.log("Tabla subtask creada con éxito.");
     process.exit(0);
   } catch (err) {
     console.log(err);

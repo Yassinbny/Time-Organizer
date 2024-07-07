@@ -6,7 +6,7 @@ export default async function signInController(req, res, next) {
         const {email, password} = req.body;
 
         if([email, password].includes("" || undefined)) {
-            let error = new Error("Todos los campos son requeridos")
+            let error = new Error("Todos los campos son requeridos.")
             error.status = 400;
             throw error;
         }

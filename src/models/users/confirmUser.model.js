@@ -9,14 +9,14 @@ export default async function confirmUserModel(token) {
 
         if(!user) throw {
             status: 400,
-            message: "Token no valido",
+            message: "Token no válido.",
             code: "BAD REQUEST"
         }
 
         await pool.query(`UPDATE users SET token = ? WHERE token = ?`,[null, token])
 
         return {
-            message : "Registro confirmado con exito"
+            message : "Registro confirmado con éxito."
         }
         
     } catch (error) {
