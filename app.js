@@ -3,7 +3,13 @@ import cors from "cors";
 import dotenv from "dotenv";
 import fileUpload from "express-fileupload";
 import path from "path";
-import { taskRoutes, familyRoutes, authRoutes, usersRoutes } from "./src/routes/index.js";
+import {
+  taskRoutes,
+  familyRoutes,
+  authRoutes,
+  usersRoutes,
+} from "./src/routes/index.js";
+import parseToken from "./src/validations/parseToken.js";
 
 dotenv.config();
 
@@ -22,6 +28,8 @@ app.use(express.static(PUBLIC_FOLDER));
 // Middleware upload de files
 app.use(fileUpload());
 
+/* middleware que analiza el token y agrega al request los datos del usuario */
+app.use(parseToken);
 // enrutadores
 app.use("/tasks", taskRoutes);
 app.use("/family", familyRoutes);

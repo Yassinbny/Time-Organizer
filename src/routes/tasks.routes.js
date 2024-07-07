@@ -11,6 +11,7 @@ import {
   finishSubTaskController,
   deleteNotecontroller,
 } from "../controllers/index.js";
+import checkUser from "../validations/checkUser.js";
 
 const router = express.Router();
 
@@ -19,7 +20,7 @@ const router = express.Router();
 router
   .get("/", listTaskController)
   .get("/:idTask", listTaskByIdcontroller)
-  .post("/", createTaskController)
+  .post("/", checkUser, createTaskController)
   .post("/:idTask/notes", createNoteController)
   .delete("/:idTask/notes/:idNote", deleteNotecontroller)
   .patch("/:idTask/notes/:idNote", updateNoteController)

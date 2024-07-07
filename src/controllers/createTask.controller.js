@@ -4,7 +4,7 @@ import createTaskSchema from "../validations/createTaskSchema.js";
 export default async function createTaskController(req, res, next) {
   try {
     //  asignamos un valor a currentUser el cual despues obtendremos por req
-    const currentUser = "1";
+    const currentUser = req.currentUser.id;
 
     // Validamos los datos del body
     const { error, value } = createTaskSchema.validate(req.body);
