@@ -27,7 +27,7 @@ export default async function finishSubTaskController(req, res, next) {
 
         return res.status(200).json({
             ok: true,
-            message: 'Subtarea ha sido finalizada con éxito',
+            message: 'Subtarea finalizada con éxito.',
             subtask: result, //Devolvemos la subtarea actualizada
         });
         

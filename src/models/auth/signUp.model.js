@@ -11,7 +11,7 @@ export default async function signUpModel (username, email, password, token) {
 
         if(user) throw {
             status: 400,
-            message: "El nombre de usuario o el email ya estan en uso ",
+            message: "El nombre de usuario o el email ya están en uso.",
             code: "BAD REQUEST"
         }
 
@@ -23,7 +23,7 @@ export default async function signUpModel (username, email, password, token) {
             `INSERT INTO users(username, email, password, token) VALUES(?,?,?,?)`,[username, email,hashedPassword,token]);
 
         return {
-            message: "Te llegará un email con el link para completar tu registracion", 
+            message: "Usuario creado correctamente. Te llegará un email con el link para completar tu registro.", 
         };
             
     } catch (error) {

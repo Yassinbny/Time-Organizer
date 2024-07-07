@@ -30,7 +30,7 @@ export default async function finishTaskController(req, res, next) {
 
         return res.status(200).json({
             ok: true,
-            message: 'Tarea finalizada exitosamente',
+            message: 'Tarea finalizada con éxito.',
             task: result, // Devolvemos la tarea actualizada
         });
 
