@@ -3,11 +3,15 @@ import {
   confirmUserController,
   recoverPassController,
   resetPassController,
+  deleteUserController
 } from "../controllers/users/index.js";
 
 const router = express.Router();
 
 router.get("/confirm", confirmUserController);
+
+//Eliminar usuario
+router.delete("/:username", deleteUserController)
 
 //Recuperar contraseña
 router.post("/password/recover", recoverPassController);
