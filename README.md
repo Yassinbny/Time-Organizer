@@ -13,7 +13,7 @@ usarla.
     * TODO --> Hasta el 18/07 
 
 
-# SPRINT II --> Backend 
+# SPRINT II --> Backend and Fronted
 
 * Backend
 
