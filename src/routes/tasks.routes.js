@@ -11,6 +11,7 @@ import {
   finishSubTaskController,
   deleteNotecontroller,
   finishTaskByTimeController,
+  rateFinishedTaskController,
 } from "../controllers/index.js";
 import checkUser from "../validations/checkUser.js";
 
@@ -28,6 +29,7 @@ router
   .patch("/:idTask/notes/:idNote", updateNoteController)
   .post("/:idTask/subtask", createSubTaskController)
   .post("/:idTask", finishTaskController)
+  .post("/:idTask/rating", rateFinishedTaskController)
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController);
 
 export default router;

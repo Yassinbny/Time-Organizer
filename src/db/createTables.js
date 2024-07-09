@@ -34,6 +34,7 @@ const createTables = async () => {
     finish_on DATETIME NOT NULL,
     user_id INT UNSIGNED NOT NULL,
     done BOOLEAN NOT NULL DEFAULT FALSE,
+    rating INT UNSIGNED,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
