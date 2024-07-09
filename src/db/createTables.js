@@ -3,7 +3,7 @@ import getPool from "./getpool.js";
 const createTables = async () => {
   try {
     const pool = await getPool();
-    await pool.query(`DROP TABLE IF EXISTS subtask,notes,family,tasks,users`);
+    await pool.query(`DROP TABLE IF EXISTS subtask,notes,family,tasks,users, annotations, evaluations`);
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
         username VARCHAR(100) UNIQUE NOT NULL,
@@ -27,15 +27,15 @@ const createTables = async () => {
     console.log("Usuario Admin creado con éxito.");
 
     await pool.query(`CREATE TABLE tasks (
-	task_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-	title VARCHAR(150)  NOT NULL,
-	description TEXT NOT NULL,
+	  task_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+	  title VARCHAR(150)  NOT NULL,
+	  description TEXT NOT NULL,
     start_on DATETIME NOT NULL,
     finish_on DATETIME NOT NULL,
     user_id INT UNSIGNED NOT NULL,
     done BOOLEAN NOT NULL DEFAULT FALSE,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (user_id)
     )`);
 
@@ -45,9 +45,9 @@ const createTables = async () => {
     family_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     name ENUM('trabajo','deporte','estudios','casa','ocio')  NOT NULL,
     color  ENUM('negro','blanco','verde','azul','rojo','amarillo','gris') DEFAULT 'blanco' NOT NULL,
-	task_id INT UNSIGNED NOT NULL,
+	  task_id INT UNSIGNED NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (task_id) REFERENCES tasks (task_id)
     )`);
 
@@ -58,7 +58,7 @@ const createTables = async () => {
     task_id INT UNSIGNED NOT NULL,
     description TEXT NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-	updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (task_id) REFERENCES tasks (task_id)
     )`);
     console.log("Tabla notes creada con éxito.");
@@ -73,6 +73,29 @@ const createTables = async () => {
     FOREIGN KEY (task_id) REFERENCES tasks (task_id))`);
 
     console.log("Tabla subtask creada con éxito.");
+    
+    await pool.query(`CREATE TABLE annotations (
+		annotation_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+    user_id INT UNSIGNED NOT NULL,
+    title varchar(200),
+    description TEXT NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+    updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (user_id))`);
+
+    console.log("Tabla annotations creada con éxito.");
+
+    await pool.query(`CREATE TABLE evaluations (
+    evaluation_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
+    user_id INT UNSIGNED NOT NULL,
+    description TEXT NOT NULL,
+    finish_on DATETIME NOT NULL,
+    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users (user_id))`);
+
+  console.log("Tabla evaluations creada con éxito.");
+
     process.exit(0);
   } catch (err) {
     console.log(err);
