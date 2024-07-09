@@ -21,13 +21,13 @@ usarla.
 
 ● Endpoint actualización del perfil de usuario
 
-** ● Endpoint para editar una tarea
+* // * ● Endpoint para editar una tarea
 
-● Endpoint para finalizar las tareas (ya pasadas) de intervalo superior a 30 minutos. Se llamará cuando desde Front se accede a la página de tareas
+* // * ● Endpoint para finalizar las tareas (ya pasadas) de intervalo superior a 30 minutos. Se llamará cuando desde Front se accede a la página de tareas
 
-● Endpoint de eliminación tarea
+* // * ● Endpoint de eliminación tarea
 
-** ● Endpoint de evaluación tarea una vez finalizada
+*  * ● Endpoint de evaluación tarea una vez finalizada
 
 ● Endpoint para aplazar o adelantar una o todas las tareas del día
 (semana, mes) simultáneamente
@@ -35,7 +35,7 @@ usarla.
 ● Endpoint para personalizar el fondo de la agenda (imagen por día,
 semana, mes, año)- no prioritario
 
-** ● Endpoint listado tareas finalizadas (con datos para los gráficos de autoevaluación y de recuento de los objetivos alcanzados sobre los propuestos)
+*  * ● Endpoint listado tareas finalizadas (con datos para los gráficos de autoevaluación y de recuento de los objetivos alcanzados sobre los propuestos)
 
 ● Colección de Postman con todos los endpoints (incluido test “Page
 not found” y lectura de un recurso estático)
@@ -45,7 +45,7 @@ not found” y lectura de un recurso estático)
 
 * Frontend (Time-Organizer-Fronted)
 
-● Creación de proyecto de React con Vite y estructura inicial de
+* // * ● Creación de proyecto de React con Vite y estructura inicial de
 carpetas
 
 ● Creación de las páginas y de las rutas con React Router
