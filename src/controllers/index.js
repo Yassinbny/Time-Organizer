@@ -12,7 +12,10 @@ import deleteNotecontroller from "./deleteNote.controller.js";
 import finishTaskByTimeController from "./FinishTaskByTime.controller.js";
 import updateTaskController from "./updateTask.controller.js";
 import deleteTaskcontroller from "./deleteTask.controller.js";
+// Annotation Controllers
 import createAnnotationController from "./createAnnotation.controller.js";
+import updateAnnotationController from "./updateAnnotation.controller.js";
+import deleteAnnotationController from "./deleteAnnotation.controller.js";
 
 export {
   createTaskController,
@@ -29,5 +32,8 @@ export {
   finishTaskByTimeController,
   updateTaskController,
   deleteTaskcontroller,
+  // Annotation
   createAnnotationController,
+  updateAnnotationController,
+  deleteAnnotationController,
 };
