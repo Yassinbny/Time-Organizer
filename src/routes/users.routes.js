@@ -4,13 +4,17 @@ import {
   recoverPassController,
   resetPassController,
   deleteUserController,
-  toggleUserStatusController
+  toggleUserStatusController,
+  listUsersController
 } from "../controllers/users/index.js";
 import { authenticateToken, checkUser, isAdmin } from "../validations/index.js";
 
 const router = express.Router();
 
 router.get("/confirm", confirmUserController);
+
+// Ruta para listar usuarios
+router.get('/', authenticateToken, checkUser, isAdmin, listUsersController);
 
 // Eliminar usuario (solo administradores)
 router.delete("/:username", authenticateToken, checkUser, isAdmin, deleteUserController);
