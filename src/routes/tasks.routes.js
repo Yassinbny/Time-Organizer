@@ -10,6 +10,7 @@ import {
   updateNoteController,
   finishSubTaskController,
   deleteNotecontroller,
+  finishTaskByTimeController,
 } from "../controllers/index.js";
 import checkUser from "../validations/checkUser.js";
 
@@ -21,6 +22,7 @@ router
   .get("/", listTaskController)
   .get("/:idTask", listTaskByIdcontroller)
   .post("/", checkUser, createTaskController)
+  .patch("/timePassed", finishTaskByTimeController)
   .post("/:idTask/notes", createNoteController)
   .delete("/:idTask/notes/:idNote", deleteNotecontroller)
   .patch("/:idTask/notes/:idNote", updateNoteController)
