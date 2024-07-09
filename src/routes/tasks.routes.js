@@ -11,9 +11,11 @@ import {
   finishSubTaskController,
   deleteNotecontroller,
   finishTaskByTimeController,
+  updateTaskController,
+  deleteTaskcontroller,
 } from "../controllers/index.js";
 import checkUser from "../validations/checkUser.js";
-import updateTaskController from "../controllers/updateTask.controller.js";
+
 
 const router = express.Router();
 
@@ -30,6 +32,7 @@ router
   .post("/:idTask/subtask", createSubTaskController)
   .post("/:idTask", finishTaskController)
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
-  .patch("/:idTask", updateTaskController);
+  .patch("/:idTask", updateTaskController)
+  .delete("/:idTask", deleteTaskcontroller);
 
 export default router;
