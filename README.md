@@ -8,85 +8,71 @@ personas con TDA (Trastorno por déficit de atención), aunque puede ser útil p
 usarla.
 
 
-* ! IMPORTANTE !!!!!! Sprint One!!!!
+* ! IMPORTANTE !!!!!! Sprint II !!!!
 
-    * TODO --> Hasta el 04/07 
+    * TODO --> Hasta el 18/07 
 
 
-# SPRINT I --> Backend 
-
-* Análisis
-
-    **  ● Wireframe 
+# SPRINT II --> Backend 
 
 * Backend
 
-        * // ● Creación repositorio en gitHub y configuración
+● Endpoint listado usuarios (solo administrador)
 
-    **  ● Creación de la base de datos con datos fijos ( familia tarea y usuario admin)
+● Endpoint actualización del perfil de usuario
 
-        * //   ● Creación de proyecto de Node y estructura inicial de carpetas
+** ● Endpoint para editar una tarea
 
-        * //   ● Creación del servidor con Express
+● Endpoint para finalizar las tareas (ya pasadas) de intervalo superior a 30 minutos. Se llamará cuando desde Front se accede a la página de tareas
 
-    **   ● Creación de la conexión con la base de datos desde Node
+● Endpoint de eliminación tarea
 
-    **   ● Middleware 404 not found
+** ● Endpoint de evaluación tarea una vez finalizada
 
-    **   ● Middleware gestión de errores
+● Endpoint para aplazar o adelantar una o todas las tareas del día
+(semana, mes) simultáneamente
 
-    **   ● Middleware parseo del body de la petición
+● Endpoint para personalizar el fondo de la agenda (imagen por día,
+semana, mes, año)- no prioritario
 
-    **   ● Middleware upload de files
+** ● Endpoint listado tareas finalizadas (con datos para los gráficos de autoevaluación y de recuento de los objetivos alcanzados sobre los propuestos)
 
-    **   ● Middleware definición directorio recursos estáticos (imágenes)
+● Colección de Postman con todos los endpoints (incluido test “Page
+not found” y lectura de un recurso estático)
 
-    **   ● Middleware: cors
+* // * ● Actualización README.md
 
-    **   ● Endpoint registro de usuarios
 
-    **   ● Endpoint validación usuario
+* Frontend (Time-Organizer-Fronted)
 
-    **   ● Endpoint login de usuarios
+● Creación de proyecto de React con Vite y estructura inicial de
+carpetas
 
-    ● Endpoint recuperación contraseña
+● Creación de las páginas y de las rutas con React Router
 
-    ● Endpoint cambio contraseña
+● Formulario de registro
 
-    ● Middleware verificación de autenticación de usuarios
+● Página de validación usuario
 
-    **   ● Endpoint lista familias tareas
+● Contexto para guardar la información del usuario logueado y su
+token
 
-    **   ● Endpoint creación de una tarea
+● Formulario de login. Se deberá guardar el token y la información del usuario en el contexto
 
-    **   ● Endpoint para crear una nota (genérica o de tarea)
+● Formulario recuperación contraseña
 
-    **   ● Endpoint para eliminar una nota (genérica o de tarea)
+● Formulario de creación y modifica tarea
 
-    **   ● Endpoint para editar una nota (genérica o de tarea)
+● Testing y preparación del Sprint Review
 
-    **   ● Endpoint listado tareas con filtro/búsqueda y ordenación.
-
-    **   ● Endpoint detalle tarea
-
-    **   ● Endpoint para finalizar una tarea
-
-    **   ● Endpoint para finalizar una subtarea
-
-    **   ● Endpoint para deshabilitar/habilitar un usuario (solo administrator)
-
-    **   ● Endpoint para eliminar un usuario con todas sus tareas (solo administrator)
-
-    **   ● Colección de Postman con los endpoints implementados
-
-    ● Creación de una breve documentación en un fichero README.md. 
-        Esta documentación debe incluir al menos una breve descripción de la app, los pasos para arrancar el backend y el listado de los endpoints
-
-    ● Testing y preparación del Sprint Review
     
 * * Notas
 
-  **  - Validar el body de la petición con Joi en todos los endpoints.
+  **  ● Validar el body de la petición con Joi en todos los endpoints.
+
+**   ● Se debe dar feedback al usuario, ya sea con textos o notificaciones, de los errores que devuelve la API
+
+**  ● Aplicar la metodología mobile first
 
 
 
