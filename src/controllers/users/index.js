@@ -3,6 +3,7 @@ import recoverPassController from "./recoverPass.controller.js";
 import resetPassController from "./resetPass.controller.js";
 import deleteUserController from "./deleteUser.controller.js";
 import toggleUserStatusController from "./toggleUserStatus.controller.js"
+import listUsersController from "./listUsers.controller.js"
 
 
 export {
@@ -10,5 +11,6 @@ export {
     recoverPassController,
     resetPassController,
     deleteUserController,
-    toggleUserStatusController
+    toggleUserStatusController,
+    listUsersController
 };

@@ -12,8 +12,11 @@ import {
   deleteNotecontroller,
   finishTaskByTimeController,
   rateFinishedTaskController,
+  updateTaskController,
+  deleteTaskcontroller,
 } from "../controllers/index.js";
 import checkUser from "../validations/checkUser.js";
+
 
 const router = express.Router();
 
@@ -30,6 +33,10 @@ router
   .post("/:idTask/subtask", createSubTaskController)
   .post("/:idTask", finishTaskController)
   .post("/:idTask/rating", rateFinishedTaskController)
-  .post("/:idTask/subtask/:idSubTask", finishSubTaskController);
+  .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
+  .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
+  .patch("/:idTask", updateTaskController)
+  .delete("/:idTask", deleteTaskcontroller);
+
 
 export default router;

@@ -8,6 +8,7 @@ import {
   familyRoutes,
   authRoutes,
   usersRoutes,
+  annotationRoutes,
 } from "./src/routes/index.js";
 import parseToken from "./src/validations/parseToken.js";
 
@@ -35,6 +36,7 @@ app.use("/tasks", taskRoutes);
 app.use("/family", familyRoutes);
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
+app.use("/annotations", annotationRoutes);
 
 // middleware 404 not founded
 app.use((req, res) => {
