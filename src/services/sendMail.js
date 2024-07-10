@@ -1,5 +1,4 @@
 import nodemailer from "nodemailer";
-
 import { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } from "../../env.js";
 
 const transporter = nodemailer.createTransport({
@@ -18,7 +17,8 @@ const sendMail = async (email, subject, body) => {
       html: body,
     });
 
-    console.log("email sent");
+    console.log("Email enviado correctamente.");
+    
   } catch (error) {
     console.log(error);
   }

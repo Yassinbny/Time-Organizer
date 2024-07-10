@@ -6,7 +6,7 @@ export default async function signUpModel (username, email, password, token) {
         
         const pool = await getPool()
 
-        //Verificar que el usuario no este ya registrado
+        //Verificar que el usuario no esté ya registrado
         const [[user]] = await pool.query(`SELECT * FROM users WHERE username LIKE ? OR email LIKE ?`, [username, email]);
 
         if(user) throw {
@@ -20,7 +20,7 @@ export default async function signUpModel (username, email, password, token) {
 
         //Registrar el usuario
         await pool.query(
-            `INSERT INTO users(username, email, password, token) VALUES(?,?,?,?)`,[username, email,hashedPassword,token]);
+            `INSERT INTO users(username, email, password, token) VALUES(?,?,?,?)`,[username, email, hashedPassword, token]);
 
         return {
             message: "Usuario creado correctamente. Te llegará un email con el link para completar tu registro.", 
@@ -30,4 +30,4 @@ export default async function signUpModel (username, email, password, token) {
         console.log(error)
         throw error
     }
-}
+};
