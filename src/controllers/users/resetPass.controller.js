@@ -4,14 +4,14 @@ import { updatePasswordModel } from "../../models/users/index.js";
 
 const resetPassController = async (req, res, next) => {
   try {
-    const { email, recoverPassCode, newPassword } = req.body;
+    const { email, password, newPassword } = req.body;
 
     // Validamos el body con Joi.
     await validateSchema(editUserPassSchema, req.body);
 
     const { result } = await updatePasswordModel(
       email,
-      recoverPassCode,
+      password,
       newPassword
     );
 
@@ -20,6 +20,7 @@ const resetPassController = async (req, res, next) => {
       message: "Contraseña actualizada con éxito.",
       result,
     });
+
   } catch (err) {
     next(err);
   }

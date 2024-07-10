@@ -1,6 +1,6 @@
-import { JWT_SECRET } from "../../../env.js";
 import { compare } from "bcrypt";
 import jwt from "jsonwebtoken";
+import { JWT_SECRET } from "../../../env.js";
 import getPool from "../../db/getpool.js";
 
 export default async function signInModel(email, password) {
@@ -14,7 +14,7 @@ export default async function signInModel(email, password) {
     if (!user)
       throw {
         status: 400,
-        message: "Credenciales inválidas [email]",
+        message: "Credenciales inválidas.",
         code: "BAD REQUEST",
       };
 
@@ -23,7 +23,7 @@ export default async function signInModel(email, password) {
     if (!isValidPassword)
       throw {
         status: 400,
-        message: "Credenciales inválidas [Password]",
+        message: "Credenciales inválidas.",
         code: "BAD REQUEST",
       };
 
@@ -38,9 +38,11 @@ export default async function signInModel(email, password) {
         expiresIn: "30d",
       }
     );
+
     return {
       token,
     };
+    
   } catch (error) {
     console.log(error);
     throw error;

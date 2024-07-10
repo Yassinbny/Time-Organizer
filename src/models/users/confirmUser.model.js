@@ -16,7 +16,7 @@ export default async function confirmUserModel(token) {
         await pool.query(`UPDATE users SET token = ? WHERE token = ?`,[null, token])
 
         return {
-            message : "Registro confirmado con éxito."
+            message : "Registro completado con éxito."
         }
         
     } catch (error) {
