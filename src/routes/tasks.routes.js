@@ -13,6 +13,8 @@ import {
   finishTaskByTimeController,
   rateFinishedTaskController,
   updateTaskController,
+  postponeTaskController,
+  postponeAllTasksController,
   deleteTaskcontroller,
 } from "../controllers/index.js";
 import checkUser from "../validations/checkUser.js";
@@ -36,6 +38,8 @@ router
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
   .patch("/:idTask", updateTaskController)
+  .patch("/postpone", postponeTaskController)
+  .patch("/postponeAll", postponeAllTasksController)
   .delete("/:idTask", deleteTaskcontroller);
 
 

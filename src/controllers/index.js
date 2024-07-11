@@ -13,6 +13,8 @@ import finishTaskByTimeController from "./FinishTaskByTime.controller.js";
 import rateFinishedTaskController from "./rateFinishedTask.controller.js";
 import updateTaskController from "./updateTask.controller.js";
 import deleteTaskcontroller from "./deleteTask.controller.js";
+import postponeTaskController from "./postponeTask.controller.js";
+import postponeAllTasksController from "./postponeAllTasks.controller.js";
 // Annotation Controllers
 import createAnnotationController from "./createAnnotation.controller.js";
 import updateAnnotationController from "./updateAnnotation.controller.js";
@@ -34,6 +36,8 @@ export {
   rateFinishedTaskController,
   updateTaskController,
   deleteTaskcontroller,
+  postponeTaskController,
+  postponeAllTasksController,
   // Annotation
   createAnnotationController,
   updateAnnotationController,
