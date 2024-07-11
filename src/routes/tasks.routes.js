@@ -36,7 +36,7 @@ router
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
   .patch("/:idTask", updateTaskController)
-  .delete("/:idTask", deleteTaskcontroller);
+  .delete("/:idTask", deleteTaskcontroller)
 
 
 export default router;
