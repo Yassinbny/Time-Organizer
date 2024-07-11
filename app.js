@@ -9,6 +9,7 @@ import {
   authRoutes,
   usersRoutes,
   annotationRoutes,
+  completedTasksRoutes,
 } from "./src/routes/index.js";
 import parseToken from "./src/validations/parseToken.js";
 
@@ -37,6 +38,7 @@ app.use("/family", familyRoutes);
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 app.use("/annotations", annotationRoutes);
+app.use("/completed-tasks", completedTasksRoutes);
 
 // middleware 404 not founded
 app.use((req, res) => {
