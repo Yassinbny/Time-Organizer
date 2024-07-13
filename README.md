@@ -9,6 +9,20 @@ usarla.
 
 # Los pasos para arrancar el Backend
 
+    * Abre la terminal y navega hasta la carpeta raíz del proyecto (si ya no estás en ella).
+
+    * Verifica si en la raíz existe el archivo package.json (contiene la configuración del proyecto y las dependencias necesarias).
+
+    * Ejecuta el comando npm install o npm i (creará una carpeta "node_modules" que contiene todas las independencias instaladas).
+
+    * Crea el archivo .env y copia en el la estructura del archivo .env.example. Los campos que faltan rellénalos con los datos necesarios.
+
+    * Ejecuta el comando npm run initdb para crear las tablas necesarias en la base de datos.
+
+    * Ejecuta el comando npm run dev para lanzar el servidor
+
+
+
 # Lista de los Endpoints:
 
  * * Tables
@@ -19,7 +33,12 @@ usarla.
     ● Editar una Tarea
     ● Finalizar una Tarea
     ● Finalizar una Tarea a través del ID
+    ● Finalizar una Tarea con un intervalo de tiempo establecido.
     ● Eliminar una Tarea
+    ● Eliminar una Tarea
+    ● Valoración de una Tarea finalizada
+
+
 
  * * SubTask
     ● Crear una SubTarea
@@ -37,11 +56,18 @@ usarla.
  
 
  * * Lists
-    ● Crear una lista de tareas con filtro/búsqueda    
+    ● Crear una lista de tareas con filtro/búsqueda
+    ● Crear una lista de tareas finalizadas 
+    ● Crear una lista de usuarios (admin)
+    ● Crear una lista de tareas
+    ● Crear una lista de tareas a través del ID
+
+
 
  * * Users
     ● Registrar un Usuario
     ● Validar un Usuario
+    ● Login de usuarios
     ● Login de usuarios
     ● Eliminar un usuario con todas sus tareas (Admin)
     ● Desabilitar/Habilitar un usuariko (Admin)
@@ -49,6 +75,11 @@ usarla.
  * * Password
     ● Cambiar Contraseña
     ● Recuperar Contraseña
+
+ * * Annotations
+    ● Crear una anotación genérica
+    ● Editar una anotación genérica
+    ● Eliminar una anotación genérica    
    
 
 
