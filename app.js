@@ -18,9 +18,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const PUBLIC_FOLDER = path.join(process.cwd(), "public");
-
 app.use(cors());
-
 // middleware parseo del body
 app.use(express.json());
 
@@ -56,5 +54,5 @@ app.use((error, req, res, next) => {
   });
 });
 app.listen(PORT, () => {
-  console.log(`Se está escuchando en el puerto ${PORT}.`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });
