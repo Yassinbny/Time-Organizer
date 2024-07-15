@@ -38,7 +38,7 @@ router
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
   .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
   .patch("/:idTask", updateTaskController)
-  .patch("/postpone", postponeTaskController)
+  .patch(":idTask/postpone", postponeTaskController)
   .patch("/postponeAll", postponeAllTasksController)
   .delete("/:idTask", deleteTaskcontroller);
 

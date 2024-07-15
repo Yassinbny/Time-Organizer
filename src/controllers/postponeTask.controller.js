@@ -5,13 +5,11 @@ export default async function postponeTaskController(req, res, next) {
 
     try {
         const body = {
-            start_on: req.body.start_on,
             finish_on: req.body.finish_on,
             task_id: req.params.idTask
         }
 
         const postponeTaskSchema = Joi.object({
-            start_on: Joi.date().required(),
             finish_on: Joi.date().required(),
             task_id: Joi.number().integer().required(),
         })
@@ -25,9 +23,9 @@ export default async function postponeTaskController(req, res, next) {
             })
         }
 
-        const { start_on, finish_on, task_id } = value
+        const { finish_on, task_id } = value
 
-        const { message } = await postponeTaskModel(start_on, finish_on, task_id)
+        const { message } = await postponeTaskModel(finish_on, task_id)
 
         return res.status(200).json({
             ok: true,
