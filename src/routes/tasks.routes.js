@@ -41,6 +41,8 @@ router
   .patch(":idTask/postpone", postponeTaskController)
   .patch("/postponeAll", postponeAllTasksController)
   .delete("/:idTask", deleteTaskcontroller);
+  .delete("/:idTask", deleteTaskcontroller)
+
 
 
 export default router;

@@ -15,7 +15,7 @@ import updateTaskController from "./updateTask.controller.js";
 import deleteTaskcontroller from "./deleteTask.controller.js";
 import postponeTaskController from "./postponeTask.controller.js";
 import postponeAllTasksController from "./postponeAllTasks.controller.js";
-// Annotation Controllers
+import listCompletedTasksController from "./listCompletedTasks.controller.js";
 import createAnnotationController from "./createAnnotation.controller.js";
 import updateAnnotationController from "./updateAnnotation.controller.js";
 import deleteAnnotationController from "./deleteAnnotation.controller.js";
@@ -38,7 +38,7 @@ export {
   deleteTaskcontroller,
   postponeTaskController,
   postponeAllTasksController,
-  // Annotation
+  listCompletedTasksController,
   createAnnotationController,
   updateAnnotationController,
   deleteAnnotationController,

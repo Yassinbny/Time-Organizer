@@ -1,13 +1,12 @@
 import finishTaskModel from "../models/finishTask.model.js";
 import Joi from "joi";
-// creamos el controller que vamos a tener después en las rutas para actualizar el post
+
 export default async function finishTaskController(req, res, next) {
   try {
     const validateFinishTaskSchema = Joi.object({
       task_id: Joi.number().integer().required(),
     });
 
-    // validamos los datos del body
     const { error, value } = validateFinishTaskSchema.validate({
       task_id: req.params.idTask,
     });
@@ -19,15 +18,14 @@ export default async function finishTaskController(req, res, next) {
       });
     }
 
-    const { id } = value;
+    const { task_id } = value;
 
-    // Utilizamos el modelo para finalizar la tarea en la base de datos
-    const { result } = await finishTaskModel(id);
+    const { result } = await finishTaskModel(task_id);
 
     return res.status(200).json({
       ok: true,
       message: "Tarea finalizada con éxito.",
-      task: result, // Devolvemos la tarea actualizada
+      task: result,
     });
   } catch (error) {
     console.log(error);

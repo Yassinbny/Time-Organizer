@@ -9,6 +9,7 @@ import {
   authRoutes,
   usersRoutes,
   annotationRoutes,
+  completedTasksRoutes,
 } from "./src/routes/index.js";
 import parseToken from "./src/validations/parseToken.js";
 
@@ -17,9 +18,7 @@ dotenv.config();
 const app = express();
 const PORT = process.env.PORT || 3000;
 const PUBLIC_FOLDER = path.join(process.cwd(), "public");
-
 app.use(cors());
-
 // middleware parseo del body
 app.use(express.json());
 
@@ -37,6 +36,7 @@ app.use("/family", familyRoutes);
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 app.use("/annotations", annotationRoutes);
+app.use("/completed-tasks", completedTasksRoutes);
 
 // middleware 404 not founded
 app.use((req, res) => {
@@ -54,5 +54,5 @@ app.use((error, req, res, next) => {
   });
 });
 app.listen(PORT, () => {
-  console.log(`Se está escuchando en el puerto ${PORT}.`);
+  console.log(`Servidor corriendo en http://localhost:${PORT}`);
 });

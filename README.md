@@ -7,6 +7,82 @@ Aplicación tipo agenda para organizar el tiempo y las tareas del día a día, e
 personas con TDA (Trastorno por déficit de atención), aunque puede ser útil para cualquiera quien quiera
 usarla.
 
+# Los pasos para arrancar el Backend
+
+    * Abre la terminal y navega hasta la carpeta raíz del proyecto (si ya no estás en ella).
+
+    * Verifica si en la raíz existe el archivo package.json (contiene la configuración del proyecto y las dependencias necesarias).
+
+    * Ejecuta el comando npm install o npm i (creará una carpeta "node_modules" que contiene todas las independencias instaladas).
+
+    * Crea el archivo .env y copia en el la estructura del archivo .env.example. Los campos que faltan rellénalos con los datos necesarios.
+
+    * Ejecuta el comando npm run initdb para crear las tablas necesarias en la base de datos.
+
+    * Ejecuta el comando npm run dev para lanzar el servidor
+
+
+
+# Lista de los Endpoints:
+
+ * * Tables
+    ● Crear una Tabla
+
+ * * Tasks
+    ● Crear una Tarea
+    ● Editar una Tarea
+    ● Finalizar una Tarea
+    ● Finalizar una Tarea a través del ID
+    ● Finalizar una Tarea con un intervalo de tiempo establecido.
+    ● Eliminar una Tarea
+    ● Eliminar una Tarea
+    ● Valoración de una Tarea finalizada
+
+
+
+ * * SubTask
+    ● Crear una SubTarea
+    ● Editar una SubTarea
+    ● Finalizar una SubTarea
+    ● Eliminar una SubTarea
+
+ * * Notes
+    ● Crear una Nota
+    ● Editar una Nota
+    ● Eliminar una Nota   
+
+ * * Family
+    ● Crear una lista con las familias de las tareas
+ 
+
+ * * Lists
+    ● Crear una lista de tareas con filtro/búsqueda
+    ● Crear una lista de tareas finalizadas 
+    ● Crear una lista de usuarios (admin)
+    ● Crear una lista de tareas
+    ● Crear una lista de tareas a través del ID
+
+
+
+ * * Users
+    ● Registrar un Usuario
+    ● Validar un Usuario
+    ● Login de usuarios
+    ● Login de usuarios
+    ● Eliminar un usuario con todas sus tareas (Admin)
+    ● Desabilitar/Habilitar un usuariko (Admin)
+
+ * * Password
+    ● Cambiar Contraseña
+    ● Recuperar Contraseña
+
+ * * Annotations
+    ● Crear una anotación genérica
+    ● Editar una anotación genérica
+    ● Eliminar una anotación genérica    
+   
+
+
 
 * ! IMPORTANTE !!!!!! Sprint II !!!!
 
@@ -17,9 +93,9 @@ usarla.
 
 * Backend
 
-● Endpoint listado usuarios (solo administrador)
+* // *● Endpoint listado usuarios (solo administrador)
 
-● Endpoint actualización del perfil de usuario
+**● Endpoint actualización del perfil de usuario
 
 * // * ● Endpoint para editar una tarea
 
@@ -27,37 +103,34 @@ usarla.
 
 * // * ● Endpoint de eliminación tarea
 
-*  * ● Endpoint de evaluación tarea una vez finalizada
+* // * ● Endpoint de evaluación tarea una vez finalizada
 
-● Endpoint para aplazar o adelantar una o todas las tareas del día
-(semana, mes) simultáneamente
+**● Endpoint para aplazar o adelantar una o todas las tareas del día (semana, mes) simultáneamente
 
 ● Endpoint para personalizar el fondo de la agenda (imagen por día,
 semana, mes, año)- no prioritario
 
-*  * ● Endpoint listado tareas finalizadas (con datos para los gráficos de autoevaluación y de recuento de los objetivos alcanzados sobre los propuestos)
+* // * ● Endpoint listado tareas finalizadas (con datos para los gráficos de autoevaluación y de recuento de los objetivos alcanzados sobre los propuestos)
 
-● Colección de Postman con todos los endpoints (incluido test “Page
-not found” y lectura de un recurso estático)
+**● Colección de Postman con todos los endpoints (incluido test “Page not found” y lectura de un recurso estático)
 
 * // * ● Actualización README.md
 
 
 * Frontend (Time-Organizer-Fronted)
 
-* // * ● Creación de proyecto de React con Vite y estructura inicial de
-carpetas
+* // * ● Creación de proyecto de React con Vite y estructura inicial de carpetas
 
-● Creación de las páginas y de las rutas con React Router
+**● Creación de las páginas y de las rutas con React Router
 
-● Formulario de registro
+**● Formulario de registro
 
 ● Página de validación usuario
 
-● Contexto para guardar la información del usuario logueado y su
+** ● Contexto para guardar la información del usuario logueado y su
 token
 
-● Formulario de login. Se deberá guardar el token y la información del usuario en el contexto
+* // *● Formulario de login. Se deberá guardar el token y la información del usuario en el contexto
 
 ● Formulario recuperación contraseña
 
