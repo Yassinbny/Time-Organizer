@@ -4,7 +4,7 @@ export default async function postponeTaskModel (task_id, start_on, finish_on) {
     try {
         const pool = await getPool();
 
-        const [result] = await pool.query (`UPDATE tasks SET start_on = ?, finish_on = ? WHERE task_id = ?`, [start_on, finish_on, title]);
+        const [result] = await pool.query (`UPDATE tasks SET start_on = ?, finish_on = ? WHERE task_id = ?`, [start_on, finish_on, task_id]);
 
         return {
             message: result.changedRows ? "Task postponed successfully." : "No changes were made."
