@@ -19,7 +19,6 @@ import {
 } from "../controllers/index.js";
 import checkUser from "../validations/checkUser.js";
 
-
 const router = express.Router();
 
 //tasks
@@ -41,8 +40,5 @@ router
   .patch(":idTask/postpone", postponeTaskController)
   .patch("/postponeAll", postponeAllTasksController)
   .delete("/:idTask", deleteTaskcontroller);
-  .delete("/:idTask", deleteTaskcontroller)
-
-
 
 export default router;
