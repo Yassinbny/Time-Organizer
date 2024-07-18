@@ -1,49 +1,28 @@
-import Joi from "joi";
 import signUpModel from "../../models/auth/signUp.model.js";
 import generateToken from "../../services/generateToken.js";
 import sendMail from "../../services/sendMail.js";
-import joiErrorMessages from "../../validations/joiErrorMessages.js";
+import validateSchema from "../../validations/validateSchema.js";
+import { signUpSchema } from "../../validations/usersSchema.js";
+
 
 export default async function signUpController(req, res, next) {
   try {
-    const newUserSchema = Joi.object({
-      username: Joi.string()
-      .required()
-      .messages(joiErrorMessages),
-      email: Joi.string()
-      .email()
-      .required()
-      .messages(joiErrorMessages),
-      password: Joi.string()
-      .min(8)
-      .max(200)
-      .required()
-      .messages(joiErrorMessages),     
-    });
 
-    const { error, value } = newUserSchema.validate(req.body);
-    if (error) {
-      return res.status(400).json({
-        ok: false,
-        message: error.details[0].message,
-      });
-    }
+    const { username, email, password } = req.body;
 
-    const { username, email, password } = value;
+    //Validar el body con Joi.
+    await validateSchema(signUpSchema, req.body);
 
-    //Generar token aleatorio
-    const token = generateToken();
+    //Generar token aleatorio.
+    const signUpCode = generateToken();
 
-    const { message } = await signUpModel(username, email, password, token);
-
-    console.log(req.protocol);
-
+    //Generar el correo.
     const emailSubject = "Confirma tu registro en Time Organizer.";
 
-    //link para confirmar el registro
+    //Link para confirmar el registro.
     const emailLink = `${req.protocol}://${req.get(
       "host"
-    )}/users/confirm?token=${token}`;
+    )}/users/confirm?token=${signUpCode}`;
 
     //cuerpo del mail
     const emailBody = `
@@ -58,6 +37,10 @@ export default async function signUpController(req, res, next) {
           </html>
         `;
 
+    //Pasar al modelo la consulta con la DB.
+    const { message } = await signUpModel(username, email, password, signUpCode);
+
+    //Enviar el correo de registro.
     await sendMail(email, emailSubject, emailBody);
 
     return res.status(201).json({

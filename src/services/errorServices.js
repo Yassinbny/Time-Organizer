@@ -14,3 +14,11 @@ export const recoveryCodeError = () => {
         message: "Código de recuperación incorrecto. Pruebe de nuevo.",
     });
 };
+
+export const userDataError = () => {
+    throw {
+        httpStatus: 400,
+        code: "BAD_REQUEST",
+        message: "El nombre de usuario o el email ya están en uso."
+    }
+};
