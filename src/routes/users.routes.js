@@ -6,6 +6,7 @@ import {
   deleteUserController,
   toggleUserStatusController,
   listUsersController,
+  editUsernameController,
   avatarController,
 } from "../controllers/users/index.js";
 
@@ -36,6 +37,9 @@ router.post("/password/recover", recoverPassController);
 
 // Resetear o cambiar la contraseña
 router.put("/password/reset", resetPassController);
+
+// Editar o cambiar nombre de usuario
+router.put("/username", authenticateToken, editUsernameController);
 
 // Avatar
 router.put("/avatar", authenticateToken, userExists, avatarController);

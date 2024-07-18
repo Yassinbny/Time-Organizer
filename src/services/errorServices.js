@@ -23,6 +23,14 @@ export const userDataError = () => {
     }
 };
 
+export const newUsernameError = () => {
+    throw {
+        httpStatus: 401, //unauthorized
+        code: "INVALID_PASS_CODE",
+        message: "Lo sentimos, ese nombre de usuario ya está siendo utilizado. Pruebe de nuevo."
+    };
+};
+
 export const invalidCredentialsError = () => {
     throw {
       httpStatus: 401,
