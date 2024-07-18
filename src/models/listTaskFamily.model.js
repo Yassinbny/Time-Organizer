@@ -7,7 +7,7 @@ export default async function listTaskFamilyModel(search = 0, sort = 0, order = 
 
     // Búsqueda
     if (search) {
-      query += ` WHERE (name LIKE "%${search}%" OR color LIKE "%${search}%")`;
+      query += ` WHERE (name = "%${search}%" OR color  "%${search}%")`;
     }
 
     // Ordenación

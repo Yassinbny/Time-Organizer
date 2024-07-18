@@ -56,11 +56,13 @@ const createTables = async () => {
 
     await pool.query(` CREATE TABLE notes (
     note_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-    task_id INT UNSIGNED NOT NULL,
+    task_id INT UNSIGNED ,
+    user_id INT UNSIGNED NOT NULL,
     description TEXT NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (task_id) REFERENCES tasks (task_id)
+    FOREIGN KEY (task_id) REFERENCES tasks (task_id),
+    FOREIGN KEY (user_id) REFERENCES users (user_id)
     )`);
     console.log("Tabla notes creada con éxito.");
 

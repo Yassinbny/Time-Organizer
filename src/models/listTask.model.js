@@ -7,7 +7,7 @@ export default async function listTaskModel(search = 0, sort = 0, order = 0) {
 
     // Búsqueda
     if (search) {
-      query += ` WHERE (title LIKE "${search}" OR description LIKE "${search}")`;
+      query += ` WHERE (title = "${search}" OR description = "${search}")`;
       // queryParams.push(`%${search}%`, `%${search}%`);
     }
 

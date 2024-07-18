@@ -7,7 +7,7 @@ export default async function signUpModel (username, email, password, token) {
         const pool = await getPool()
 
         //Verificar que el usuario no esté ya registrado
-        const [[user]] = await pool.query(`SELECT * FROM users WHERE username LIKE ? OR email LIKE ?`, [username, email]);
+        const [[user]] = await pool.query(`SELECT * FROM users WHERE username = ? OR email  ?`, [username, email]);
 
         if(user) throw {
             status: 400,

@@ -14,7 +14,7 @@ export default async function listTaskByIdcontroller(req, res, next) {
       });
     }
     const { tasks } = await listTaskByIdModel(value);
-    if (!tasks) {
+    if (tasks.length === 0) {
       return res.status(404).json({
         ok: false,
         message: "Tasks no encontrados.",
