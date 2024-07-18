@@ -49,14 +49,14 @@ const createTables = async () => {
 	  task_id INT UNSIGNED NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
 	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
-    FOREIGN KEY (task_id) REFERENCES tasks (task_id)
+    
     )`);
 
     console.log("Tabla family creada con éxito.");
 
     await pool.query(` CREATE TABLE notes (
     note_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-    task_id INT UNSIGNED ,
+    task_id INT UNSIGNED,
     user_id INT UNSIGNED NOT NULL,
     description TEXT NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
