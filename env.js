@@ -27,4 +27,4 @@ export {
     SMTP_USER,
     PUBLIC_FOLDER
 
-}
+};
