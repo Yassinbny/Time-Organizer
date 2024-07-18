@@ -30,6 +30,5 @@ const getPool = async () => {
     console.log(error);
   }
 };
-console.log("Se está creando la conexión.");
 
 export default getPool;
