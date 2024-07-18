@@ -43,6 +43,18 @@ export const editUserPassSchema = Joi.object({
   .messages(joiErrorMessages),
 });
 
+//Editar nombre usuario.
+export const editUsernameSchema = Joi.object({
+  username: Joi.string()
+  .max(100)
+  .required()
+  .messages(joiErrorMessages),
+  newUsername: Joi.string()
+  .max(100)
+  .required()
+  .messages(joiErrorMessages),
+});
+
 //Avatar.
 export const avatarSchema = Joi.object({
   avatar: imageSchema.required(),
