@@ -5,6 +5,7 @@ dotenv.config(); // Cargar las variables de entorno desde un archivo .env
 
 export default function authenticateToken(req, res, next) {
     const authHeader = req.headers['authorization'];
+    
     const token = authHeader && authHeader.split(' ')[1];
 
     if (token == null) return res.status(401).json({ ok: false, error: "No estás autorizado" });
