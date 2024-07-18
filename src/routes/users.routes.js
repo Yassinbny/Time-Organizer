@@ -5,9 +5,19 @@ import {
   resetPassController,
   deleteUserController,
   toggleUserStatusController,
-  listUsersController
+  listUsersController,
+  editUsernameController,
+  avatarController,
 } from "../controllers/users/index.js";
-import { authenticateToken, checkUser, isAdmin } from "../validations/index.js";
+
+import { 
+  authenticateToken, 
+  checkUser, 
+  isAdmin } from "../validations/index.js";
+
+import { 
+  userExists 
+} from "../middlewares/index.js";
 
 const router = express.Router();
 
@@ -27,5 +37,11 @@ router.post("/password/recover", recoverPassController);
 
 // Resetear o cambiar la contraseña
 router.put("/password/reset", resetPassController);
+
+// Editar o cambiar nombre de usuario
+router.put("/username", authenticateToken, editUsernameController);
+
+// Avatar
+router.put("/avatar", authenticateToken, userExists, avatarController);
 
 export default router;

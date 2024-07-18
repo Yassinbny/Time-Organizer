@@ -3,6 +3,9 @@ import passRecoverModel from "./passRecover.model.js";
 import updatePasswordModel from "./passReset.model.js";
 import deleteUserModel from "./deleteUser.model.js";
 import toggleUserStatusController from "../../controllers/users/toggleUserStatus.controller.js";
+import editUsernameModel from "./editUsername.model.js";
+import avatarModel from "./avatar.model.js";
+import selectUserByIdModel from "./selectUserId.model.js";
 
 
 export {
@@ -10,5 +13,8 @@ export {
     passRecoverModel,
     updatePasswordModel,
     deleteUserModel,
-    toggleUserStatusController
+    toggleUserStatusController,
+    editUsernameModel,
+    avatarModel,
+    selectUserByIdModel
 };

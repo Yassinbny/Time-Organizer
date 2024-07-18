@@ -1,5 +1,5 @@
 import validateSchema from "../../validations/validateSchema.js";
-import editUserPassSchema from "../../validations/updatePassSchema.js";
+import {editUserPassSchema} from "../../validations/usersSchema.js";
 import { updatePasswordModel } from "../../models/users/index.js";
 
 const resetPassController = async (req, res, next) => {
