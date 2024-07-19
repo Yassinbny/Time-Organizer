@@ -1,4 +1,4 @@
-import listTaskFamilyModel from "../../models/tasks/index.js";
+import { listTaskFamilyModel } from "../../models/tasks/index.js";
 
 export default async function listTaskFamilyController(req, res, next) {
   try {
@@ -6,7 +6,7 @@ export default async function listTaskFamilyController(req, res, next) {
 
     const search = req.query.search;
     const sort = req.query.sort;
-    const order = req.query.order; 
+    const order = req.query.order;
 
     // Llamar al modelo para obtener la lista de tareas de familia
     const { taskFamilies } = await listTaskFamilyModel(search, sort, order);
@@ -14,7 +14,7 @@ export default async function listTaskFamilyController(req, res, next) {
     // Enviar la respuesta
     return res.status(200).json({
       ok: true,
-      
+
       taskFamilies,
     });
   } catch (error) {

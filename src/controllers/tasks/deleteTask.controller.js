@@ -1,5 +1,5 @@
 import Joi from "joi";
-import deleteTaskModel from "../../models/tasks/index.js";
+import { deleteTaskModel } from "../../models/tasks/index.js";
 
 export default async function deleteTaskcontroller(req, res, next) {
   try {

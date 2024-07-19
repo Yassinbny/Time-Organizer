@@ -1,9 +1,9 @@
-import updateAnnotationModel from "../../models/annotations/inde.js"
+import { updateAnnotationModel } from "../../models/annotations/index.js";
 import Joi from "joi";
 export default async function updateAnnotationController(req, res, next) {
   try {
     const body = {
-        title: req.body.title,
+      title: req.body.title,
       description: req.body.description,
       annotation_id: req.params.idAnnotation,
     };
@@ -25,7 +25,11 @@ export default async function updateAnnotationController(req, res, next) {
 
     const { title, description, annotation_id } = value;
 
-    const { message } = await updateAnnotationModel(title, description, annotation_id);
+    const { message } = await updateAnnotationModel(
+      title,
+      description,
+      annotation_id
+    );
     return res.status(200).json({
       ok: true,
       message: message,

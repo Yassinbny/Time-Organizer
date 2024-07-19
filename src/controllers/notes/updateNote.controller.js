@@ -1,4 +1,4 @@
-import updateNoteModel from "../../models/notes/";
+import { updateNoteModel } from "../../models/notes/index.js";
 import Joi from "joi";
 export default async function updateNoteController(req, res, next) {
   try {

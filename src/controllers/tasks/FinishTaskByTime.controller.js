@@ -1,4 +1,4 @@
-import finishTaskByTimeModel from "../../models/tasks/index.js";
+import { finishTaskByTimeModel } from "../../models/tasks/index.js";
 
 export default async function finishTaskByTimeController(req, res, next) {
   try {

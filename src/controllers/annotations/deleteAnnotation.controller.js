@@ -1,5 +1,5 @@
 import Joi from "joi";
-import deleteAnnotationModel from "../../models/annotations/index.js";
+import { deleteAnnotationModel } from "../../models/annotations/index.js";
 
 export default async function deleteAnnotationController(req, res, next) {
   try {

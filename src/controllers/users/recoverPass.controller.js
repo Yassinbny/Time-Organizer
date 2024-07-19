@@ -1,9 +1,9 @@
 import randomstring from "randomstring";
-import { passRecoverModel } from "../../models/users/in";
+import { passRecoverModel } from "../../models/users/index.js";
 import sendMail from "../../services/sendMail.js";
 
-const recoverPassController = async (req, res, next) =>{
-  try{
+const recoverPassController = async (req, res, next) => {
+  try {
     const { email } = req.body;
 
     const recoverPassCode = randomstring.generate(10);
@@ -31,7 +31,6 @@ const recoverPassController = async (req, res, next) =>{
       status: "ok",
       message: "Se ha enviado un correo para la recuperación de la contraseña.",
     });
-    
   } catch (error) {
     next(error);
   }

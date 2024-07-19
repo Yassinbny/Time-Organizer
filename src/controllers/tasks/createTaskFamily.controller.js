@@ -1,4 +1,4 @@
-import createTaskFamilyModel from "../../models/tasks/index.js";
+import { createTaskFamilyModel } from "../../models/tasks/index.js";
 import Joi from "joi";
 export default async function createTaskFamilyController(req, res, next) {
   try {

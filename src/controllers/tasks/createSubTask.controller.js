@@ -1,4 +1,4 @@
-import createSubTaskModel from "../../models/tasks/";
+import { createSubTaskModel } from "../../models/tasks/index.js";
 import Joi from "joi";
 
 export default async function createSubTaskController(req, res, next) {

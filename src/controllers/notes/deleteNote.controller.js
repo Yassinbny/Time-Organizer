@@ -1,5 +1,5 @@
 import Joi from "joi";
-import deleteNoteModel from "../../models/notes/index.js";
+import { deleteNoteModel } from "../../models/notes/index.js";
 
 export default async function deleteNotecontroller(req, res, next) {
   try {

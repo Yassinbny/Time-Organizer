@@ -1,4 +1,4 @@
-import createTaskModel from "../../models/tasks/index.js";
+import { createTaskModel } from "../../models/tasks/index.js";
 import createTaskSchema from "../../validations/createTaskSchema.js";
 // creamos el controller que vamos a tener despues en las rutas para crear el post
 export default async function createTaskController(req, res, next) {

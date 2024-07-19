@@ -1,13 +1,11 @@
-import signUpModel from "../../models/auth/index.js";
+import { signUpModel } from "../../models/auth/index.js";
 import generateToken from "../../services/generateToken.js";
 import sendMail from "../../services/sendMail.js";
 import validateSchema from "../../validations/validateSchema.js";
 import { signUpSchema } from "../../validations/usersSchema.js";
 
-
 export default async function signUpController(req, res, next) {
   try {
-
     const { username, email, password } = req.body;
 
     //Validar el body con Joi.
@@ -38,7 +36,12 @@ export default async function signUpController(req, res, next) {
         `;
 
     //Pasar al modelo la consulta con la DB.
-    const { message } = await signUpModel(username, email, password, signUpCode);
+    const { message } = await signUpModel(
+      username,
+      email,
+      password,
+      signUpCode
+    );
 
     //Enviar el correo de registro.
     await sendMail(email, emailSubject, emailBody);
@@ -47,7 +50,6 @@ export default async function signUpController(req, res, next) {
       ok: true,
       message,
     });
-    
   } catch (error) {
     console.log(error);
     next(error);

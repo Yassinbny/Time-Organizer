@@ -1,4 +1,4 @@
-import finishTaskModel from "../../models/tasks/index.js";
+import { finishTaskModel } from "../../models/tasks/index.js";
 import Joi from "joi";
 
 export default async function finishTaskController(req, res, next) {

@@ -6,15 +6,17 @@ import toggleUserStatusController from "../../controllers/users/toggleUserStatus
 import editUsernameModel from "./editUsername.model.js";
 import avatarModel from "./avatar.model.js";
 import selectUserByIdModel from "./selectUserId.model.js";
-
-
+import updateUserStatusModel from "./updateUserStatus.model.js";
+import listUsersModel from "./listUsers.model.js";
 export {
-    confirmUserModel,
-    passRecoverModel,
-    updatePasswordModel,
-    deleteUserModel,
-    toggleUserStatusController,
-    editUsernameModel,
-    avatarModel,
-    selectUserByIdModel
+  confirmUserModel,
+  listUsersModel,
+  updateUserStatusModel,
+  passRecoverModel,
+  updatePasswordModel,
+  deleteUserModel,
+  toggleUserStatusController,
+  editUsernameModel,
+  avatarModel,
+  selectUserByIdModel,
 };

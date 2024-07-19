@@ -1,10 +1,10 @@
-import rateFinishedTaskModel from "../../models/rateFinishedTask.model.js";
+import rateFinishedTaskModel from "../../models/tasks/rateFinishedTask.model.js";
 import Joi from "joi";
 
 export default async function rateFinishedTaskController(req, res, next) {
   try {
     const validateRateFinishedTaskSchema = Joi.object({
-      rating: Joi.number().integer().min(1).max(5).required()
+      rating: Joi.number().integer().min(1).max(5).required(),
     });
 
     const { error, value } = validateRateFinishedTaskSchema.validate(req.body);

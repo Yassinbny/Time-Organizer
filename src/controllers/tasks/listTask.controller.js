@@ -1,4 +1,4 @@
-import listTaskModel from "../../models/tasks/index.js";
+import { listTaskModel } from "../../models/tasks/index.js";
 
 export default async function listTaskController(req, res, next) {
   try {

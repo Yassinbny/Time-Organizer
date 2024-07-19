@@ -1,4 +1,4 @@
-import listCompletedTasksModel from "../../models/tasks/index.js";
+import { listCompletedTasksModel } from "../../models/tasks/index.js";
 
 export default async function listCompletedTasksController(req, res, next) {
   try {
@@ -7,14 +7,19 @@ export default async function listCompletedTasksController(req, res, next) {
     const { completedTasks } = await listCompletedTasksModel(currentUser);
 
     const totalTasks = completedTasks.length;
-    const totalRatings = completedTasks.filter(task => task.rating !== null).length;
-    const averageRating = totalRatings > 0 
-      ? completedTasks.reduce((acc, task) => acc + (task.rating || 0), 0) / totalRatings 
-      : 0;
+    const totalRatings = completedTasks.filter(
+      (task) => task.rating !== null
+    ).length;
+    const averageRating =
+      totalRatings > 0
+        ? completedTasks.reduce((acc, task) => acc + (task.rating || 0), 0) /
+          totalRatings
+        : 0;
 
     const familyData = completedTasks.reduce((acc, task) => {
-      const family = task.family || 'other';
-      if (!acc[family]) acc[family] = { count: 0, ratingSum: 0, ratingCount: 0 };
+      const family = task.family || "other";
+      if (!acc[family])
+        acc[family] = { count: 0, ratingSum: 0, ratingCount: 0 };
       acc[family].count++;
       if (task.rating !== null) {
         acc[family].ratingSum += task.rating;
@@ -23,12 +28,13 @@ export default async function listCompletedTasksController(req, res, next) {
       return acc;
     }, {});
 
-    const familyRatings = Object.keys(familyData).map(family => ({
+    const familyRatings = Object.keys(familyData).map((family) => ({
       family,
-      averageRating: familyData[family].ratingCount > 0
-        ? familyData[family].ratingSum / familyData[family].ratingCount
-        : 0,
-      count: familyData[family].count
+      averageRating:
+        familyData[family].ratingCount > 0
+          ? familyData[family].ratingSum / familyData[family].ratingCount
+          : 0,
+      count: familyData[family].count,
     }));
 
     return res.status(200).json({

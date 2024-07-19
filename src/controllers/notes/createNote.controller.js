@@ -1,4 +1,4 @@
-import createNoteModel from "../../models/notes/index.js";
+import { createNoteModel } from "../../models/notes/index.js";
 import createNoteSchema from "../../validations/createNoteSchema.js";
 export default async function createNoteController(req, res, next) {
   try {

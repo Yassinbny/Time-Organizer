@@ -1,5 +1,5 @@
 import Joi from "joi";
-import listTaskByIdModel from "../../models/tasks/index.js";
+import { listTaskByIdModel } from "../../models/tasks/index.js";
 export default async function listTaskByIdcontroller(req, res, next) {
   try {
     const id = req.params.idTask;
