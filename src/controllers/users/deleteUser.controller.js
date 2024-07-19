@@ -1,4 +1,4 @@
-import deleteUserModel from "../../models/users/deleteUser.model.js";
+import deleteUserModel from "../../models/users/index.js";
 
 export default async function deleteUserController(req, res, next) {
     try {

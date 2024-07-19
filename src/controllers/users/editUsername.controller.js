@@ -1,6 +1,6 @@
 import validateSchema from "../../validations/validateSchema.js";
 import { editUsernameSchema } from "../../validations/usersSchema.js";
-import editUsernameModel from "../../models/users/editUsername.model.js";
+import editUsernameModel from "../../models/users/";
 import { notFoundError } from "../../services/errorServices.js";
 
 

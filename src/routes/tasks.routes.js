@@ -1,22 +1,23 @@
 import express from "express";
-
+import {
+  createNoteController,
+  updateNoteController,
+  deleteNotecontroller,
+} from "../controllers/notes/index.js";
 import {
   createTaskController,
   listTaskController,
   listTaskByIdcontroller,
-  createNoteController,
   createSubTaskController,
   finishTaskController,
-  updateNoteController,
   finishSubTaskController,
-  deleteNotecontroller,
   finishTaskByTimeController,
   rateFinishedTaskController,
   updateTaskController,
   postponeTaskController,
   postponeAllTasksController,
   deleteTaskcontroller,
-} from "../controllers/index.js";
+} from "../controllers/tasks/index.js";
 import checkUser from "../validations/checkUser.js";
 
 const router = express.Router();

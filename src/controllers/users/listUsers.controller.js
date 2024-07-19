@@ -1,4 +1,4 @@
-import listUsersModel from "../../models/users/listUsers.model.js";
+import listUsersModel from "../../models/users/";
 
 export default async function listUsersController(req, res, next) {
     try {

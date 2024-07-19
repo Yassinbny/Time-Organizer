@@ -2,7 +2,7 @@ import validateSchema from "../../validations/validateSchema.js";
 import { avatarSchema } from "../../validations/usersSchema.js";
 import { saveImageService, deleteImageService } from "../../services/imageServices.js";
 import { avatarModel } from "../../models/users/index.js";
-import selectUserByIdModel from "../../models/users/selectUserId.model.js";
+import selectUserByIdModel from "../../models/users/i";
 import { notFoundError } from "../../services/errorServices.js";
 
 

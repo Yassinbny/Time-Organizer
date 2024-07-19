@@ -4,7 +4,7 @@ import {
     createAnnotationController,
     updateAnnotationController,
     deleteAnnotationController,
-} from "../controllers/index.js";
+} from "../controllers/annotations/";
 import checkUser from "../validations/checkUser.js";
 
 const router = express.Router();
