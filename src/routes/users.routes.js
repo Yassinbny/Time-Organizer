@@ -10,9 +10,7 @@ import {
   avatarController,
 } from "../controllers/users/index.js";
 
-import { authenticateToken, isAdmin } from "../validations/index.js";
-
-import { userExists } from "../middlewares/index.js";
+import { authenticateToken, isAdmin, userExists } from "../middlewares/index.js";
 
 const router = express.Router();
 

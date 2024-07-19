@@ -5,7 +5,7 @@ import {
   updateAnnotationController,
   deleteAnnotationController,
 } from "../controllers/annotations/index.js";
-import authenticateToken from "../validations/authenticateToken.js";
+import { authenticateToken } from "../middlewares/index.js";
 
 const router = express.Router();
 
