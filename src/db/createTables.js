@@ -1,9 +1,12 @@
+import generateAdmin from "../utils/generateAdminUser.js";
 import getPool from "./getpool.js";
 
 const createTables = async () => {
   try {
     const pool = await getPool();
-    await pool.query(`DROP TABLE IF EXISTS subtask,notes,family,tasks,users, annotations, evaluations`);
+    await pool.query(
+      `DROP TABLE IF EXISTS subtask,notes,family,tasks,users, annotations, evaluations`
+    );
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
         username VARCHAR(100) UNIQUE NOT NULL,
@@ -21,9 +24,7 @@ const createTables = async () => {
 
     console.log("Tabla de users creada con éxito.");
 
-    await pool.query(
-      `INSERT INTO users(username, email, password, role) VALUES ("admin","admin@gmail.com","123456",'admin')`
-    );
+    await generateAdmin();
 
     console.log("Usuario Admin creado con éxito.");
 
@@ -44,14 +45,12 @@ const createTables = async () => {
     console.log("Tabla tasks creada con éxito.");
 
     await pool.query(`CREATE TABLE family (
-    family_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
-    name ENUM('trabajo','deporte','estudios','casa','ocio')  NOT NULL,
-    color  ENUM('negro','blanco','verde','azul','rojo','amarillo','gris') DEFAULT 'blanco' NOT NULL,
-	  task_id INT UNSIGNED NOT NULL,
+    family_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    name ENUM('trabajo','deporte','estudios','casa','ocio') NOT NULL,
+    color ENUM('negro','blanco','verde','azul','rojo','amarillo','gris') DEFAULT 'blanco' NOT NULL,
     createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
-	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
-    
-    )`);
+    updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+)`);
 
     console.log("Tabla family creada con éxito.");
 
@@ -77,7 +76,7 @@ const createTables = async () => {
     FOREIGN KEY (task_id) REFERENCES tasks (task_id))`);
 
     console.log("Tabla subtask creada con éxito.");
-    
+
     await pool.query(`CREATE TABLE annotations (
 		annotation_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     user_id INT UNSIGNED NOT NULL,
@@ -98,7 +97,7 @@ const createTables = async () => {
 	  updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (user_id) REFERENCES users (user_id))`);
 
-  console.log("Tabla evaluations creada con éxito.");
+    console.log("Tabla evaluations creada con éxito.");
 
     process.exit(0);
   } catch (err) {

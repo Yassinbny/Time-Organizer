@@ -5,14 +5,14 @@ import {
   updateAnnotationController,
   deleteAnnotationController,
 } from "../controllers/annotations/index.js";
-import checkUser from "../validations/checkUser.js";
+import authenticateToken from "../validations/authenticateToken.js";
 
 const router = express.Router();
 
 // annotations
 
 router
-  .post("/", checkUser, createAnnotationController)
+  .post("/", authenticateToken, createAnnotationController)
   .patch("/:idAnnotation", updateAnnotationController)
   .delete("/:idAnnotation", deleteAnnotationController);
 

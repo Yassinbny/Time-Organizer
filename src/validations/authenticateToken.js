@@ -1,20 +1,45 @@
-import jwt from 'jsonwebtoken';
-import dotenv from 'dotenv';
+import jwt from "jsonwebtoken";
+import dotenv from "dotenv";
 
 dotenv.config(); // Cargar las variables de entorno desde un archivo .env
 
 export default function authenticateToken(req, res, next) {
-    const authHeader = req.headers['authorization'];
-    
-    const token = authHeader && authHeader.split(' ')[1];
+  try {
+    // Siempre debemos enviar el token a través de la propiedad "Authorization" de los headers.
+    // Aunque la propiedad "Authorization" se escriba con "A" mayúscula, en node la recibimos
+    // con la "a" minúscula.
+    const { authorization } = req.headers;
 
-    if (token == null) return res.status(401).json({ ok: false, error: "No estás autorizado" });
+    if (!authorization) {
+      throw {
+        httpStatus: 401, // Unauthorized
+        code: "NOT_AUTHENTICATED",
+        message: `No estas logueado`,
+      };
+    }
 
-    jwt.verify(token, process.env.JWT_SECRET, (err, user) => {
-        if (err) return res.status(403).json({ ok: false, error: "Token no válido" });
+    // Variable que almacenará la info del token.
+    let tokenInfo;
 
-        req.currentUser = user;
-        next();
-    });
+    try {
+      tokenInfo = jwt.verify(authorization, process.env.JWT_SECRET);
+    } catch (err) {
+      console.log(err);
+      throw {
+        httpStatus: 401, // Unauthorized
+        code: "INVALID_TOKEN",
+        message: "Token inválido",
+      };
+    }
+
+    // Si hemos llegado hasta aquí quiere decir que el token ya se ha desencriptado.
+    // Creamos la propiedad "user" en el objeto "request" (es una propiedad inventada).
+    req.currentUser = tokenInfo;
+
+    // Pasamos el control a la siguiente función controladora.
+    next();
+  } catch (err) {
+    next(err);
+  }
 }
 console.log(authenticateToken);

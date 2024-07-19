@@ -1,13 +1,18 @@
 import getPool from "../../db/getpool.js";
 
-export default async function listTaskModel(search = 0, sort = 0, order = 0) {
+export default async function listTaskModel(
+  currentUser,
+  search = 0,
+  sort = 0,
+  order = 0
+) {
   try {
     const pool = await getPool();
-    let query = "SELECT * FROM tasks";
+    let query = `SELECT * FROM tasks  where user_id = ${currentUser.id} `;
 
     // Búsqueda
     if (search) {
-      query += ` WHERE (title = "${search}" OR description = "${search}")`;
+      query += ` and (title = "${search}" OR description = "${search}") `;
       // queryParams.push(`%${search}%`, `%${search}%`);
     }
 
