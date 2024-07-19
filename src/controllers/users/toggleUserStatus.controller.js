@@ -1,4 +1,4 @@
-import updateUserStatusModel from "../../models/users/updateUserStatus.model.js";
+import updateUserStatusModel from "../../models/users/i";
 
 export default async function toggleUserStatusController(req, res, next) {
     const { username } = req.params;

@@ -1,5 +1,5 @@
 import randomstring from "randomstring";
-import { passRecoverModel } from "../../models/users/index.js";
+import { passRecoverModel } from "../../models/users/in";
 import sendMail from "../../services/sendMail.js";
 
 const recoverPassController = async (req, res, next) =>{

@@ -3,7 +3,7 @@ import express from "express";
 import {
     createTaskFamilyController,
     listTaskFamilyController,
-} from "../controllers/index.js";
+} from "../controllers/";
 
 const router = express.Router();
 

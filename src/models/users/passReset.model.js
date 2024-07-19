@@ -1,6 +1,6 @@
 import { hash } from "bcrypt";
 import { notFoundError } from "../../services/errorServices.js";
-import { signInModel } from "../auth/index.js";
+import { signInModel } from "../../models/auth/index.js";
 import getPool from "../../db/getpool.js";
 
 const updatePasswordModel = async function (

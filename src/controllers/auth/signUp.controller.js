@@ -1,4 +1,4 @@
-import signUpModel from "../../models/auth/signUp.model.js";
+import signUpModel from "../../models/auth/index.js";
 import generateToken from "../../services/generateToken.js";
 import sendMail from "../../services/sendMail.js";
 import validateSchema from "../../validations/validateSchema.js";
