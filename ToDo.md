@@ -20,13 +20,13 @@ Corrección Sprint 1:
 
 * HECHO-los datos de admin van en él .env (ver master class). Tenéis el password de admin en claro en el código (problema de seguridad)
 
-* ¡Estáis pasando por parseToken con todos los endpoint, esto significa que también en el login se controla el token! No
+*HECHO ¡Estáis pasando por parseToken con todos los endpoint, esto significa que también en el login se controla el token! No
 
 * en parseToken o signUpController, en caso de error, pasar por el middleware de los errores. Revisar en todo el código.
 
 * en la validación de un usuario pasar el código de validación por req.param no req.query
 
-* en app.js quitar app.use(parseToken), eliminar parseToken y poner req.currentUser = currentUser en authenticateToken.
+* HECHO en app.js quitar app.use(parseToken), eliminar parseToken y poner req.currentUser = currentUser en authenticateToken.
 
 * no habría llamado token el código de validación usuario (para no confundirlo con el JWT)
 
@@ -34,7 +34,7 @@ Corrección Sprint 1:
 
 * No en todos los endpoint se implementa Joi (como en signin). Revisar todas las peticiones donde se envían datos
 
-* en el login dar un mensaje de error genérico, no que me equivoqué de email o password (problema de privacy)
+* HECHO en el login dar un mensaje de error genérico, no que me equivoqué de email o password (problema de privacy)
 
 * deleteUserModel no funcionará nunca si tenemos datos (FK al usuario que queremos eliminar)
 
@@ -42,7 +42,7 @@ Corrección Sprint 1:
 
 -HECHO eliminar console.log de debug como "Se está creando la conexión".
 
-- checkUser no hace falta, ya se pasa por authenticateToken. Tendría sentido el middleware checkUser si implementaba la existencia del usuario en el DB
+- HECHO checkUser no hace falta, ya se pasa por authenticateToken. Tendría sentido el middleware checkUser si implementaba la existencia del usuario en el DB
 
 * DB
 
@@ -68,13 +68,13 @@ Corrección Sprint 1:
 
 - hay una carpeta validations donde se defines eschemas Joi pero luego hay otros que se definen directamente en los controladores (como para signup). Ponerlos todos en validations
 
-- organización de código: pusisteis authenticateToken, checkUser, parseToken (que hace lo mismo de authenticateToken ) y isAdmin en validacions. Los pondría en una carpeta middlewares.
+- HECHO organización de código: pusisteis authenticateToken, checkUser, parseToken (que hace lo mismo de authenticateToken ) y isAdmin en validacions. Los pondría en una carpeta middlewares.
 
 -HECHO en controllers y models organizasteis el código en carpetas (auth y user) pero luego dejaste files no organizados.
 
 - README
 
-* en el README.md poner los pasos para arrancar el backend
+* HECHO en el README.md poner los pasos para arrancar el backend
 
 - POSTMAN
 
