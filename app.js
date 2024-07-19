@@ -17,7 +17,7 @@ dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-const PATH_PUBLIC_FOLDER = path.join(process.cwd(), "pblic");
+const PATH_PUBLIC_FOLDER = path.join(process.cwd(), PUBLIC_FOLDER);
 
 app.use(cors());
 

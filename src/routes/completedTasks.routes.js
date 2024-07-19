@@ -1,9 +1,9 @@
 import express from "express";
 import { listCompletedTasksController } from "../controllers/tasks/index.js";
-import checkUser from "../validations/checkUser.js";
+import authenticateToken from "../validations/authenticateToken.js";
 
 const router = express.Router();
 
-router.get("/", checkUser, listCompletedTasksController);
+router.get("/", authenticateToken, listCompletedTasksController);
 
 export default router;

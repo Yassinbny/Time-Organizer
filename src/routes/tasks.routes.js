@@ -18,28 +18,36 @@ import {
   postponeAllTasksController,
   deleteTaskcontroller,
 } from "../controllers/tasks/index.js";
-import checkUser from "../validations/checkUser.js";
+import authenticateToken from "../validations/authenticateToken.js";
 
 const router = express.Router();
 
 //tasks
-
+authenticateToken;
 router
-  .get("/", listTaskController)
-  .get("/:idTask", listTaskByIdcontroller)
-  .post("/", checkUser, createTaskController)
-  .patch("/timePassed", finishTaskByTimeController)
-  .post("/:idTask/notes", createNoteController)
-  .delete("/:idTask/notes/:idNote", deleteNotecontroller)
-  .patch("/:idTask/notes/:idNote", updateNoteController)
-  .post("/:idTask/subtask", createSubTaskController)
-  .post("/:idTask", finishTaskController)
-  .post("/:idTask/rating", rateFinishedTaskController)
-  .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
-  .post("/:idTask/subtask/:idSubTask", finishSubTaskController)
-  .patch("/:idTask", updateTaskController)
-  .patch(":idTask/postpone", postponeTaskController)
-  .patch("/postponeAll", postponeAllTasksController)
-  .delete("/:idTask", deleteTaskcontroller);
+  .get("/", authenticateToken, listTaskController)
+  .get("/:idTask", authenticateToken, listTaskByIdcontroller)
+  .post("/", authenticateToken, createTaskController)
+  .patch("/timePassed", authenticateToken, finishTaskByTimeController)
+  .post("/:idTask/notes", authenticateToken, createNoteController)
+  .delete("/:idTask/notes/:idNote", authenticateToken, deleteNotecontroller)
+  .patch("/:idTask/notes/:idNote", authenticateToken, updateNoteController)
+  .post("/:idTask/subtask", authenticateToken, createSubTaskController)
+  .post("/:idTask", authenticateToken, finishTaskController)
+  .post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
+  .post(
+    "/:idTask/subtask/:idSubTask",
+    authenticateToken,
+    finishSubTaskController
+  )
+  .post(
+    "/:idTask/subtask/:idSubTask",
+    authenticateToken,
+    finishSubTaskController
+  )
+  .patch("/:idTask", authenticateToken, updateTaskController)
+  .patch(":idTask/postpone", authenticateToken, postponeTaskController)
+  .patch("/postponeAll", authenticateToken, postponeAllTasksController)
+  .delete("/:idTask", authenticateToken, deleteTaskcontroller);
 
 export default router;
