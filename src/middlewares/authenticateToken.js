@@ -39,6 +39,7 @@ export default function authenticateToken(req, res, next) {
     // Pasamos el control a la siguiente función controladora.
     next();
   } catch (err) {
+    console.log(err);
     next(err);
   }
 }

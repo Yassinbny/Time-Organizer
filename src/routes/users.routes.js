@@ -10,11 +10,15 @@ import {
   avatarController,
 } from "../controllers/users/index.js";
 
-import { authenticateToken, isAdmin, userExists } from "../middlewares/index.js";
+import {
+  authenticateToken,
+  isAdmin,
+  userExists,
+} from "../middlewares/index.js";
 
 const router = express.Router();
 
-router.get("/confirm", confirmUserController);
+router.get("/confirm/:validationCode", confirmUserController);
 
 // Ruta para listar usuarios
 router.get("/", authenticateToken, isAdmin, listUsersController);

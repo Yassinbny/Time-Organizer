@@ -27,7 +27,7 @@ const getPool = async () => {
 
     return pool;
   } catch (error) {
-    console.log(error);
+    throw error;
   }
 };
 

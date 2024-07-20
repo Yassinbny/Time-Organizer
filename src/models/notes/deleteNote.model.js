@@ -4,8 +4,11 @@ export default async function deleteNoteModel(note_id) {
   try {
     const pool = await getPool();
 
-    const [result] = await pool.query(`DELETE FROM notes
-WHERE note_id = 1 `);
+    const [result] = await pool.query(
+      `DELETE FROM notes
+WHERE note_id = ? `,
+      [note_id]
+    );
     return {
       message: result.affectedRows
         ? "La nota ha sido eliminada con éxito."

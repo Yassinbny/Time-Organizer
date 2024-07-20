@@ -32,16 +32,12 @@ router
   .post("/", authenticateToken, createTaskController)
   .patch("/timePassed", authenticateToken, finishTaskByTimeController)
   .post("/:idTask/notes", authenticateToken, createNoteController)
-  .delete("/:idTask/notes/:idNote", authenticateToken, deleteNotecontroller)
-  .patch("/:idTask/notes/:idNote", authenticateToken, updateNoteController)
+  .delete("/notes/:idNote", authenticateToken, deleteNotecontroller)
+  .patch("/notes/:idNote", authenticateToken, updateNoteController)
   .post("/:idTask/subtask", authenticateToken, createSubTaskController)
   .post("/:idTask", authenticateToken, finishTaskController)
   .post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
-  .post(
-    "/:idTask/subtask/:idSubTask",
-    authenticateToken,
-    finishSubTaskController
-  )
+  .post("/subtask/:idSubTask", authenticateToken, finishSubTaskController)
   .post(
     "/:idTask/subtask/:idSubTask",
     authenticateToken,
