@@ -16,9 +16,10 @@ const recoverPassController = async (req, res, next) => {
       <!DOCTYPE html>
           <html lang="es">
           <body>
-              <h4>Se ha solicitado la recuperación de contraseña para este email en Time Organizer.</h4> 
+              <h3>Se ha solicitado la recuperación de contraseña para este email en Time Organizer.</h3> 
               <hr>
-              <h4>Utiliza el siguiente código para crear una nueva contraseña: ${recoverPassCode}.</h4>
+              <h4>Utiliza el siguiente código para crear una nueva contraseña: ${recoverPassCode}. Una vez accedas a tu cuenta, no olvides cambiarla en tu perfil por una más fácil de recordar.
+              </h4>
               <hr>
               <p>Si no has sido tú, por favor, ignora este email.</p>
           </body>

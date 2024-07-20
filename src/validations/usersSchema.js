@@ -26,11 +26,8 @@ export const signUpSchema = Joi.object({
   .messages(joiErrorMessages),
 });
 
+//Editar o actualizar contraseña.
 export const editUserPassSchema = Joi.object({
-  email: Joi.string()
-  .email()
-  .required()
-  .messages(joiErrorMessages),
   password: Joi.string()
   .min(8)
   .max(200)

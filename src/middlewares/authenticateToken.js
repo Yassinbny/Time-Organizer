@@ -9,6 +9,7 @@ export default function authenticateToken(req, res, next) {
     // Aunque la propiedad "Authorization" se escriba con "A" mayúscula, en node la recibimos
     // con la "a" minúscula.
     const { authorization } = req.headers;
+    
 
     if (!authorization) {
       throw {

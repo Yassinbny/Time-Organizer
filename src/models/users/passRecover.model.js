@@ -1,5 +1,5 @@
 import getPool from "../../db/getpool.js";
-import { notFoundError } from "../../services/errorServices.js";
+import { invalidCredentialsError } from "../../services/errorServices.js";
 
 const passRecoverModel = async (email, recoverPassCode) => {
   try{
@@ -10,7 +10,7 @@ const passRecoverModel = async (email, recoverPassCode) => {
 
     const user = users[0];
     if (!user) {
-      notFoundError("correo electrónico");
+      invalidCredentialsError();
     }
 
     //Actualiza el campo recoverPassCode

@@ -20,9 +20,7 @@ const editUsernameModel = async function (userId, username, newUsername) {
     //Comprobamos que el username coincida con el del registro.
     if (username !== user.username) {
       invalidCredentialsError();
-    } else {
-      console.log("username coincidente");
-    }
+    };
 
     //Comprobamos que el nuevo username no esté ya en uso en la DB.
     const generalUsers = await pool.query(`SELECT * FROM users WHERE username = ?`, [newUsername]);
