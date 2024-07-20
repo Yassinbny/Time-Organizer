@@ -12,7 +12,7 @@ Corrección Sprint 1:
 -HECHO revisar: if (!tasks) no tendría que ser if(tasks.length === 0)?
 
 - en la petición de createTaskController gestionar id de la family y id color
-  en  .delete("/:idTask/notes/:idNote", deleteNotecontroller) .patch("/:idTask/notes/:idNote", updateNoteController) post("/:idTask/subtask/:idSubTask" eliminar ":idTask", no se usa
+  HECHO en  .delete("/:idTask/notes/:idNote", deleteNotecontroller) .patch("/:idTask/notes/:idNote", updateNoteController) post("/:idTask/subtask/:idSubTask" eliminar ":idTask", no se usa
 
 -HECHO listTaskByIdModel tiene un nombre no corecto. No devuelve la lista sino un task. Falta devolver subtarea y notas del task. (no lo veo como error, list en ingles es enseñar, no se refiere a lista en español)
 
@@ -20,25 +20,25 @@ Corrección Sprint 1:
 
 * HECHO-los datos de admin van en él .env (ver master class). Tenéis el password de admin en claro en el código (problema de seguridad)
 
-*HECHO ¡Estáis pasando por parseToken con todos los endpoint, esto significa que también en el login se controla el token! No
+\*HECHO ¡Estáis pasando por parseToken con todos los endpoint, esto significa que también en el login se controla el token! No
 
-* en parseToken o signUpController, en caso de error, pasar por el middleware de los errores. Revisar en todo el código.
+- HECHO en parseToken o signUpController, en caso de error, pasar por el middleware de los errores. Revisar en todo el código.
 
-* en la validación de un usuario pasar el código de validación por req.param no req.query
+-HECHO en la validación de un usuario pasar el código de validación por req.param no req.query
 
-* HECHO en app.js quitar app.use(parseToken), eliminar parseToken y poner req.currentUser = currentUser en authenticateToken.
+- HECHO en app.js quitar app.use(parseToken), eliminar parseToken y poner req.currentUser = currentUser en authenticateToken.
 
-* no habría llamado token el código de validación usuario (para no confundirlo con el JWT)
+- HECHO no habría llamado token el código de validación usuario (para no confundirlo con el JWT)
 
-* getPool en caso de error tiene que volver a lanzar un error para parar el código y caer en el middleware de los errores
+-HECHO getPool en caso de error tiene que volver a lanzar un error para parar el código y caer en el middleware de los errores
 
-* No en todos los endpoint se implementa Joi (como en signin). Revisar todas las peticiones donde se envían datos
+- HECHO No en todos los endpoint se implementa Joi (como en signin). Revisar todas las peticiones donde se envían datos
 
-* HECHO en el login dar un mensaje de error genérico, no que me equivoqué de email o password (problema de privacy)
+- HECHO en el login dar un mensaje de error genérico, no que me equivoqué de email o password (problema de privacy)
 
-* deleteUserModel no funcionará nunca si tenemos datos (FK al usuario que queremos eliminar)
+- deleteUserModel no funcionará nunca si tenemos datos (FK al usuario que queremos eliminar)
 
-* se permite ejecutar createTaskFamilyController sin estar logueado (no se pasa por el middleware de ruta authenticateToken que comprueba el token en el header de la petición HTTP). Revisar en todo los endpont. Además, este endpont con el DB modificado no está bien.
+- se permite ejecutar createTaskFamilyController sin estar logueado (no se pasa por el middleware de ruta authenticateToken que comprueba el token en el header de la petición HTTP). Revisar en todo los endpont. Además, este endpont con el DB modificado no está bien.
 
 -HECHO eliminar console.log de debug como "Se está creando la conexión".
 

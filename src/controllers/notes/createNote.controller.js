@@ -2,6 +2,7 @@ import { createNoteModel } from "../../models/notes/index.js";
 import createNoteSchema from "../../validations/createNoteSchema.js";
 export default async function createNoteController(req, res, next) {
   try {
+    const currentUser = req.currentUser;
     const body = {
       description: req.body.description,
       task_id: req.params.idTask,
@@ -14,7 +15,7 @@ export default async function createNoteController(req, res, next) {
       });
     }
     const { task_id, description } = value;
-    const result = await createNoteModel(task_id, description);
+    const result = await createNoteModel(task_id, description, currentUser);
 
     return res.status(200).json({
       ok: true,
