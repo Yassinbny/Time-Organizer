@@ -38,7 +38,7 @@ router.put(
 router.post("/password/recover", recoverPassController);
 
 // Resetear o cambiar la contraseña
-router.put("/password/reset", resetPassController);
+router.put("/password/reset", authenticateToken, resetPassController);
 
 // Editar o cambiar nombre de usuario
 router.put("/username", authenticateToken, editUsernameController);

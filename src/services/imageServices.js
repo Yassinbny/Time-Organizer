@@ -8,7 +8,7 @@ import { uploadFileError, saveFileError, deleteFileError } from "./errorServices
 
 export const saveImageService = async (img, width) => {
   try {
-    // uta absoluta al directorio de subida de archivos.
+    //Ruta absoluta al directorio de subida de archivos.
     const publicFolder = path.join(process.cwd(), PUBLIC_FOLDER);
 
     //Acceder o crear la carpeta uploads si no existe.
@@ -41,17 +41,17 @@ export const saveImageService = async (img, width) => {
 
 export const deleteImageService = async (imgName) => {
   try {
-    // Ruta absoluta al archivo que queremos eliminar.
+    //Ruta absoluta al archivo que queremos eliminar.
     const imgPath = path.join(process.cwd(), PUBLIC_FOLDER, imgName);
 
-    // Comprobamos si la imagen existe, y si no, lanzará un error.
+    //Comprobamos si la imagen existe, y si no, lanzará un error.
     try {
       await fs.access(imgPath);
     } catch {
       return;
     }
 
-    // Eliminamos el archivo de la carpeta de subida de archivos.
+    //Eliminamos el archivo de la carpeta de subida de archivos.
     await fs.unlink(imgPath);
 
   } catch (err) {

@@ -23,6 +23,14 @@ export const userDataError = () => {
     }
 };
 
+export const newPassError = () => {
+    throw {
+        httpStatus: 401, //unauthorized
+        code: "INVALID_PASS_CODE",
+        message: "Por seguridad, la nueva contraseña no puede ser igual a la anterior. Pruebe de nuevo."
+    };
+};
+
 export const newUsernameError = () => {
     throw {
         httpStatus: 401, //unauthorized
