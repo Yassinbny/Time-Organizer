@@ -56,3 +56,8 @@ export const editUsernameSchema = Joi.object({
 export const avatarSchema = Joi.object({
   avatar: imageSchema.required(),
 });
+
+//Cargar imágenes.
+export const uploadImageSchema = Joi.object ({
+  imageBoard: imageSchema.required(),
+});
