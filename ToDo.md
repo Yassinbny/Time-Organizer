@@ -17,7 +17,7 @@ Corrección Sprint 1:
 
 - Lo que viene requiere la modifica de algunos endpoint que trabajan sobre notes, tasks, family, colors:
  
-- Crearía una tabla colores (insert en la tabla colores con los valores que permitimos) y en los tasks una fk a la tabla color
+
 - falta endpoint que devuelve la lista de colores
 - en creación de un task se indicará la/las family y el color
 
