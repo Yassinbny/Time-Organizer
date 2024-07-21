@@ -55,6 +55,16 @@ const createTables = async () => {
 
     console.log("Tabla family creada con éxito.");
 
+  // Insertar valores en la tabla
+await pool.query(`INSERT INTO family (name, color) VALUES 
+  ('trabajo', 'negro'),
+  ('deporte', 'blanco'),
+  ('estudios', 'verde'),
+  ('casa', 'azul'),
+  ('ocio', 'rojo')`);
+
+console.log("Valores insertados en la tabla family con éxito.");
+
     await pool.query(` CREATE TABLE notes (
     note_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
     task_id INT UNSIGNED,
