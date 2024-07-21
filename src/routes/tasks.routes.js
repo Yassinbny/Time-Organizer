@@ -38,11 +38,6 @@ router
   .post("/:idTask", authenticateToken, finishTaskController)
   .post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
   .post("/subtask/:idSubTask", authenticateToken, finishSubTaskController)
-  .post(
-    "/:idTask/subtask/:idSubTask",
-    authenticateToken,
-    finishSubTaskController
-  )
   .patch("/:idTask", authenticateToken, updateTaskController)
   .patch(":idTask/postpone", authenticateToken, postponeTaskController)
   .patch("/postponeAll", authenticateToken, postponeAllTasksController)
