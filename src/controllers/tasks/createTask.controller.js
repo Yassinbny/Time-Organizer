@@ -16,7 +16,7 @@ export default async function createTaskController(req, res, next) {
       });
     }
 
-    const { title, description, start_on, finish_on } = value;
+    const { title, description, start_on, finish_on, family_id, color_id } = value;
 
     //   hacemos las consulta con nuestro modelo
     const { task } = await createTaskModel(
@@ -24,7 +24,9 @@ export default async function createTaskController(req, res, next) {
       title,
       description,
       start_on,
-      finish_on
+      finish_on,
+      family_id,
+      color_id
     );
     return res.status(200).json({
       ok: true,

@@ -1,18 +1,8 @@
 Corrección Sprint 1:
 
-- GRAVES ERRORES:
-
-* FALLOS DE SEGURIDAD:
-
-
 * en los listados para sort y order comprobar los valores permitidos (mirar mastercalss backend)
 
-
-- en la petición de createTaskController gestionar id de la family y id color
-
-
-- Otros errores
-
+* Otros errores
 
 - deleteUserModel no funcionará nunca si tenemos datos (FK al usuario que queremos eliminar)
 
@@ -35,23 +25,15 @@ Corrección Sprint 1:
 
 - hay una carpeta validations donde se defines eschemas Joi pero luego hay otros que se definen directamente en los controladores (como para signup). Ponerlos todos en validations
 
-- HECHO organización de código: pusisteis authenticateToken, checkUser, parseToken (que hace lo mismo de authenticateToken ) y isAdmin en validacions. Los pondría en una carpeta middlewares.
+* POSTMAN
 
--HECHO en controllers y models organizasteis el código en carpetas (auth y user) pero luego dejaste files no organizados.
+- en la colleción Postman habían peticiones sin body (como las de recuperación y reset password)
 
-- README
-
-* HECHO en el README.md poner los pasos para arrancar el backend
-
-- POSTMAN
-
-* en la colleción Postman habían peticiones sin body (como las de recuperación y reset password)
-
-- CONSEJO \*
+* CONSEJO \*
 
 No implementar endpoint que no podréis gestionar en estas semanas de proyecto. Se pueden dejar para el futuro.
 
-- Nota importante \*
+* Nota importante \*
 
 * En los requisitos para obtener el apto no incluí:
   cambio contraseña - varios grupos no entendieron la diferencia entre cambio password y recuperación password.

@@ -5,6 +5,9 @@ const createTaskSchema = Joi.object({
   description: Joi.string().required(),
   start_on: Joi.date().required(),
   finish_on: Joi.date().required(),
+  family_id: Joi.string().required(),
+  color_id: Joi.string().required() 
+
 });
 
 export default createTaskSchema;
