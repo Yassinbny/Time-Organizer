@@ -1,5 +1,6 @@
 import updateTaskModel from "../../models/tasks/updateTask.model.js";
-import Joi from "joi";
+import updateTaskSchema from "../../validations/updateTaskSchema.js";
+
 export default async function updateTaskController(req, res, next) {
   try {
     const body = {
@@ -10,14 +11,7 @@ export default async function updateTaskController(req, res, next) {
       task_id: req.params.idTask,
     };
 
-    const updateTaskSchema = Joi.object({
-      title: Joi.string().min(1).max(1000).required(),
-      description: Joi.string().min(1).max(1000).required(),
-      start_on: Joi.date().required(),
-      finish_on: Joi.date().required(),
-      task_id: Joi.number().integer().required(),
-    });
-
+    // Validar el cuerpo de la solicitud usando el esquema definido en updateTaskSchema.js
     const { error, value } = updateTaskSchema.validate(body);
 
     if (error) {
@@ -36,6 +30,7 @@ export default async function updateTaskController(req, res, next) {
       finish_on,
       task_id
     );
+
     return res.status(200).json({
       ok: true,
       message: message,

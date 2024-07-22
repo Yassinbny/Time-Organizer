@@ -15,9 +15,9 @@ import {
   finishTaskByTimeController,
   rateFinishedTaskController,
   updateTaskController,
+  deleteTaskcontroller,
   postponeTaskController,
   postponeAllTasksController,
-  deleteTaskcontroller,
 } from "../controllers/tasks/index.js";
 
 import { authenticateToken } from "../middlewares/index.js";
@@ -25,7 +25,6 @@ import { authenticateToken } from "../middlewares/index.js";
 const router = express.Router();
 
 //tasks
-authenticateToken;
 router
   .get("/", authenticateToken, listTaskController)
   .get("/:idTask", authenticateToken, listTaskByIdcontroller)
@@ -39,8 +38,8 @@ router
   .post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
   .post("/subtask/:idSubTask", authenticateToken, finishSubTaskController)
   .patch("/:idTask", authenticateToken, updateTaskController)
-  .patch(":idTask/postpone", authenticateToken, postponeTaskController)
+  .patch("/:idTask/postpone", authenticateToken, postponeTaskController)
   .patch("/postponeAll", authenticateToken, postponeAllTasksController)
-  .delete("/:idTask", authenticateToken, deleteTaskcontroller);
+  .delete("/:idTask", authenticateToken, deleteTaskcontroller)
 
 export default router;
