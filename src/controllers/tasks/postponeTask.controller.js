@@ -1,5 +1,5 @@
+import postponeTaskSchema from "../../validations/postponeTaskSchema.js";
 import { postponeTaskModel } from "../../models/tasks/index.js";
-import Joi from "joi";
 
 export default async function postponeTaskController(req, res, next) {
   try {
@@ -8,11 +8,7 @@ export default async function postponeTaskController(req, res, next) {
       task_id: req.params.idTask,
     };
 
-    const postponeTaskSchema = Joi.object({
-      finish_on: Joi.date().required(),
-      task_id: Joi.number().integer().required(),
-    });
-
+    // Validar el cuerpo de la solicitud usando el esquema definido en postponeTaskSchema.js
     const { error, value } = postponeTaskSchema.validate(body);
 
     if (error) {

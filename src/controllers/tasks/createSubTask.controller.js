@@ -1,5 +1,5 @@
 import { createSubTaskModel } from "../../models/tasks/index.js";
-import Joi from "joi";
+import createSubTaskSchema from "../../validations/createSubTaskSchema.js";
 
 export default async function createSubTaskController(req, res, next) {
   try {
@@ -7,17 +7,16 @@ export default async function createSubTaskController(req, res, next) {
       title: req.body.title,
       task_id: req.params.idTask,
     };
-    const createSubTaskSchema = Joi.object({
-      title: Joi.string().min(3).max(200).required(),
-      task_id: Joi.number().integer().required(),
-    });
+
     const { error, value } = createSubTaskSchema.validate(body);
+
     if (error) {
       return res.status(400).json({
         ok: false,
         message: error.details[0].message,
       });
     }
+
     const { title, task_id } = value;
 
     const { subTask } = await createSubTaskModel(title, task_id);

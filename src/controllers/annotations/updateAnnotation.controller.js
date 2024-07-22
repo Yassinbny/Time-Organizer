@@ -1,5 +1,6 @@
 import { updateAnnotationModel } from "../../models/annotations/index.js";
-import Joi from "joi";
+import updateAnnotationSchema from "../../validations/updateAnnotationSchema.js";
+
 export default async function updateAnnotationController(req, res, next) {
   try {
     const body = {
@@ -8,12 +9,7 @@ export default async function updateAnnotationController(req, res, next) {
       annotation_id: req.params.idAnnotation,
     };
 
-    const updateAnnotationSchema = Joi.object({
-      title: Joi.string().min(1).max(1000),
-      description: Joi.string().min(1).max(1000).required(),
-      annotation_id: Joi.number().integer().required(),
-    });
-
+    // Usar el esquema de validación desde el archivo
     const { error, value } = updateAnnotationSchema.validate(body);
 
     if (error) {

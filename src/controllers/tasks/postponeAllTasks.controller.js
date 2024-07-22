@@ -1,5 +1,5 @@
+import postponeAllTasksSchema from "../../validations/postponeAllTasksSchema.js";
 import { postponeAllTasksModel } from "../../models/tasks/index.js";
-import Joi from "joi";
 
 export default async function postponeAllTasksController(req, res, next) {
   try {
@@ -7,10 +7,7 @@ export default async function postponeAllTasksController(req, res, next) {
       finish_on: req.body.finish_on,
     };
 
-    const postponeAllTasksSchema = Joi.object({
-      finish_on: Joi.date().required(),
-    });
-
+    // Validar el cuerpo de la solicitud usando el esquema definido en postponeAllTasksSchema.js
     const { error, value } = postponeAllTasksSchema.validate(body);
 
     if (error) {

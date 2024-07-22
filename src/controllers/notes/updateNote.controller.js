@@ -1,16 +1,13 @@
 import { updateNoteModel } from "../../models/notes/index.js";
-import Joi from "joi";
+import updateNoteSchema from "../../validations/updateNoteSchema.js";
+
 export default async function updateNoteController(req, res, next) {
   try {
+    // Validar el cuerpo de la solicitud con el esquema
     const body = {
       description: req.body.description,
       note_id: req.params.idNote,
     };
-
-    const updateNoteSchema = Joi.object({
-      description: Joi.string().min(1).max(1000).required(),
-      note_id: Joi.number().integer().required(),
-    });
 
     const { error, value } = updateNoteSchema.validate(body);
 

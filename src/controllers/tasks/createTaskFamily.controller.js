@@ -1,5 +1,6 @@
 import { createTaskFamilyModel } from "../../models/tasks/index.js";
-import Joi from "joi";
+import createTaskFamilySchema from "../../validations/createTaskFamilySchema.js";
+
 export default async function createTaskFamilyController(req, res, next) {
   try {
     const body = {
@@ -7,23 +8,8 @@ export default async function createTaskFamilyController(req, res, next) {
       color: req.body.color,
       task_id: req.params.idTask,
     };
-    const taskFamilySchema = Joi.object({
-      name: Joi.string()
-        .valid("trabajo", "deporte", "estudios", "casa", "ocio")
-        .required(),
-      color: Joi.string().valid(
-        "negro",
-        "blanco",
-        "verde",
-        "azul",
-        "rojo",
-        "amarillo",
-        "gris"
-      ),
-      task_id: Joi.number().integer().required(),
-    });
 
-    const { error, value } = taskFamilySchema.validate(body);
+    const { error, value } = createTaskFamilySchema.validate(body);
 
     if (error) {
       return res.status(400).json({
@@ -34,6 +20,7 @@ export default async function createTaskFamilyController(req, res, next) {
 
     const { name, color, task_id } = value;
     const { taskFamily } = await createTaskFamilyModel(name, color, task_id);
+
     return res.status(200).json({
       ok: true,
       message: taskFamily,

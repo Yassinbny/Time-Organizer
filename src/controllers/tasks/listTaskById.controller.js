@@ -1,10 +1,11 @@
-import Joi from "joi";
+import idSchema from "../../validations/idSchema.js";
 import { listTaskByIdModel } from "../../models/tasks/index.js";
-export default async function listTaskByIdcontroller(req, res, next) {
+
+export default async function listTaskByIdController(req, res, next) {
   try {
     const id = req.params.idTask;
 
-    const idSchema = Joi.number().integer();
+    // Validar el ID usando el esquema definido en idSchema.js
     const { error, value } = idSchema.validate(id);
 
     if (error) {
@@ -13,18 +14,18 @@ export default async function listTaskByIdcontroller(req, res, next) {
         message: error.details[0].message,
       });
     }
+
     const { tasks } = await listTaskByIdModel(value);
     if (tasks.length === 0) {
       return res.status(404).json({
         ok: false,
         message: "Tasks no encontrados.",
-        code: "NOT FOUND",
+        code: "NOT_FOUND",
       });
     }
 
     return res.status(200).json({
       ok: true,
-
       tasks,
     });
   } catch (error) {

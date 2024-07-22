@@ -1,13 +1,10 @@
 import { finishTaskModel } from "../../models/tasks/index.js";
-import Joi from "joi";
+import finishTaskSchema from "../../validations/finishTaskSchema.js";
 
 export default async function finishTaskController(req, res, next) {
   try {
-    const validateFinishTaskSchema = Joi.object({
-      task_id: Joi.number().integer().required(),
-    });
-
-    const { error, value } = validateFinishTaskSchema.validate({
+    // Validamos los datos del body
+    const { error, value } = finishTaskSchema.validate({
       task_id: req.params.idTask,
     });
 
@@ -20,6 +17,7 @@ export default async function finishTaskController(req, res, next) {
 
     const { task_id } = value;
 
+    // Utilizamos el modelo para finalizar la tarea en la base de datos
     const { result } = await finishTaskModel(task_id);
 
     return res.status(200).json({
