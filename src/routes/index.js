@@ -6,6 +6,7 @@ import annotationRoutes from "./annotations.routes.js";
 import completedTasksRoutes from "./completedTasks.routes.js";
 import imagesRoutes from "./images.routes.js";
 
+
 export { 
     taskRoutes,
     familyRoutes, 
@@ -13,5 +14,5 @@ export {
     usersRoutes,
     annotationRoutes,
     completedTasksRoutes,
-    imagesRoutes
+    imagesRoutes,
 };
