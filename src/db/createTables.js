@@ -26,9 +26,9 @@ const createTables = async () => {
     console.log("Tabla de users creada con éxito.");
 
     await generateAdmin();
-    
+
     console.log("Usuario Admin creado con éxito.");
-    
+
     await pool.query(`CREATE TABLE colors (
       color_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
       name ENUM('negro','blanco','verde', 'azul', 'rojo', 'amarillo', 'gris') NOT NULL
@@ -45,9 +45,9 @@ const createTables = async () => {
       ('amarillo'),
       ('gris')
     `);
-  
+
     console.log("Colores insertados con éxito.");
-    
+
     await pool.query(`CREATE TABLE tasks (
       task_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
       title VARCHAR(150)  NOT NULL,
@@ -62,9 +62,9 @@ const createTables = async () => {
       updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
       FOREIGN KEY (user_id) REFERENCES users (user_id)
     )`);
-      
-      console.log("Tabla tasks creada con éxito.");
-      
+
+    console.log("Tabla tasks creada con éxito.");
+
     await pool.query(`CREATE TABLE family (
     family_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name ENUM('trabajo','deporte','estudios','casa','ocio') NOT NULL,
@@ -75,15 +75,15 @@ const createTables = async () => {
 
     console.log("Tabla family creada con éxito.");
 
-  // Insertar valores en la tabla
-await pool.query(`INSERT INTO family (name, color) VALUES 
+    // Insertar valores en la tabla
+    await pool.query(`INSERT INTO family (name, color) VALUES 
   ('trabajo', 'negro'),
   ('deporte', 'blanco'),
   ('estudios', 'verde'),
   ('casa', 'azul'),
   ('ocio', 'rojo')`);
 
-console.log("Valores insertados en la tabla family con éxito.");
+    console.log("Valores insertados en la tabla family con éxito.");
 
     await pool.query(` CREATE TABLE notes (
     note_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
