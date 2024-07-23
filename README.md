@@ -65,9 +65,8 @@ usarla.
 
 
  * * Users
-    ● Registrar un Usuario
+    ● Registrar un Usuario 
     ● Validar un Usuario
-    ● Login de usuarios
     ● Login de usuarios
     ● Eliminar un usuario con todas sus tareas (Admin)
     ● Desabilitar/Habilitar un usuariko (Admin)
@@ -83,70 +82,9 @@ usarla.
    
 
 
+* ! IMPORTANTE !!!!!! Sprint III !!!!
 
-* ! IMPORTANTE !!!!!! Sprint II !!!!
-
-    * TODO --> Hasta el 18/07 
-
-
-# SPRINT II --> Backend and Fronted
-
-* Backend
-
-* // *● Endpoint listado usuarios (solo administrador)
-
-**● Endpoint actualización del perfil de usuario
-
-* // * ● Endpoint para editar una tarea
-
-* // * ● Endpoint para finalizar las tareas (ya pasadas) de intervalo superior a 30 minutos. Se llamará cuando desde Front se accede a la página de tareas
-
-* // * ● Endpoint de eliminación tarea
-
-* // * ● Endpoint de evaluación tarea una vez finalizada
-
-**● Endpoint para aplazar o adelantar una o todas las tareas del día (semana, mes) simultáneamente
-
-● Endpoint para personalizar el fondo de la agenda (imagen por día,
-semana, mes, año)- no prioritario
-
-* // * ● Endpoint listado tareas finalizadas (con datos para los gráficos de autoevaluación y de recuento de los objetivos alcanzados sobre los propuestos)
-
-**● Colección de Postman con todos los endpoints (incluido test “Page not found” y lectura de un recurso estático)
-
-* // * ● Actualización README.md
-
-
-* Frontend (Time-Organizer-Fronted)
-
-* // * ● Creación de proyecto de React con Vite y estructura inicial de carpetas
-
-**● Creación de las páginas y de las rutas con React Router
-
-**● Formulario de registro
-
-● Página de validación usuario
-
-** ● Contexto para guardar la información del usuario logueado y su
-token
-
-* // *● Formulario de login. Se deberá guardar el token y la información del usuario en el contexto
-
-● Formulario recuperación contraseña
-
-● Formulario de creación y modifica tarea
-
-● Testing y preparación del Sprint Review
-
-    
-* * Notas
-
-  **  ● Validar el body de la petición con Joi en todos los endpoints.
-
-**   ● Se debe dar feedback al usuario, ya sea con textos o notificaciones, de los errores que devuelve la API
-
-**  ● Aplicar la metodología mobile first
-
+    * TODO --> Hasta el 1/08 
 
 
 

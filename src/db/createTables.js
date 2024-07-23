@@ -55,14 +55,13 @@ const createTables = async () => {
       start_on DATETIME NOT NULL,
       finish_on DATETIME NOT NULL,
       user_id INT UNSIGNED NOT NULL,
-      color_id INT UNSIGNED NOT NULL,
+      family_id INT UNSIGNED,
       done BOOLEAN NOT NULL DEFAULT FALSE,
       rating INT UNSIGNED,
       createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
       updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users (user_id),
-      FOREIGN KEY (color_id) REFERENCES colors (color_id)
-      )`);
+      FOREIGN KEY (user_id) REFERENCES users (user_id)
+    )`);
       
       console.log("Tabla tasks creada con éxito.");
       
