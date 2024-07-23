@@ -6,8 +6,7 @@ export default async function createTaskModel(
   description,
   start_on,
   finish_on,
-  family_id,
-  color_id
+  family_id
 ) {
   try {
     // hacemos la conexion con la base de datos
@@ -15,9 +14,9 @@ export default async function createTaskModel(
 
     // hacemos la consulta con la cual mandaremos la informacion obtenida por argumentos para crear la tarea
     const [task] = await pool.query(
-      `INSERT INTO tasks(title, description, user_id,start_on,finish_on,family_id, color_id) 
-            VALUES(?,?,?,?,?)`,
-      [title, description, currentUser, start_on, finish_on, family_id, color_id]
+      `INSERT INTO tasks(title, description, user_id, start_on,finish_on, family_id) 
+            VALUES(?,?,?,?,?,?)`,
+      [title, description, currentUser, start_on, finish_on, family_id]
     );
 
     // retornamos la tarea
