@@ -33,7 +33,7 @@ export default async function signInModel(email, password) {
         id: user.user_id,
         username: user.username,
         email: user.email,
-        role: user.role,
+        role: user.role
       },
       JWT_SECRET,
       {
