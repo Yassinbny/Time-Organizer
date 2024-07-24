@@ -24,7 +24,7 @@ router.get("/confirm/:validationCode", confirmUserController);
 router.get("/", authenticateToken, isAdmin, listUsersController);
 
 // Eliminar usuario (solo administradores)
-router.delete("/:username", authenticateToken, isAdmin, deleteUserController);
+router.delete("/:user_id", authenticateToken, isAdmin, deleteUserController);
 
 // Habilitar/Deshabilitar usuario (solo administradores)
 router.put(
