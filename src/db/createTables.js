@@ -5,7 +5,7 @@ const createTables = async () => {
   try {
     const pool = await getPool();
     await pool.query(
-      `DROP TABLE IF EXISTS users, tasks, colors, family, notes, subtask, annotations, evaluations`
+      `DROP TABLE IF EXISTS users, tasks, colors, family, notes, subtask, annotations, evaluations, task_color_family`
     );
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
@@ -129,6 +129,18 @@ const createTables = async () => {
     FOREIGN KEY (user_id) REFERENCES users (user_id))`);
 
     console.log("Tabla evaluations creada con éxito.");
+
+    await pool.query(`CREATE TABLE task_color_family (
+    id INT UNSIGNED PRIMARY KEY NOT NULL,
+    task_id INT UNSIGNED,
+    color_id INT UNSIGNED,
+    family_id INT UNSIGNED,
+    FOREIGN KEY (task_id) REFERENCES tasks (task_id),
+    FOREIGN KEY (color_id) REFERENCES colors (color_id),
+    FOREIGN KEY (family_id) REFERENCES family (family_id))
+    `);
+
+    console.log("Tabla task_color_family creada con éxito.");
 
     process.exit(0);
   } catch (err) {
