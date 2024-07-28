@@ -11,7 +11,8 @@ import {
   usersRoutes,
   annotationRoutes,
   completedTasksRoutes,
-  imagesRoutes
+  imagesRoutes,
+  colorsRoutes
 } from "./src/routes/index.js";
 
 dotenv.config();
@@ -39,6 +40,7 @@ app.use("/users", usersRoutes);
 app.use("/annotations", annotationRoutes);
 app.use("/completed-tasks", completedTasksRoutes);
 app.use("/image", imagesRoutes);
+app.use("/colors", colorsRoutes);
 
 // middleware 404 not founded
 app.use((req, res) => {

@@ -13,6 +13,7 @@ import deleteTaskcontroller from "./deleteTask.controller.js";
 import postponeTaskController from "./postponeTask.controller.js";
 import postponeAllTasksController from "./postponeAllTasks.controller.js";
 import listCompletedTasksController from "./listCompletedTasks.controller.js";
+import listColorsController from "./listColors.controller.js";
 
 export {
   createTaskController,
@@ -30,4 +31,5 @@ export {
   postponeTaskController,
   postponeAllTasksController,
   listCompletedTasksController,
+  listColorsController,
 };
