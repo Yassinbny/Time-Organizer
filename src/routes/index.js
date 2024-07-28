@@ -5,6 +5,7 @@ import usersRoutes from "./users.routes.js";
 import annotationRoutes from "./annotations.routes.js";
 import completedTasksRoutes from "./completedTasks.routes.js";
 import imagesRoutes from "./images.routes.js";
+import colorsRoutes from "./colors.routes.js";
 
 
 export { 
@@ -15,4 +16,5 @@ export {
     annotationRoutes,
     completedTasksRoutes,
     imagesRoutes,
+    colorsRoutes,
 };

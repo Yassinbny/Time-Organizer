@@ -101,7 +101,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwiaWF0IjoxNzIxNjgwNjIyLCJleHAiOjE3MjQyNzI2MjJ9.7YSW0fCwXCQhJZVC0F3N-1aQWiGcYIKhOHdUG-LR6qk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
 						"type": "text"
 					}
 				],
@@ -134,7 +134,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwiaWF0IjoxNzIxNjgwNjIyLCJleHAiOjE3MjQyNzI2MjJ9.7YSW0fCwXCQhJZVC0F3N-1aQWiGcYIKhOHdUG-LR6qk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
 						"type": "text"
 					}
 				],
@@ -241,7 +241,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwiaWF0IjoxNzIxNjgwNjIyLCJleHAiOjE3MjQyNzI2MjJ9.7YSW0fCwXCQhJZVC0F3N-1aQWiGcYIKhOHdUG-LR6qk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
 						"type": "text"
 					}
 				],
@@ -276,7 +276,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwiaWF0IjoxNzIxNjgwNjIyLCJleHAiOjE3MjQyNzI2MjJ9.7YSW0fCwXCQhJZVC0F3N-1aQWiGcYIKhOHdUG-LR6qk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
 						"type": "text"
 					}
 				],
@@ -308,7 +308,13 @@
 			"name": "finish task",
 			"request": {
 				"method": "POST",
-				"header": [],
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
+						"type": "text"
+					}
+				],
 				"url": {
 					"raw": "localhost:3000/tasks/1",
 					"host": [
@@ -449,7 +455,7 @@
 				"header": [
 					{
 						"key": "Authorization",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwiaWF0IjoxNzIxNjgwNjIyLCJleHAiOjE3MjQyNzI2MjJ9.7YSW0fCwXCQhJZVC0F3N-1aQWiGcYIKhOHdUG-LR6qk",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
 						"type": "text"
 					}
 				],
@@ -1293,6 +1299,30 @@
 					"path": [
 						"user",
 						"avatar"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Colors",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJ5byIsImVtYWlsIjoiaW5lei5zaWVwYWtAZ21haWwuY29tIiwicm9sZSI6Im5vcm1hbCIsImVuYWJsZWQiOjEsImlhdCI6MTcyMjE3OTA0NiwiZXhwIjoxNzI0NzcxMDQ2fQ.4U8uA_Pz7RRabiJeU7so_mmDtyLm089EWI7qAYExE2Q",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:3000/colors",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"colors"
 					]
 				}
 			},
