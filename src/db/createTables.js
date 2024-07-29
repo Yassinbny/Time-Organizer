@@ -131,7 +131,7 @@ const createTables = async () => {
     console.log("Tabla evaluations creada con éxito.");
 
     await pool.query(`CREATE TABLE task_color_family (
-    id INT UNSIGNED PRIMARY KEY NOT NULL,
+    id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
     task_id INT UNSIGNED,
     color_id INT UNSIGNED,
     family_id INT UNSIGNED,
