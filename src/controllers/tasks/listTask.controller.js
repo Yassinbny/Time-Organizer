@@ -24,6 +24,7 @@ export default async function listTaskController(req, res, next) {
     // pasamos estos ultimos a traves de argumento al model para ordenar en caso de que queramos
 
     const { tasks } = await listTaskModel(currentUser, search, sort, order);
+
     return res.status(200).json({
       ok: true,
       tasks,

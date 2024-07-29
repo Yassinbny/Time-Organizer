@@ -5,7 +5,7 @@ const createTables = async () => {
   try {
     const pool = await getPool();
     await pool.query(
-      `DROP TABLE IF EXISTS users, tasks, colors, family, notes, subtask, annotations, evaluations, task_color_family`
+      `DROP TABLE IF EXISTS users, tasks, colors, family, notes, subtask, annotations, evaluations, task_color_family  `
     );
     await pool.query(`CREATE TABLE users (
         user_id INT UNSIGNED PRIMARY KEY  NOT NULL AUTO_INCREMENT,
@@ -31,19 +31,19 @@ const createTables = async () => {
 
     await pool.query(`CREATE TABLE colors (
       color_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
-      name ENUM('negro','blanco','verde', 'azul', 'rojo', 'amarillo', 'gris') NOT NULL
+      name VARCHAR(100) NOT NULL
     )`);
 
     console.log("Tabla colors creada con éxito");
 
     await pool.query(`INSERT INTO colors (name) VALUES 
-      ('negro'),
-      ('blanco'),
-      ('verde'),
-      ('azul'),
-      ('rojo'),
-      ('amarillo'),
-      ('gris')
+      ('black'),
+      ('white'),
+      ('green'),
+      ('blue'),
+      ('red'),
+      ('yellow'),
+      ('grey')
     `);
 
     console.log("Colores insertados con éxito.");
