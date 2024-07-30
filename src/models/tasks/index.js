@@ -14,7 +14,6 @@ import postponeTaskModel from "./postponeTask.model.js";
 import updateTaskModel from "./updateTask.model.js";
 import rateFinishedTaskModel from "./rateFinishedTask.model.js";
 import listColorsModel from "./listColors.model.js";
-
 export {
   createSubTaskModel,
   createTaskModel,

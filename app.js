@@ -10,9 +10,8 @@ import {
   authRoutes,
   usersRoutes,
   annotationRoutes,
-  completedTasksRoutes,
   imagesRoutes,
-  colorsRoutes
+  colorsRoutes,
 } from "./src/routes/index.js";
 
 dotenv.config();
@@ -38,7 +37,6 @@ app.use("/family", familyRoutes);
 app.use("/auth", authRoutes);
 app.use("/users", usersRoutes);
 app.use("/annotations", annotationRoutes);
-app.use("/completed-tasks", completedTasksRoutes);
 app.use("/image", imagesRoutes);
 app.use("/colors", colorsRoutes);
 
