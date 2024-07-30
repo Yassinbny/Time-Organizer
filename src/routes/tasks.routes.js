@@ -18,6 +18,7 @@ import {
   deleteTaskcontroller,
   postponeTaskController,
   postponeAllTasksController,
+  listCompletedTasksController,
 } from "../controllers/tasks/index.js";
 
 import { authenticateToken } from "../middlewares/index.js";
@@ -70,5 +71,7 @@ router
 
   // Eliminar Tarea
   .delete("/:idTask", authenticateToken, deleteTaskcontroller)
+  // listar tareas completadas
+  .get("/", authenticateToken, listCompletedTasksController);
 
 export default router;

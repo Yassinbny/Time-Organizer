@@ -24,7 +24,7 @@ JOIN
 
     // Búsqueda
     if (search) {
-      query += ` and (title = "${search}" OR description = "${search}") `;
+      query += ` and (title like "%${search}%" OR description like "%${search}%") `;
       // queryParams.push(`%${search}%`, `%${search}%`);
     }
 

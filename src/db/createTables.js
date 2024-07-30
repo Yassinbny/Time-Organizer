@@ -68,8 +68,7 @@ const createTables = async () => {
     await pool.query(`CREATE TABLE family (
     family_id INT UNSIGNED PRIMARY KEY NOT NULL AUTO_INCREMENT,
     name ENUM('trabajo','deporte','estudios','casa','ocio') NOT NULL,
-    color ENUM('negro','blanco','verde','azul','rojo','amarillo','gris') DEFAULT 'blanco' NOT NULL,
-    createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
+        createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
     updatedAt DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 )`);
 
