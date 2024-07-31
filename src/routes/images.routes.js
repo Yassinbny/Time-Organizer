@@ -5,6 +5,6 @@ import { authenticateToken } from "../middlewares/index.js";
 
 const router = express.Router();
 
-router.put("/", authenticateToken, uploadImageController);
+router.post("/", authenticateToken, uploadImageController);
 
 export default router;
