@@ -20,7 +20,7 @@ export default async function signUpController(req, res, next) {
     //Link para confirmar el registro.
     const emailLink = `${req.protocol}://${req.get(
       "host"
-    )}/users/confirm?token=${signUpCode}`;
+    )}/users/confirm/${signUpCode}`;
 
     //cuerpo del mail
     const emailBody = `
