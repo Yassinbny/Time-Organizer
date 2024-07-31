@@ -1,11 +1,10 @@
 import getPool from "../../db/getpool.js";
 import {
   notFoundError,
-  invalidCredentialsError,
   newUsernameError,
 } from "../../services/errorServices.js";
 
-const editUsernameModel = async function (userId, username, newUsername) {
+const editUsernameModel = async function (userId, newUsername) {
   try {
     const pool = await getPool();
 
@@ -18,10 +17,6 @@ const editUsernameModel = async function (userId, username, newUsername) {
       notFoundError("user");
     }
     console.log(user);
-    //Comprobamos que el username coincida con el del registro.
-    if (username !== user.username) {
-      invalidCredentialsError();
-    }
 
     //Comprobamos que el nuevo username no esté ya en uso en la DB.
     const generalUsers = await pool.query(

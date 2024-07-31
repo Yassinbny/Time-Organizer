@@ -9,13 +9,13 @@ const editUsernameController = async (req, res, next) => {
     //Token autentificación.
     const userId = req.currentUser.id;
 
-    const { username, newUsername } = req.body;
+    const { newUsername } = req.body;
 
     // Validamos el body con Joi.
     await validateSchema(editUsernameSchema, req.body);
 
     //Buscamos al usuario por su Id y actualizamos username en DB.
-    const users = await editUsernameModel(userId, username, newUsername);
+    const users = await editUsernameModel(userId, newUsername);
 
     if (!users) {
       return notFoundError("usuario");
