@@ -3,7 +3,6 @@ import generateToken from "../../services/generateToken.js";
 import sendMail from "../../services/sendMail.js";
 import validateSchema from "../../validations/validateSchema.js";
 import { signUpSchema } from "../../validations/usersSchema.js";
-import { FRONTEND_URL } from "../../env.js";  // Asegúrate de importar esta variable
 
 export default async function signUpController(req, res, next) {
   try {
