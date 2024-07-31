@@ -2,10 +2,18 @@ import nodemailer from "nodemailer";
 import { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS } from "../../env.js";
 
 const transporter = nodemailer.createTransport({
-  service: "Brevo",
   host: SMTP_HOST,
   port: SMTP_PORT,
-  auth: { user: SMTP_USER, pass: SMTP_PASS },
+  secure: false,
+  auth: {
+    user: SMTP_USER,
+    pass: SMTP_PASS,
+  },
+  tls: {
+    rejectUnauthorized: false,
+  },
+  logger: true, // Habilitar logs
+  debug: true,  // Habilitar depuración
 });
 
 const sendMail = async (email, subject, body) => {
@@ -18,9 +26,8 @@ const sendMail = async (email, subject, body) => {
     });
 
     console.log("Email enviado correctamente.");
-    
   } catch (error) {
-    console.log(error);
+    console.error("Error al enviar el correo:", error);
   }
 };
 

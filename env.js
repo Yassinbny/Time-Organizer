@@ -15,6 +15,7 @@ const PUBLIC_FOLDER = process.env.PUBLIC_FOLDER;
 const ADMIN_USER = process.env.ADMIN_USER;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD;
+const FRONTEND_URL = process.env.FRONTEND_URL;
 export {
   DB_USER,
   DB_PASSWORD,
@@ -31,4 +32,5 @@ export {
   ADMIN_EMAIL,
   ADMIN_PASSWORD,
   ADMIN_USER,
+  FRONTEND_URL,
 };
