@@ -3,11 +3,12 @@ import generateToken from "../../services/generateToken.js";
 import sendMail from "../../services/sendMail.js";
 import validateSchema from "../../validations/validateSchema.js";
 import { signUpSchema } from "../../validations/usersSchema.js";
+import { FRONTEND_URL } from "../../../env.js";
 
 export default async function signUpController(req, res, next) {
   try {
     const { username, email, password } = req.body;
-
+    console.log(FRONTEND_URL);
     // Validar el cuerpo de la solicitud con Joi.
     await validateSchema(signUpSchema, req.body);
 
@@ -29,9 +30,14 @@ export default async function signUpController(req, res, next) {
       </body>
       </html>
     `;
-
+    const emailSubject = "Confirma tu registro en TimeOrganizer";
     // Guardar el usuario en la base de datos con el código de confirmación.
-    const { message } = await signUpModel(username, email, password, signUpCode);
+    const { message } = await signUpModel(
+      username,
+      email,
+      password,
+      signUpCode
+    );
 
     // Enviar el correo electrónico con el enlace de confirmación.
     await sendMail(email, emailSubject, emailBody);

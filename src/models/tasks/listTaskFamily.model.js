@@ -1,21 +1,10 @@
 import getPool from "../../db/getpool.js";
 
-export default async function listTaskFamilyModel(search = 0, sort = 0, order = 0) {
+export default async function listTaskFamilyModel() {
   try {
     const pool = await getPool();
-    let query = "SELECT * FROM family"; 
 
-    // Búsqueda
-    if (search) {
-      query += ` WHERE (name = "%${search}%" OR color = "%${search}%")`;
-    }
-
-    // Ordenación
-    if (sort) {
-      query += ` ORDER BY ${sort} ${order}`;
-    }
-
-    const [taskFamilies] = await pool.query(query);
+    const [taskFamilies] = await pool.query(`SELECT * FROM family`);
     return { taskFamilies };
   } catch (error) {
     console.log(error);

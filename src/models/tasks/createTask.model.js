@@ -5,7 +5,9 @@ export default async function createTaskModel(
   title,
   description,
   start_on,
-  finish_on
+  finish_on,
+  family_id,
+  color_id
 ) {
   try {
     // hacemos la conexion con la base de datos
@@ -17,9 +19,16 @@ export default async function createTaskModel(
             VALUES(?,?,?,?,?)`,
       [title, description, currentUser, start_on, finish_on]
     );
+    console.log(task.insertId);
+
+    const res = await pool.query(
+      `INSERT INTO task_color_family (task_id, color_id, family_id) VALUES
+  (?,?,?)`,
+      [task.insertId, color_id, family_id]
+    );
 
     // retornamos la tarea
-    return { task };
+    return { task, res };
   } catch (error) {
     throw error;
   }

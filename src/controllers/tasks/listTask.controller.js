@@ -12,6 +12,8 @@ export default async function listTaskController(req, res, next) {
       search: req.query.search,
       sort: req.query.sort,
       order: req.query.order,
+      color: req.query.color,
+      family: req.query.family,
     };
     const { error, value } = listTaskSchema.validate(body);
     if (error) {
@@ -20,10 +22,17 @@ export default async function listTaskController(req, res, next) {
         message: error.details[0].message,
       });
     }
-    const { search, sort, order } = value;
+    const { search, sort, order, color, family } = value;
     // pasamos estos ultimos a traves de argumento al model para ordenar en caso de que queramos
 
-    const { tasks } = await listTaskModel(currentUser, search, sort, order);
+    const { tasks } = await listTaskModel(
+      currentUser,
+      search,
+      sort,
+      order,
+      color,
+      family
+    );
 
     return res.status(200).json({
       ok: true,
