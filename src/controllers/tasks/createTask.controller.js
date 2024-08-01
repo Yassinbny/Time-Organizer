@@ -16,7 +16,8 @@ export default async function createTaskController(req, res, next) {
       });
     }
 
-    const { title, description, start_on, finish_on } = value;
+    const { title, description, start_on, finish_on, family_id, color_id } =
+      value;
     let start = new Date(start_on);
     let end = new Date(finish_on);
     console.log(start, end);
@@ -27,12 +28,14 @@ export default async function createTaskController(req, res, next) {
       });
     }
     //   hacemos las consulta con nuestro modelo
-    const { task } = await createTaskModel(
+    const task = await createTaskModel(
       currentUser,
       title,
       description,
       start,
-      end
+      end,
+      family_id,
+      color_id
     );
     return res.status(200).json({
       ok: true,

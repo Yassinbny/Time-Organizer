@@ -4,7 +4,9 @@ export default async function listTaskModel(
   currentUser,
   search = 0,
   sort = 0,
-  order = 0
+  order = 0,
+  color = 0,
+  family = 0
 ) {
   try {
     const pool = await getPool();
@@ -19,7 +21,7 @@ JOIN
 JOIN 
     colors c ON tcf.color_id = c.color_id
 JOIN 
-    family f ON tcf.family_id = f.family_id 
+    family f ON tcf.family_id = f.family_id  
     where user_id= ${currentUser.id} `;
 
     // Búsqueda
@@ -27,7 +29,16 @@ JOIN
       query += ` and (title like "%${search}%" OR description like "%${search}%") `;
       // queryParams.push(`%${search}%`, `%${search}%`);
     }
-
+    // filtrar por color
+    if (color) {
+      query += ` and c.name="${color}" `;
+      // queryParams.push(`%${search}%`, `%${search}%`);
+    }
+    // por familia
+    if (family) {
+      query += ` and f.name="${family}" `;
+      // queryParams.push(`%${search}%`, `%${search}%`);
+    }
     // Ordenación
     if (sort) {
       query += ` ORDER BY ${sort} ${order}`;
