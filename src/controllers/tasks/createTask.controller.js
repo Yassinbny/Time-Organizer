@@ -17,14 +17,22 @@ export default async function createTaskController(req, res, next) {
     }
 
     const { title, description, start_on, finish_on } = value;
-
+    let start = new Date(start_on);
+    let end = new Date(finish_on);
+    console.log(start, end);
+    if (start >= end) {
+      return res.status(400).json({
+        ok: false,
+        message: "la fecha de fin no puede ser inferior a la de inicio",
+      });
+    }
     //   hacemos las consulta con nuestro modelo
     const { task } = await createTaskModel(
       currentUser,
       title,
       description,
-      start_on,
-      finish_on
+      start,
+      end
     );
     return res.status(200).json({
       ok: true,
