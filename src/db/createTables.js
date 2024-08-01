@@ -60,7 +60,8 @@ const createTables = async () => {
       rating INT UNSIGNED,
       createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,
       updatedAt DATETIME ON UPDATE CURRENT_TIMESTAMP,
-      FOREIGN KEY (user_id) REFERENCES users (user_id)
+      FOREIGN KEY (user_id) REFERENCES users (user_id),
+      CHECK (finish_on >= start_on)
     )`);
 
     console.log("Tabla tasks creada con éxito.");
@@ -75,12 +76,12 @@ const createTables = async () => {
     console.log("Tabla family creada con éxito.");
 
     // Insertar valores en la tabla
-    await pool.query(`INSERT INTO family (name, color) VALUES 
-  ('trabajo', 'negro'),
-  ('deporte', 'blanco'),
-  ('estudios', 'verde'),
-  ('casa', 'azul'),
-  ('ocio', 'rojo')`);
+    await pool.query(`INSERT INTO family (name) VALUES 
+  ('trabajo'),
+  ('deporte'),
+  ('estudios'),
+  ('casa'),
+  ('ocio')`);
 
     console.log("Valores insertados en la tabla family con éxito.");
 
