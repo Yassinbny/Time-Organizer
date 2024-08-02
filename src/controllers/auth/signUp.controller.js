@@ -8,7 +8,7 @@ import { FRONTEND_URL } from "../../../env.js";
 export default async function signUpController(req, res, next) {
   try {
     const { username, email, password } = req.body;
-    console.log(FRONTEND_URL);
+    
     // Validar el cuerpo de la solicitud con Joi.
     await validateSchema(signUpSchema, req.body);
 
@@ -18,7 +18,12 @@ export default async function signUpController(req, res, next) {
     // Crear el enlace de confirmación usando FRONTEND_URL.
     const emailLink = `${FRONTEND_URL}/confirm/${signUpCode}`;
 
-    const emailSubject = "confirma tu registro en Time Organizer"
+    // Guardar el usuario en la base de datos con el código de confirmación.
+    const { ok, message } = await signUpModel(username, email, password, signUpCode);
+
+    if (!ok) {
+      return res.status(400).json({ ok: false, message });
+    }
 
     // Crear el cuerpo del correo electrónico.
     const emailBody = `
@@ -33,13 +38,6 @@ export default async function signUpController(req, res, next) {
       </html>
     `;
     const emailSubject = "Confirma tu registro en TimeOrganizer";
-    // Guardar el usuario en la base de datos con el código de confirmación.
-    const { message } = await signUpModel(
-      username,
-      email,
-      password,
-      signUpCode
-    );
 
     // Enviar el correo electrónico con el enlace de confirmación.
     await sendMail(email, emailSubject, emailBody);
@@ -49,7 +47,7 @@ export default async function signUpController(req, res, next) {
       message,
     });
   } catch (error) {
-    console.log(error);
+    console.error(error);
     next(error);
   }
 }
