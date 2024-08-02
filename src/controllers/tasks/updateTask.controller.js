@@ -1,8 +1,11 @@
+import verifyOwner from "../../middlewares/verifyOwner.js";
 import updateTaskModel from "../../models/tasks/updateTask.model.js";
 import updateTaskSchema from "../../validations/updateTaskSchema.js";
+import verifyTask from "../../validations/verifyTask.js";
 
 export default async function updateTaskController(req, res, next) {
   try {
+    const currentUser = req.currentUser.id;
     const body = {
       title: req.body.title,
       description: req.body.description,
@@ -22,6 +25,9 @@ export default async function updateTaskController(req, res, next) {
     }
 
     const { title, description, start_on, finish_on, task_id } = value;
+    const [[task]] = await verifyTask(task_id);
+
+    verifyOwner(task, currentUser);
 
     const { message } = await updateTaskModel(
       title,

@@ -20,7 +20,17 @@ export default async function createTaskController(req, res, next) {
       value;
     let start = new Date(start_on);
     let end = new Date(finish_on);
+    let today = new Date();
+    today.setHours(0, 0, 0, 0); // Resetea la hora a medianoche para comparar solo la fecha
     console.log(start, end);
+
+    if (start < today) {
+      return res.status(400).json({
+        ok: false,
+        message: "la fecha de inicio no puede ser anterior a la de hoy",
+      });
+    }
+
     if (start >= end) {
       return res.status(400).json({
         ok: false,
