@@ -11,6 +11,7 @@ const SMTP_HOST = process.env.SMTP_HOST;
 const SMTP_PORT = process.env.SMTP_PORT;
 const SMTP_USER = process.env.SMTP_USER;
 const SMTP_PASS = process.env.SMTP_PASS;
+const SMTP_SENDER = process.env.SMTP_SENDER;
 const PUBLIC_FOLDER = process.env.PUBLIC_FOLDER;
 const ADMIN_USER = process.env.ADMIN_USER;
 const ADMIN_EMAIL = process.env.ADMIN_EMAIL;
@@ -28,6 +29,7 @@ export {
   SMTP_PASS,
   SMTP_PORT,
   SMTP_USER,
+  SMTP_SENDER,
   PUBLIC_FOLDER,
   ADMIN_EMAIL,
   ADMIN_PASSWORD,
