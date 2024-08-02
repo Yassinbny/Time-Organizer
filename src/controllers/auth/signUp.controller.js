@@ -18,8 +18,6 @@ export default async function signUpController(req, res, next) {
     // Crear el enlace de confirmación usando FRONTEND_URL.
     const emailLink = `${FRONTEND_URL}/confirm/${signUpCode}`;
 
-    const emailSubject = "confirma tu registro en Time Organizer"
-
     // Crear el cuerpo del correo electrónico.
     const emailBody = `
       <!DOCTYPE html>
