@@ -18,6 +18,13 @@ export default async function signUpController(req, res, next) {
     // Crear el enlace de confirmación usando FRONTEND_URL.
     const emailLink = `${FRONTEND_URL}/confirm/${signUpCode}`;
 
+    // Guardar el usuario en la base de datos con el código de confirmación.
+    const { ok, message } = await signUpModel(username, email, password, signUpCode);
+
+    if (!ok) {
+      return res.status(400).json({ ok: false, message });
+    }
+
     // Crear el cuerpo del correo electrónico.
     const emailBody = `
       <!DOCTYPE html>
