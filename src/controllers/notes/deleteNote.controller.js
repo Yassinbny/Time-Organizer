@@ -4,6 +4,8 @@ import deleteNoteSchema from "../../validations/deleteNoteSchema.js";
 
 export default async function deleteNotecontroller(req, res, next) {
   try {
+    const currentUser = req.currentUser;
+
     // Validar el ID de la nota con el esquema
     const { error, value } = deleteNoteSchema.validate({
       note_id: req.params.idNote,
@@ -18,7 +20,7 @@ export default async function deleteNotecontroller(req, res, next) {
 
     const { note_id } = value;
 
-    const { message } = await deleteNoteModel(note_id);
+    const { message } = await deleteNoteModel(currentUser, note_id);
     return res.status(200).json({
       ok: true,
       message: message,

@@ -1,9 +1,13 @@
 import getPool from "../../db/getpool.js";
+import verifyOwner from "../../middlewares/verifyOwner.js";
 
-export default async function deleteNoteModel(note_id) {
+export default async function deleteNoteModel(currentUser, note_id) {
   try {
     const pool = await getPool();
-
+    const [[note]] = await pool.query(`select * from notes where note_id=?`, [
+      note_id,
+    ]);
+    verifyOwner(note, currentUser.id);
     const [result] = await pool.query(
       `DELETE FROM notes
 WHERE note_id = ? `,

@@ -23,7 +23,8 @@ export default async function signInController(req, res, next) {
     if (user && user.token) {
       return res.status(400).json({
         ok: false,
-        message: "Es necesario confirmar el usuario. Por favor, revisa tu correo electrónico para confirmar tu cuenta.",
+        message:
+          "Es necesario confirmar el usuario. Por favor, revisa tu correo electrónico para confirmar tu cuenta.",
       });
     }
 
@@ -31,7 +32,7 @@ export default async function signInController(req, res, next) {
     if (!user) {
       return res.status(400).json({
         ok: false,
-        message: "Los datos introducidos son incorrectos.",
+        message: "el usuario no existe",
       });
     }
 

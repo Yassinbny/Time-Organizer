@@ -28,12 +28,22 @@ export default async function updateTaskController(req, res, next) {
     const [[task]] = await verifyTask(task_id);
 
     verifyOwner(task, currentUser);
-
+    if (task.done) {
+      return res.status(400).json({
+        ok: false,
+        message: "no puedes editar tareas ya finalizadas",
+      });
+    }
+    // Establecer valores predeterminados
+    const updatedTitle = title ?? task.title;
+    const updatedDescription = description ?? task.description;
+    const updatedStartOn = start_on ?? task.start_on;
+    const updatedFinishOn = finish_on ?? task.finish_on;
     const { message } = await updateTaskModel(
-      title,
-      description,
-      start_on,
-      finish_on,
+      updatedTitle,
+      updatedDescription,
+      updatedStartOn,
+      updatedFinishOn,
       task_id
     );
 
