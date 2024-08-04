@@ -1,5 +1,11 @@
 import nodemailer from "nodemailer";
-import { SMTP_HOST, SMTP_PORT, SMTP_USER, SMTP_PASS, SMTP_SENDER } from "../../env.js";
+import {
+  SMTP_HOST,
+  SMTP_PORT,
+  SMTP_USER,
+  SMTP_PASS,
+  SMTP_SENDER,
+} from "../../env.js";
 
 const transporter = nodemailer.createTransport({
   host: SMTP_HOST,
@@ -9,11 +15,11 @@ const transporter = nodemailer.createTransport({
     user: SMTP_USER,
     pass: SMTP_PASS,
   },
-  tls: {
-    rejectUnauthorized: false,
-  },
-  logger: true, // Habilitar logs
-  debug: true,  // Habilitar depuración
+  // tls: {
+  //   rejectUnauthorized: false,
+  // },
+  // logger: true, // Habilitar logs
+  // debug: true, // Habilitar depuración
 });
 
 const sendMail = async (email, subject, body) => {

@@ -3,6 +3,8 @@ import updateNoteSchema from "../../validations/updateNoteSchema.js";
 
 export default async function updateNoteController(req, res, next) {
   try {
+    const currentUser = req.currentUser;
+
     // Validar el cuerpo de la solicitud con el esquema
     const body = {
       description: req.body.description,
@@ -20,7 +22,11 @@ export default async function updateNoteController(req, res, next) {
 
     const { description, note_id } = value;
 
-    const { message } = await updateNoteModel(description, note_id);
+    const { message } = await updateNoteModel(
+      description,
+      currentUser,
+      note_id
+    );
     return res.status(200).json({
       ok: true,
       message: message,
