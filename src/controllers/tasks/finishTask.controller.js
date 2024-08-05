@@ -27,7 +27,7 @@ export default async function finishTaskController(req, res, next) {
         message: "task no encontrado",
       });
     }
-    verifyOwner(task);
+    verifyOwner(task, currentUser);
     // Utilizamos el modelo para finalizar la tarea en la base de datos
     const { result } = await finishTaskModel(task_id, currentUser);
 
