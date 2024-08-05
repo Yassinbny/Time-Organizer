@@ -26,6 +26,12 @@ export default async function updateTaskController(req, res, next) {
 
     const { title, description, start_on, finish_on, task_id } = value;
     const [[task]] = await verifyTask(task_id);
+    if (!task) {
+      return res.status(400).json({
+        ok: false,
+        message: "task no encontrado",
+      });
+    }
 
     verifyOwner(task, currentUser);
     if (task.done) {

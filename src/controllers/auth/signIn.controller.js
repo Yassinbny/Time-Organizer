@@ -18,7 +18,13 @@ export default async function signInController(req, res, next) {
 
     const { email, password } = value;
     const { user } = await signInModel(email, password);
-
+    // Verificar si el usuario existe
+    if (!user) {
+      return res.status(400).json({
+        ok: false,
+        message: "el usuario no existe",
+      });
+    }
     // Verificar si el usuario tiene un token pendiente
     if (user && user.token) {
       return res.status(400).json({
@@ -27,12 +33,11 @@ export default async function signInController(req, res, next) {
           "Es necesario confirmar el usuario. Por favor, revisa tu correo electrónico para confirmar tu cuenta.",
       });
     }
-
-    // Verificar si el usuario existe
-    if (!user) {
+    // mirar si el usuario esta habilitado
+    if (!user.enabled) {
       return res.status(400).json({
         ok: false,
-        message: "el usuario no existe",
+        message: "este usuario esta desactivado",
       });
     }
 

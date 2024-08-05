@@ -15,7 +15,7 @@ export default async function confirmUserModel(validationCode) {
         code: "BAD REQUEST",
       };
 
-    await pool.query(`UPDATE users SET token = ? WHERE token = ?`, [
+    await pool.query(`UPDATE users SET token = ?,enabled = 1 WHERE token = ?`, [
       null,
       validationCode,
     ]);

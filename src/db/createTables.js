@@ -15,7 +15,7 @@ const createTables = async () => {
         avatar VARCHAR(100), 
         imageBoard VARCHAR(100),
         token CHAR(30) NULL,
-        enabled BOOLEAN NOT NULL DEFAULT TRUE,
+        enabled BOOLEAN NOT NULL DEFAULT FALSE,
         recoverPassCode VARCHAR(255)  NULL,
         role ENUM('admin', 'normal') DEFAULT 'normal',
         createdAt DATETIME DEFAULT CURRENT_TIMESTAMP,

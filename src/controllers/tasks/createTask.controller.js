@@ -38,7 +38,7 @@ export default async function createTaskController(req, res, next) {
       });
     }
     //   hacemos las consulta con nuestro modelo
-    const task = await createTaskModel(
+    const { task } = await createTaskModel(
       currentUser,
       title,
       description,
@@ -47,9 +47,11 @@ export default async function createTaskController(req, res, next) {
       family_id,
       color_id
     );
+
     return res.status(200).json({
       ok: true,
-      message: task,
+      message: "tarea creada con exito",
+      id: task.insertId,
     });
   } catch (error) {
     console.log(error);

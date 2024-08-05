@@ -11,7 +11,7 @@ export default async function generateAdmin() {
     //Hashear la contraseña.
     const hashedPassword = await hash(ADMIN_PASSWORD, 10);
     await pool.query(
-      `INSERT INTO users(username, email, password,role) VALUES(?,?,?,?)`,
+      `INSERT INTO users(username, email, password,role,enabled) VALUES(?,?,?,?,true)`,
       [ADMIN_USER, ADMIN_EMAIL, hashedPassword, "admin"]
     );
   } catch (error) {
