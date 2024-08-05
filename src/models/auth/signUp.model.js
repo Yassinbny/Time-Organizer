@@ -1,6 +1,6 @@
 import { hash } from 'bcrypt';
 import getPool from '../../db/getPool.js';
-import { userDataError } from '../../services/errorServices.js';
+
 
 export default async function signUpModel(username, email, password, signUpCode) {
   const pool = await getPool();

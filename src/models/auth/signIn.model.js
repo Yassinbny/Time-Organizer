@@ -1,4 +1,3 @@
-import { compare } from "bcrypt";
 import getPool from "../../db/getpool.js";
 
 export default async function signInModel(email, password) {
