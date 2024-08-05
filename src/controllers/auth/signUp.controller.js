@@ -3,6 +3,8 @@ import generateToken from "../../services/generateToken.js";
 import sendMail from "../../services/sendMail.js";
 import validateSchema from "../../validations/validateSchema.js";
 import { signUpSchema } from "../../validations/usersSchema.js";
+import { FRONTEND_URL } from "../../../env.js";
+
 
 export default async function signUpController(req, res, next) {
   try {
@@ -15,7 +17,7 @@ export default async function signUpController(req, res, next) {
     const signUpCode = generateToken();
 
     // Crear el enlace de confirmación usando FRONTEND_URL.
-    const emailLink = `http://localhost:5173/confirm/${signUpCode}`;
+    const emailLink = `${FRONTEND_URL}confirm/${signUpCode}`;
 
     // Guardar el usuario en la base de datos con el código de confirmación.
     const { ok, message } = await signUpModel(username, email, password, signUpCode);
