@@ -3,12 +3,10 @@ import { postponeAllTasksModel } from "../../models/tasks/index.js";
 
 export default async function postponeAllTasksController(req, res, next) {
   try {
-    const body = {
-      finish_on: req.body.finish_on,
-    };
+
 
     // Validar el cuerpo de la solicitud usando el esquema definido en postponeAllTasksSchema.js
-    const { error, value } = postponeAllTasksSchema.validate(body);
+    const { error, value } = postponeAllTasksSchema.validate(req.body);
 
     if (error) {
       return res.status(400).json({
@@ -17,9 +15,10 @@ export default async function postponeAllTasksController(req, res, next) {
       });
     }
 
-    const { finish_on } = value;
+    const { daysToPostpone = 0, hoursToPostpone = 0 } = value;
 
-    const { message } = await postponeAllTasksModel(finish_on);
+// obtenemos todas las tareas de la base de datos
+    const { message } = await postponeAllTasksModel(daysToPostpone, hoursToPostpone);
 
     return res.status(200).json({
       ok: true,

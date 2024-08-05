@@ -4,7 +4,6 @@ import { postponeTaskModel } from "../../models/tasks/index.js";
 export default async function postponeTaskController(req, res, next) {
   try {
     const body = {
-      finish_on: req.body.finish_on,
       task_id: req.params.idTask,
     };
 
@@ -18,9 +17,9 @@ export default async function postponeTaskController(req, res, next) {
       });
     }
 
-    const { finish_on, task_id } = value;
+    const { task_id } = value;
 
-    const { message } = await postponeTaskModel(finish_on, task_id);
+    const { message } = await postponeTaskModel(task_id);
 
     return res.status(200).json({
       ok: true,

@@ -1,7 +1,8 @@
 import Joi from "joi";
 
 const postponeAllTasksSchema = Joi.object({
-  finish_on: Joi.date().required(),
+  daysToPostpone: Joi.number().integer().min(0).optional(),
+  hoursToPostpone: Joi.number().integer().min(0).optional(),
 });
 
 export default postponeAllTasksSchema;
