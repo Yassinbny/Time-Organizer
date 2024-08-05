@@ -1,9 +1,10 @@
 import { createTaskModel } from "../../models/tasks/index.js";
 import createTaskSchema from "../../validations/createTaskSchema.js";
+
 // creamos el controller que vamos a tener despues en las rutas para crear el post
 export default async function createTaskController(req, res, next) {
   try {
-    //  asignamos un valor a currentUser el cual despues obtendremos por req
+    // asignamos un valor a currentUser el cual despues obtendremos por req
     const currentUser = req.currentUser.id;
 
     // Validamos los datos del body
@@ -16,28 +17,27 @@ export default async function createTaskController(req, res, next) {
       });
     }
 
-    const { title, description, start_on, finish_on, family_id, color_id } =
-      value;
+    const { title, description, start_on, finish_on, family_id, color_id } = value;
     let start = new Date(start_on);
     let end = new Date(finish_on);
     let today = new Date();
     today.setHours(0, 0, 0, 0); // Resetea la hora a medianoche para comparar solo la fecha
-    console.log(start, end);
 
     if (start < today) {
       return res.status(400).json({
         ok: false,
-        message: "la fecha de inicio no puede ser anterior a la de hoy",
+        message: "La fecha de inicio no puede ser anterior a la de hoy",
       });
     }
 
     if (start >= end) {
       return res.status(400).json({
         ok: false,
-        message: "la fecha de fin no puede ser inferior a la de inicio",
+        message: "La fecha de fin no puede ser inferior o igual a la de inicio",
       });
     }
-    //   hacemos las consulta con nuestro modelo
+
+    // hacemos la consulta con nuestro modelo
     const { task } = await createTaskModel(
       currentUser,
       title,
@@ -50,7 +50,7 @@ export default async function createTaskController(req, res, next) {
 
     return res.status(200).json({
       ok: true,
-      message: "tarea creada con exito",
+      message: "Tarea creada con éxito",
       id: task.insertId,
     });
   } catch (error) {
