@@ -19,7 +19,6 @@ export default async function createTaskModel(
             VALUES(?,?,?,?,?)`,
       [title, description, currentUser, start_on, finish_on]
     );
-    console.log(task.insertId);
 
     const res = await pool.query(
       `INSERT INTO task_color_family (task_id, color_id, family_id) VALUES
