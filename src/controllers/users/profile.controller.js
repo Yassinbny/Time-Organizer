@@ -6,7 +6,7 @@ const profileController = async (req, res, next) => {
     //Token autentificación.
     const userId = req.currentUser.id;
 
-    const users = await profileModel(userId);
+    const [users] = await profileModel(userId);
 
     if (!users) {
         return notFoundError("usuario");
