@@ -16,12 +16,15 @@ import {
   rateFinishedTaskController,
   updateTaskController,
   deleteTaskcontroller,
+  deleteSubtaskController,
+  deleteAllSubtasksController,
   postponeTaskController,
   listCompletedTasksController,
   postponeAllTasksController,
 } from "../controllers/tasks/index.js";
 
 import { authenticateToken } from "../middlewares/index.js";
+//import deleteAllSubtasksController from "../controllers/tasks/deleteAllSubtasks.controller.js";
 
 const router = express.Router();
 
@@ -68,9 +71,18 @@ const router = express.Router();
   // Postponer una tarea
   router.patch("/:idTask/postpone", authenticateToken, postponeTaskController)
 
-
   // Eliminar Tarea
+  .delete("/:idTask", authenticateToken, deleteTaskcontroller)
+
+  // Eliminar Subtarea
+  .delete("/subtask/:idSubTask", authenticateToken, deleteSubtaskController)
+
+  // Eliminar todas las subtareas
+  .delete("/:idTask/subtask", authenticateToken, deleteAllSubtasksController)
+
+  // Eliminar tarea
   router.delete("/:idTask", authenticateToken, deleteTaskcontroller)
+
   // listar tareas completadas
   router.get("/", authenticateToken, listCompletedTasksController);
 
