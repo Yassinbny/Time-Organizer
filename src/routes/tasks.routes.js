@@ -16,6 +16,7 @@ import {
   rateFinishedTaskController,
   updateTaskController,
   deleteTaskcontroller,
+  deleteSubtaskController,
   postponeTaskController,
   postponeAllTasksController,
   listCompletedTasksController,
@@ -71,6 +72,10 @@ router
 
   // Eliminar Tarea
   .delete("/:idTask", authenticateToken, deleteTaskcontroller)
+
+  // Eliminar Subtarea
+  .delete("/subtask/:idSubTask", authenticateToken, deleteSubtaskController)
+
   // listar tareas completadas
   .get("/", authenticateToken, listCompletedTasksController);
 
