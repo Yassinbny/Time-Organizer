@@ -4,7 +4,7 @@ export default async function updateUserStatusModel(username, status) {
     const pool = await getPool();
 
     try {
-        await pool.query(`UPDATE users SET enabled = ? WHERE username = ?`, [status === "enabled" ? true : false, username]);
+        await pool.query(`UPDATE users SET enabled = ? WHERE username = ?`, [status, username]);
 
         return {
             message: `Estado del usuario ${username} actualizado con éxito`

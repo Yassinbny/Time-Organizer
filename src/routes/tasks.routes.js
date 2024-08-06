@@ -26,52 +26,53 @@ import { authenticateToken } from "../middlewares/index.js";
 const router = express.Router();
 
 //tasks
-router
+
   // Listar Tareas
-  .get("/", authenticateToken, listTaskController)
+router.get("/", authenticateToken, listTaskController)
 
   // Listar Tareas con ID
-  .get("/:idTask", authenticateToken, showTaskDetailByIdController)
+router.get("/:idTask", authenticateToken, showTaskDetailByIdController)
 
   // Crear Tarea
-  .post("/", authenticateToken, createTaskController)
+router.post("/", authenticateToken, createTaskController)
 
   // Finalizar Tarea con ID
-  .patch("/timePassed", authenticateToken, finishTaskByTimeController)
+router.patch("/timePassed", authenticateToken, finishTaskByTimeController)
 
   // Crear Nota
-  .post("/:idTask/notes", authenticateToken, createNoteController)
+router.post("/:idTask/notes", authenticateToken, createNoteController)
 
   // Eliminar Nota
-  .delete("/notes/:idNote", authenticateToken, deleteNotecontroller)
+router.delete("/notes/:idNote", authenticateToken, deleteNotecontroller)
 
   // Actualizar/Modificar Nota
-  .patch("/notes/:idNote", authenticateToken, updateNoteController)
+router.patch("/notes/:idNote", authenticateToken, updateNoteController)
 
   // Crear subTarea
-  .post("/:idTask/subtask", authenticateToken, createSubTaskController)
+router.post("/:idTask/subtask", authenticateToken, createSubTaskController)
 
   // Finalizar tarea
-  .post("/:idTask", authenticateToken, finishTaskController)
+router.post("/:idTask", authenticateToken, finishTaskController)
 
   // Valoración de Tareas Finalizadas
-  .post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
+router.post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
 
   // Finalizar subTarea
-  .post("/subtask/:idSubTask", authenticateToken, finishSubTaskController)
-
-  // Actualización/Modificación de Tarea
-  .patch("/:idTask", authenticateToken, updateTaskController)
-
-  // Postponer una tarea
-  .patch("/:idTask/postpone", authenticateToken, postponeTaskController)
+router.post("/subtask/:idSubTask", authenticateToken, finishSubTaskController)
 
   // Postponer Todas las tareas
-  .patch("/postponeAll", authenticateToken, postponeAllTasksController)
+router.patch("/postponeAll", authenticateToken, postponeAllTasksController)
+
+  // Actualización/Modificación de Tarea
+router.patch("/:idTask", authenticateToken, updateTaskController)
+
+  // Postponer una tarea
+router.patch("/:idTask/postpone", authenticateToken, postponeTaskController)
+
 
   // Eliminar Tarea
-  .delete("/:idTask", authenticateToken, deleteTaskcontroller)
+router.delete("/:idTask", authenticateToken, deleteTaskcontroller)
   // listar tareas completadas
-  .get("/", authenticateToken, listCompletedTasksController);
+router.get("/", authenticateToken, listCompletedTasksController);
 
 export default router;

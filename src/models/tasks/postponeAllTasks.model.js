@@ -1,4 +1,4 @@
-import getPool from "../../db/getPool.js";
+import getPool from "../../db/getpool.js";
 
 export default async function postponeAllTasksModel(
   daysToPostpone = 0,

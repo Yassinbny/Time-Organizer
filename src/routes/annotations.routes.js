@@ -11,9 +11,8 @@ const router = express.Router();
 
 // annotations
 
-router
-  .post("/", authenticateToken, createAnnotationController)
-  .patch("/:idAnnotation", updateAnnotationController)
-  .delete("/:idAnnotation", deleteAnnotationController);
+router.post("/", authenticateToken, createAnnotationController)
+router.patch("/:idAnnotation", updateAnnotationController)
+router.delete("/:idAnnotation", deleteAnnotationController);
 
 export default router;
