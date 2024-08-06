@@ -6,7 +6,7 @@ const adminProfileController = async (req, res, next) => {
     //Token autentificación.
     const userId = req.currentUser.id;
 
-    const users = await adminProfileModel(userId);
+    const [users] = await adminProfileModel(userId);
 
     if (!users) {
         return notFoundError("administrador");

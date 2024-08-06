@@ -1,5 +1,5 @@
 import { hash } from 'bcrypt';
-import getPool from '../../db/getPool.js';
+import getPool from '../../db/getpool.js';
 
 
 export default async function signUpModel(username, email, password, signUpCode) {
