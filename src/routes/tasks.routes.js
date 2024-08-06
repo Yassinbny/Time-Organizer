@@ -17,12 +17,14 @@ import {
   updateTaskController,
   deleteTaskcontroller,
   deleteSubtaskController,
+  deleteAllSubtasksController,
   postponeTaskController,
   postponeAllTasksController,
   listCompletedTasksController,
 } from "../controllers/tasks/index.js";
 
 import { authenticateToken } from "../middlewares/index.js";
+//import deleteAllSubtasksController from "../controllers/tasks/deleteAllSubtasks.controller.js";
 
 const router = express.Router();
 
@@ -75,6 +77,9 @@ router
 
   // Eliminar Subtarea
   .delete("/subtask/:idSubTask", authenticateToken, deleteSubtaskController)
+
+  // Eliminar todas las subtareas
+  .delete("/:idTask/subtask", authenticateToken, deleteAllSubtasksController)
 
   // listar tareas completadas
   .get("/", authenticateToken, listCompletedTasksController);

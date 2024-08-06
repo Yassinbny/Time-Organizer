@@ -3,6 +3,7 @@ import createTaskModel from "./createTask.model.js";
 import createTaskFamilyModel from "./createTaskFamily.model.js";
 import deleteTaskModel from "./deleteTask.model.js";
 import deleteSubtaskModel from "./deleteSubtask.model.js";
+import deleteAllSubtasksModel from "./deleteAllSubtasks.model.js";
 import finishSubTaskModel from "./finishSubTask.model.js";
 import finishTaskModel from "./finishTask.model.js";
 import finishTaskByTimeModel from "./finishTaskByTime.model.js";
@@ -21,6 +22,7 @@ export {
   createTaskFamilyModel,
   deleteTaskModel,
   deleteSubtaskModel,
+  deleteAllSubtasksModel,
   finishSubTaskModel,
   finishTaskModel,
   finishTaskByTimeModel,

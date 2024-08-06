@@ -10,6 +10,7 @@ import finishTaskByTimeController from "./FinishTaskByTime.controller.js";
 import rateFinishedTaskController from "./rateFinishedTask.controller.js";
 import updateTaskController from "./updateTask.controller.js";
 import deleteTaskcontroller from "./deleteTask.controller.js";
+import deleteAllSubtasksController from "./deleteAllSubtasks.controller.js";
 import deleteSubtaskController from "./deleteSubtask.controller.js";
 import postponeTaskController from "./postponeTask.controller.js";
 import postponeAllTasksController from "./postponeAllTasks.controller.js";
@@ -30,6 +31,7 @@ export {
   updateTaskController,
   deleteTaskcontroller,
   deleteSubtaskController,
+  deleteAllSubtasksController,
   postponeTaskController,
   postponeAllTasksController,
   listCompletedTasksController,
