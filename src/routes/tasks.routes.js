@@ -8,7 +8,7 @@ import {
 import {
   createTaskController,
   listTaskController,
-  listTaskByIdcontroller,
+  showTaskDetailByIdController,
   createSubTaskController,
   finishTaskController,
   finishSubTaskController,
@@ -31,7 +31,7 @@ router
   .get("/", authenticateToken, listTaskController)
 
   // Listar Tareas con ID
-  .get("/:idTask", authenticateToken, listTaskByIdcontroller)
+  .get("/:idTask", authenticateToken, showTaskDetailByIdController)
 
   // Crear Tarea
   .post("/", authenticateToken, createTaskController)

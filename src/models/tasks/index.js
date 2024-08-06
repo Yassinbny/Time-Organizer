@@ -7,13 +7,13 @@ import finishTaskModel from "./finishTask.model.js";
 import finishTaskByTimeModel from "./finishTaskByTime.model.js";
 import listCompletedTasksModel from "./listCompletedTasks.model.js";
 import listTaskModel from "./listTask.model.js";
-import listTaskByIdModel from "./listTaskById.model.js";
 import listTaskFamilyModel from "./listTaskFamily.model.js";
 import postponeAllTasksModel from "./postponeAllTasks.model.js";
 import postponeTaskModel from "./postponeTask.model.js";
 import updateTaskModel from "./updateTask.model.js";
 import rateFinishedTaskModel from "./rateFinishedTask.model.js";
 import listColorsModel from "./listColors.model.js";
+import showTaskDetailByIdModel from "./showTaskDetailById.model.js";
 export {
   createSubTaskModel,
   createTaskModel,
@@ -24,11 +24,11 @@ export {
   finishTaskByTimeModel,
   listCompletedTasksModel,
   listTaskModel,
-  listTaskByIdModel,
   listTaskFamilyModel,
   postponeAllTasksModel,
   postponeTaskModel,
   updateTaskModel,
   rateFinishedTaskModel,
   listColorsModel,
+  showTaskDetailByIdModel,
 };

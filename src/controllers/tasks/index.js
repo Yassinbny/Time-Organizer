@@ -1,6 +1,6 @@
 import createTaskController from "./createTask.controller.js";
 import listTaskController from "./listTask.controller.js";
-import listTaskByIdcontroller from "./listTaskById.controller.js";
+import showTaskDetailByIdController from "./showTaskDetailById.controller.js";
 import createSubTaskController from "./createSubTask.controller.js";
 import createTaskFamilyController from "./createTaskFamily.controller.js";
 import listTaskFamilyController from "./listTaskFamily.controller.js";
@@ -18,7 +18,7 @@ import listColorsController from "./listColors.controller.js";
 export {
   createTaskController,
   listTaskController,
-  listTaskByIdcontroller,
+  showTaskDetailByIdController,
   listTaskFamilyController,
   createSubTaskController,
   createTaskFamilyController,

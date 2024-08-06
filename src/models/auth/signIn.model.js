@@ -1,12 +1,11 @@
-import getPool from "../../db/getpool.js";
+import getPool from "../../db/getPool.js";
 
 export default async function signInModel(email, password) {
   try {
     const pool = await getPool();
-    const [[user]] = await pool.query(
-      `SELECT * FROM users WHERE email = ?`,
-      [email]
-    );
+    const [[user]] = await pool.query(`SELECT * FROM users WHERE email = ?`, [
+      email,
+    ]);
 
     return {
       user,
