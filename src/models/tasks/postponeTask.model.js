@@ -1,4 +1,4 @@
-import getPool from "../../db/getPool.js";
+import getPool from "../../db/getpool.js";
 
 async function getTaskById(task_id) {
   const pool = await getPool();
