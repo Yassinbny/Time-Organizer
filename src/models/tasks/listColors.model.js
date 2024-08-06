@@ -1,9 +1,9 @@
-import getPool from "../../db/getpool.js";
+import getPool from "../../db/getPool.js";
 
 export default async function listColorsModel(search = 0, sort = 0, order = 0) {
   try {
     const pool = await getPool();
-    let query = "SELECT * FROM colors"; 
+    let query = "SELECT * FROM colors";
 
     // Búsqueda
     if (search) {

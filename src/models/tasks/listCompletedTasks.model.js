@@ -1,4 +1,4 @@
-import getPool from "../../db/getpool.js";
+import getPool from "../../db/getPool.js";
 
 export default async function listCompletedTasksModel(userId) {
   try {
@@ -16,4 +16,3 @@ export default async function listCompletedTasksModel(userId) {
     throw error;
   }
 }
-

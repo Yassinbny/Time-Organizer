@@ -1,4 +1,4 @@
-import getPool from "../../db/getpool.js";
+import getPool from "../../db/getPool.js";
 
 export default async function listTaskFamilyModel() {
   try {
