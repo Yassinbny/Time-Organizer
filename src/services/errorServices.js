@@ -70,3 +70,10 @@ export const deleteFileError = () => {
         message: "Error al eliminar el archivo del disco.",
     };
 };
+export const confirmPassError = () => {
+    throw {
+        httpStatus: 400, // Bad Request
+        code: "PASSWORDS_DO_NOT_MATCH",
+        message: "Las contraseñas no coinciden. Por favor, verifique e intente de nuevo.",
+    };
+};

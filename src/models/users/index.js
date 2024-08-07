@@ -10,6 +10,8 @@ import avatarModel from "./avatar.model.js";
 import selectUserByIdModel from "./selectUserId.model.js";
 import updateUserStatusModel from "./updateUserStatus.model.js";
 import listUsersModel from "./listUsers.model.js";
+import ChangeForgotPasswordModel from "../../models/users/ChangeForgotPassword.model.js";
+
 export {
   confirmUserModel,
   listUsersModel,
@@ -23,4 +25,5 @@ export {
   editUsernameModel,
   avatarModel,
   selectUserByIdModel,
+  ChangeForgotPasswordModel,
 };

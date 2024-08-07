@@ -10,6 +10,7 @@ import {
   profileController,
   editUsernameController,
   avatarController,
+  ChangeForgotPasswordController,
 } from "../controllers/users/index.js";
 
 import {
@@ -53,5 +54,8 @@ router.put("/profile/username", authenticateToken, editUsernameController);
 
 // Avatar
 router.post("/profile/avatar", authenticateToken, userExists, avatarController);
+
+// cambiar la contraseña de recuperación cuenta
+router.post("/change-password", ChangeForgotPasswordController);
 
 export default router;
