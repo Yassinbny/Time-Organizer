@@ -18,8 +18,7 @@ export default async function deleteAllSubtasksController(req, res, next) {
     }
 
     const { task_id } = value;
-   
-    verifyOwner(subtask, currentUser);
+
     const { message } = await deleteAllSubtasksModel(task_id);
     return res.status(200).json({
       ok: true,

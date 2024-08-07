@@ -1,14 +1,17 @@
+
 import getPool from "../../db/getpool.js";
+
 
 export default async function deleteSubtaskModel(subtask_id) {
   try {
     const pool = await getPool();
+
     const [result] = await pool.query(
       `DELETE FROM subtask
 WHERE subtask_id = ? `,
       [subtask_id]
     );
-    
+
     console.log(result.changedRows);
     return {
       message: result.affectedRows

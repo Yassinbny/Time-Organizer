@@ -7,7 +7,7 @@ export default async function deleteSubtaskController(req, res, next) {
     const currentUser = req.currentUser.id;
 
     const { error, value } = deleteSubtaskSchema.validate({
-      subtask_id: req.params.subtask_id,
+      subtask_id: req.params.idSubTask,
     });
 
     if (error) {
@@ -18,8 +18,7 @@ export default async function deleteSubtaskController(req, res, next) {
     }
 
     const { subtask_id } = value;
-    
-    verifyOwner(subtask, currentUser);
+
     const { message } = await deleteSubtaskModel(subtask_id);
     return res.status(200).json({
       ok: true,

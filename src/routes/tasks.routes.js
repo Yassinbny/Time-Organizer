@@ -30,6 +30,7 @@ const router = express.Router();
 
 //tasks
 
+
   // Listar Tareas
 router.get("/", authenticateToken, listTaskController)
 
@@ -81,7 +82,8 @@ router.delete("/subtask/:idSubTask", authenticateToken, deleteSubtaskController)
   // Eliminar todas las subtareas
 router.delete("/:idTask/subtask", authenticateToken, deleteAllSubtasksController)
 
-  // listar tareas completadas
-  router.get("/", authenticateToken, listCompletedTasksController);
+
+// listar tareas completadas
+router.get("/", authenticateToken, listCompletedTasksController);
 
 export default router;

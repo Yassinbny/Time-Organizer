@@ -8,11 +8,11 @@ export default async function deleteAllSubtasksModel(task_id) {
 WHERE task_id = ? `,
       [task_id]
     );
-    
+
     console.log(result.changedRows);
     return {
       message: result.affectedRows
-        ? "La subtarea ha sido eliminada con éxito."
+        ? "Las subtareas han sido eliminadas con éxito."
         : "No existe ninguna subtarea con ese id.",
     };
   } catch (error) {
