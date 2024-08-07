@@ -1,5 +1,5 @@
 import verifyOwner from "../../middlewares/verifyOwner.js";
-import { deleteAllSubtaskModel } from "../../models/tasks/index.js";
+import { deleteAllSubtasksModel } from "../../models/tasks/index.js";
 import deleteAllSubtaskSchema from "../../validations/deleteAllSubtasksSchema.js";
 
 export default async function deleteAllSubtasksController(req, res, next) {
@@ -18,8 +18,7 @@ export default async function deleteAllSubtasksController(req, res, next) {
     }
 
     const { task_id } = value;
-   
-    verifyOwner(subtask, currentUser);
+
     const { message } = await deleteAllSubtasksModel(task_id);
     return res.status(200).json({
       ok: true,
