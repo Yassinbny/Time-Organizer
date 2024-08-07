@@ -1,11 +1,13 @@
 /**
-Para visualizar correctamente las pijadas de las anotaciones: install extension --> Better Comments
+
 
 # Time-Organizer
 
-Aplicación tipo agenda para organizar el tiempo y las tareas del día a día, enfocada en
-personas con TDA (Trastorno por déficit de atención), aunque puede ser útil para cualquiera quien quiera
+TIME ORGANIZER: UNA AGENDA DIVERTIDA, PARA PERSONAS DISTRAÍDAS.
+Aplicación tipo agenda motivadora para organizar el tiempo y las tareas del día a día, enfocada en
+personas con TDA (Trastorno por déficit de atención), aunque puede ser útil para cualquiera que quiera
 usarla.
+
 
 # Los pasos para arrancar el Backend
 
@@ -23,68 +25,112 @@ usarla.
 
 
 
-# Lista de los Endpoints:
-
- * * Tables
-    ● Crear una Tabla
-
- * * Tasks
-    ● Crear una Tarea
-    ● Editar una Tarea
-    ● Finalizar una Tarea
-    ● Finalizar una Tarea a través del ID
-    ● Finalizar una Tarea con un intervalo de tiempo establecido.
-    ● Eliminar una Tarea
-    ● Eliminar una Tarea
-    ● Valoración de una Tarea finalizada
+# LISTA DE ENDPOINTS:
 
 
+ * * Usuarios
 
- * * SubTask
-    ● Crear una SubTarea
-    ● Editar una SubTarea
-    ● Finalizar una SubTarea
-    ● Eliminar una SubTarea
+    ● POST /api/users/sign-up → Registrar un nuevo usuario.
 
- * * Notes
-    ● Crear una Nota
-    ● Editar una Nota
-    ● Eliminar una Nota   
+    ● GET /api/users/confirm/:validationCode → Validar un usuario recién registrado con un código.
 
- * * Family
-    ● Crear una lista con las familias de las tareas
- 
+    ● POST /api/users/sign-in → Login o inicio de sesión de usuario.
 
- * * Lists
-    ● Crear una lista de tareas con filtro/búsqueda
-    ● Crear una lista de tareas finalizadas 
-    ● Crear una lista de usuarios (admin)
-    ● Crear una lista de tareas
-    ● Crear una lista de tareas a través del ID
+    ● GET /api/users/profile → Devolver el perfil del usuario.
+
+    ● PUT /api/users/profile/username → Cambiar o actualizar el nombre de usuario. 
+
+    ● POST /api/users/profile/avatar → Cambiar o actualizar el avatar.
 
 
+ * * Usuario Administrador
 
- * * Users
-    ● Registrar un Usuario 
-    ● Validar un Usuario
-    ● Login de usuarios
-    ● Eliminar un usuario con todas sus tareas (Admin)
-    ● Desabilitar/Habilitar un usuariko (Admin)
+    ● GET /api/users/profile/admin  → Devolver el perfil del administrador.
+
+    ● GET /api/users/ → Devolver el listado de usuarios normales.
+
+    ● PUT /api/users/:username/status → Desabilitar/Habilitar un usuario.
+
+    ● DELETE /api/users/:user_id → Eliminar un usuario con todas sus tareas.
+
 
  * * Password
-    ● Cambiar Contraseña
-    ● Recuperar Contraseña
 
- * * Annotations
-    ● Crear una anotación genérica
-    ● Editar una anotación genérica
-    ● Eliminar una anotación genérica    
+    ● PUT /api/users/password/reset → Cambiar o actualizar de contraseña.
+    
+    ● POST /api/users/password/recover → Recuperar contraseña.
+
+    ● POST /api/users/change-password → Recuperar contraseña olvidada.
+
+
+ * * Tareas
+
+    ● GET /api/tasks/ → Listar tareas.
+
+    ● GET /api/tasks/:idTask → Listar tareas con ID.
+
+    ● POST /api/tasks/ → Crear una tarea.
+
+    ● PATCH /api/tasks/:idTask → Editar una tarea.
+
+    ● PATCH /api/tasks/:idTask/postpone → Posponer una tarea.
+
+    ● PATCH /api/tasks/postponeAll → Posponer todas las tareas.
+
+    ● POST /api/tasks/:idTask → Finalizar una tarea.
+
+    ● PATCH /api/tasks/timePassed → Finalizar tarea a través del ID.
+
+    ● POST /api/tasks/:idTask/rating → Valorar tareas finalizadas.
+    
+    ● DELETE /api/tasks/:idTask → Eliminar una tarea.
+
+
+
+ * * SubTareas
+
+    ● POST /api/tasks/:idTask/subtask → Crear una subtarea.
+
+    ● POST /api/tasks/subtask/:idSubTask → Finalizar una subtarea.
+
+    ● DELETE /api/tasks/subtask/:idSubTask → Eliminar una subtarea.
+
+    ● DELETE /api/tasks/:idTask/subtask → Eliminar todas las subtareas.
+
+
+ * * Notas
+
+    ● POST /api/tasks/:idTask/notes → Crear una nota.
+
+    ● PATCH /api/tasks/notes/:idNote → Editar una nota.
+
+    ● DELETE /api/tasks/notes/:idNote → Eliminar una nota.   
+
+
+ * * Familias
+
+    ● GET /api/family/ → Listar las familias de las tareas.
+ 
+    ● POST /api/family/:idTask → Crear una lista con las familias de las tareas.
+
+
+ * * Anotaciones
+
+    ● POST /api/annotations/ → Crear una anotación genérica.
+
+    ● PATCH /api/annotations/:idAnnotation → Editar una anotación genérica.
+
+    ● DELETE /api/annotations/:idAnnotation → Eliminar una anotación genérica.  
+
+
+ * * Colores
    
+    ● GET /api/colors/ → Listar colores.
 
 
-* ! IMPORTANTE !!!!!! Sprint III !!!!
-
-    * TODO --> Hasta el 1/08 
+ * * Imágenes
+   
+    ● GET /api/images/ → Subir imágenes.
 
 
 
@@ -103,8 +149,6 @@ usarla.
     * Valoración del servicio/producto (rating, like, …)
 
     * Gestión de mínimo dos tipos de usuarios (ejemplos: normal y admin, normal y experto, paciente y médico, …)
-
-
 
 
 
@@ -191,5 +235,3 @@ El usuario admin (se creará de forma fija desde código) y, una vez logueado, p
 (*) El equipo puede añadir y/o modificar los requisitos para personalizar la plataforma y tomar las decisiones
 adecuadas en las partes en las cuales no se entra en el detalle.
 */
-
-

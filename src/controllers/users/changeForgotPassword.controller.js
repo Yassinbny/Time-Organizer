@@ -1,12 +1,12 @@
 
-import { ChangeForgotPasswordModel } from "../../models/users/index.js";
+import { changeForgotPasswordModel } from "../../models/users/index.js";
 
-const ChangeForgotPasswordController = async (req, res, next) => {
+const changeForgotPasswordController = async (req, res, next) => {
   try {
     const { email, code, newPassword , confirmPassword} = req.body;
 
     // Validar que el código de recuperación es correcto y cambiar la contraseña
-    await ChangeForgotPasswordModel(email, code, newPassword, confirmPassword);
+    await changeForgotPasswordModel(email, code, newPassword, confirmPassword);
 
     res.send({
       status: "ok",
@@ -17,4 +17,4 @@ const ChangeForgotPasswordController = async (req, res, next) => {
   }
 };
 
-export default ChangeForgotPasswordController;
+export default changeForgotPasswordController;

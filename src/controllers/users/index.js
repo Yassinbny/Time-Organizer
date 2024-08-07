@@ -8,7 +8,7 @@ import listUsersController from "./listUsers.controller.js";
 import profileController from "./profile.controller.js";
 import editUsernameController from "./editUsername.controller.js";
 import avatarController from "./avatar.controller.js";
-import ChangeForgotPasswordController from "./ChangeForgotPassword.controller.js";
+import changeForgotPasswordController from "./changeForgotPassword.controller.js";
 
 
 export {
@@ -22,5 +22,5 @@ export {
     profileController,
     editUsernameController,
     avatarController,
-    ChangeForgotPasswordController,
+    changeForgotPasswordController,
 };

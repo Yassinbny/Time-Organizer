@@ -2,7 +2,7 @@ import bcrypt from "bcrypt";
 import getPool from "../../db/getpool.js";
 import { notFoundError, newPassError, confirmPassError } from "../../services/errorServices.js";
 
-const ChangeForgotPasswordModel = async (email, recoverPassCode, newPassword, confirmPassword) => {
+const changeForgotPasswordModel = async (email, recoverPassCode, newPassword, confirmPassword) => {
   try {
     const pool = await getPool();
 
@@ -41,4 +41,4 @@ const ChangeForgotPasswordModel = async (email, recoverPassCode, newPassword, co
   }
 };
 
-export default ChangeForgotPasswordModel;
+export default changeForgotPasswordModel;

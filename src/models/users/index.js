@@ -10,7 +10,7 @@ import avatarModel from "./avatar.model.js";
 import selectUserByIdModel from "./selectUserId.model.js";
 import updateUserStatusModel from "./updateUserStatus.model.js";
 import listUsersModel from "./listUsers.model.js";
-import ChangeForgotPasswordModel from "../../models/users/ChangeForgotPassword.model.js";
+import changeForgotPasswordModel from "../../models/users/changeForgotPassword.model.js";
 
 export {
   confirmUserModel,
@@ -25,5 +25,5 @@ export {
   editUsernameModel,
   avatarModel,
   selectUserByIdModel,
-  ChangeForgotPasswordModel,
+  changeForgotPasswordModel,
 };
