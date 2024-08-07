@@ -8,8 +8,7 @@ import authenticateToken from "../middlewares/authenticateToken.js";
 
 const router = express.Router();
 
-router
-  .get("/", authenticateToken, listTaskFamilyController)
-  .post("/:idTask", authenticateToken, createTaskFamilyController);
+router.get("/", authenticateToken, listTaskFamilyController)
+router.post("/:idTask", authenticateToken, createTaskFamilyController);
 
 export default router;

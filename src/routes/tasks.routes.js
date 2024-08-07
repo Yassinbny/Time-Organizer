@@ -15,7 +15,7 @@ import {
   finishTaskByTimeController,
   rateFinishedTaskController,
   updateTaskController,
-  deleteTaskcontroller,
+  deleteTaskController,
   deleteSubtaskController,
   deleteAllSubtasksController,
   postponeTaskController,
@@ -29,67 +29,59 @@ import { authenticateToken } from "../middlewares/index.js";
 const router = express.Router();
 
 //tasks
-// Listar Tareas
-router.get("/", authenticateToken, listTaskController);
 
-// Listar Tareas con ID
-router.get("/:idTask", authenticateToken, showTaskDetailByIdController);
 
-// Crear Tarea
-router.post("/", authenticateToken, createTaskController);
+  // Listar Tareas
+router.get("/", authenticateToken, listTaskController)
 
-// Finalizar Tarea con ID
-router.patch("/timePassed", authenticateToken, finishTaskByTimeController);
+  // Listar Tareas con ID
+router.get("/:idTask", authenticateToken, showTaskDetailByIdController)
 
-// Crear Nota
-router.post("/:idTask/notes", authenticateToken, createNoteController);
+  // Crear Tarea
+router.post("/", authenticateToken, createTaskController)
 
-// Eliminar Nota
-router.delete("/notes/:idNote", authenticateToken, deleteNotecontroller);
+  // Finalizar Tarea con ID
+router.patch("/timePassed", authenticateToken, finishTaskByTimeController)
 
-// Actualizar/Modificar Nota
-router.patch("/notes/:idNote", authenticateToken, updateNoteController);
+  // Crear Nota
+router.post("/:idTask/notes", authenticateToken, createNoteController)
 
-// Crear subTarea
-router.post("/:idTask/subtask", authenticateToken, createSubTaskController);
+  // Eliminar Nota
+router.delete("/notes/:idNote", authenticateToken, deleteNotecontroller)
 
-// Finalizar tarea
-router.post("/:idTask", authenticateToken, finishTaskController);
+  // Actualizar/Modificar Nota
+router.patch("/notes/:idNote", authenticateToken, updateNoteController)
 
-// Valoración de Tareas Finalizadas
-router.post("/:idTask/rating", authenticateToken, rateFinishedTaskController);
+  // Crear subTarea
+router.post("/:idTask/subtask", authenticateToken, createSubTaskController)
 
-// Finalizar subTarea
-router.post("/subtask/:idSubTask", authenticateToken, finishSubTaskController);
+  // Finalizar tarea
+router.post("/:idTask", authenticateToken, finishTaskController)
 
-// Postponer Todas las tareas
-router.patch("/postponeAll", authenticateToken, postponeAllTasksController);
+  // Valoración de Tareas Finalizadas
+router.post("/:idTask/rating", authenticateToken, rateFinishedTaskController)
 
-// Actualización/Modificación de Tarea
-router.patch("/:idTask", authenticateToken, updateTaskController);
+  // Finalizar subTarea
+router.post("/subtask/:idSubTask", authenticateToken, finishSubTaskController)
 
-// Postponer una tarea
-router.patch("/:idTask/postpone", authenticateToken, postponeTaskController);
+  // Postponer Todas las tareas
+router.patch("/postponeAll", authenticateToken, postponeAllTasksController)
 
-// Eliminar Tarea
-router.delete("/:idTask", authenticateToken, deleteTaskcontroller);
+  // Actualización/Modificación de Tarea
+router.patch("/:idTask", authenticateToken, updateTaskController)
 
-// Eliminar Subtarea
-router.delete(
-  "/subtask/:idSubTask",
-  authenticateToken,
-  deleteSubtaskController
-);
+  // Postponer una tarea
+router.patch("/:idTask/postpone", authenticateToken, postponeTaskController)
 
-// Eliminar todas las subtareas
-router.delete(
-  "/:idTask/subtask",
-  authenticateToken,
-  deleteAllSubtasksController
-);
+  // Eliminar tarea
+router.delete("/:idTask", authenticateToken, deleteTaskController)
 
-// Eliminar tarea
-router.delete("/:idTask", authenticateToken, deleteTaskcontroller);
+  // Eliminar Subtarea
+router.delete("/subtask/:idSubTask", authenticateToken, deleteSubtaskController)
+
+  // Eliminar todas las subtareas
+router.delete("/:idTask/subtask", authenticateToken, deleteAllSubtasksController)
+
 
 // listar tareas completadas
 router.get("/", authenticateToken, listCompletedTasksController);

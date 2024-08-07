@@ -1,5 +1,6 @@
-import getPool from "../../db/getPool.js";
-import verifyOwner from "../../middlewares/verifyOwner.js";
+
+import getPool from "../../db/getpool.js";
+
 
 export default async function deleteSubtaskModel(subtask_id) {
   try {
