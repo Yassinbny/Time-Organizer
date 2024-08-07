@@ -1,5 +1,5 @@
 import verifyOwner from "../../middlewares/verifyOwner.js";
-import { deleteAllSubtaskModel } from "../../models/tasks/index.js";
+import { deleteAllSubtasksModel } from "../../models/tasks/index.js";
 import deleteAllSubtaskSchema from "../../validations/deleteAllSubtasksSchema.js";
 
 export default async function deleteAllSubtasksController(req, res, next) {

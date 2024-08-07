@@ -15,7 +15,7 @@ import {
   finishTaskByTimeController,
   rateFinishedTaskController,
   updateTaskController,
-  deleteTaskcontroller,
+  deleteTaskController,
   deleteSubtaskController,
   deleteAllSubtasksController,
   postponeTaskController,
@@ -73,7 +73,7 @@ router.patch("/:idTask", authenticateToken, updateTaskController)
 router.patch("/:idTask/postpone", authenticateToken, postponeTaskController)
 
   // Eliminar tarea
-router.delete("/:idTask", authenticateToken, deleteTaskcontroller)
+router.delete("/:idTask", authenticateToken, deleteTaskController)
 
   // Eliminar Subtarea
 router.delete("/subtask/:idSubTask", authenticateToken, deleteSubtaskController)

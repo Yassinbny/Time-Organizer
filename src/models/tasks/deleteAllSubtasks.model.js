@@ -1,6 +1,6 @@
-import getPool from "../../db/getPool.js";
+import getPool from "../../db/getpool.js";
 
-export default async function deleteSubtasksModel(task_id) {
+export default async function deleteAllSubtasksModel(task_id) {
   try {
     const pool = await getPool();
     const [result] = await pool.query(
