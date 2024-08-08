@@ -43,7 +43,7 @@ const createTables = async () => {
       ('blue'),
       ('red'),
       ('yellow'),
-      ('grey')
+      ('gray')
     `);
 
     console.log("Colores insertados con éxito.");
