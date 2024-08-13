@@ -1,4 +1,5 @@
-/**
+/\*\*
+cambiando un par de cosas
 
 # TIME-ORGANIZER
 
@@ -7,10 +8,7 @@ Aplicación tipo agenda motivadora para organizar el tiempo y las tareas del dí
 personas con TDA (Trastorno por déficit de atención), aunque puede ser útil para cualquiera que quiera
 usarla.
 
-
-
 # CÓMO ARRANCAR EL BACKEND
-
 
     * Abre la terminal y navega hasta la carpeta raíz del proyecto (si ya no estás en ella).
 
@@ -24,127 +22,109 @@ usarla.
 
     * Ejecuta el comando npm run dev para lanzar el servidor
 
-
-
 # TECNOLOGÍAS UTILIZADAS:
-
 
     ● Node.js y Express.js
     ● MySQL
     ● Postman
 
-
-
 # LISTA DE ENDPOINTS:
 
+- - Usuarios
 
- * * Usuarios
+  ● POST /api/users/sign-up → Registrar un nuevo usuario.
 
-    ● POST /api/users/sign-up → Registrar un nuevo usuario.
+  ● GET /api/users/confirm/:validationCode → Validar un usuario recién registrado con un código.
 
-    ● GET /api/users/confirm/:validationCode → Validar un usuario recién registrado con un código.
+  ● POST /api/users/sign-in → Login o inicio de sesión de usuario.
 
-    ● POST /api/users/sign-in → Login o inicio de sesión de usuario.
+  ● GET /api/users/profile → Devolver el perfil del usuario.
 
-    ● GET /api/users/profile → Devolver el perfil del usuario.
+  ● PUT /api/users/profile/username → Cambiar o actualizar el nombre de usuario.
 
-    ● PUT /api/users/profile/username → Cambiar o actualizar el nombre de usuario. 
+  ● POST /api/users/profile/avatar → Cambiar o actualizar el avatar.
 
-    ● POST /api/users/profile/avatar → Cambiar o actualizar el avatar.
+- - Usuario Administrador
 
+  ● GET /api/users/profile/admin → Devolver el perfil del administrador.
 
- * * Usuario Administrador
+  ● GET /api/users/ → Devolver el listado de usuarios normales.
 
-    ● GET /api/users/profile/admin  → Devolver el perfil del administrador.
+  ● PUT /api/users/:username/status → Desabilitar/Habilitar un usuario.
 
-    ● GET /api/users/ → Devolver el listado de usuarios normales.
+  ● DELETE /api/users/:user_id → Eliminar un usuario con todas sus tareas.
 
-    ● PUT /api/users/:username/status → Desabilitar/Habilitar un usuario.
+- - Password
 
-    ● DELETE /api/users/:user_id → Eliminar un usuario con todas sus tareas.
+  ● PUT /api/users/password/reset → Cambiar o actualizar de contraseña.
 
+  ● POST /api/users/password/recover → Recuperar contraseña.
 
- * * Password
+  ● POST /api/users/password/change → Confirmar código de recuperación de contraseña.
 
-    ● PUT /api/users/password/reset → Cambiar o actualizar de contraseña.
-    
-    ● POST /api/users/password/recover → Recuperar contraseña.
+- - Tareas
 
-    ● POST /api/users/password/change → Confirmar código de recuperación de contraseña.
+  ● GET /api/tasks/ → Listar tareas.
 
+  ● GET /api/tasks/:idTask → Listar tareas con ID.
 
- * * Tareas
+  ● POST /api/tasks/ → Crear una tarea.
 
-    ● GET /api/tasks/ → Listar tareas.
+  ● PATCH /api/tasks/:idTask → Editar una tarea.
 
-    ● GET /api/tasks/:idTask → Listar tareas con ID.
+  ● PATCH /api/tasks/:idTask/postpone → Posponer una tarea.
 
-    ● POST /api/tasks/ → Crear una tarea.
+  ● PATCH /api/tasks/postponeAll → Posponer todas las tareas.
 
-    ● PATCH /api/tasks/:idTask → Editar una tarea.
+  ● POST /api/tasks/:idTask → Finalizar una tarea.
 
-    ● PATCH /api/tasks/:idTask/postpone → Posponer una tarea.
+  ● PATCH /api/tasks/timePassed → Finalizar tarea a través del ID.
 
-    ● PATCH /api/tasks/postponeAll → Posponer todas las tareas.
+  ● POST /api/tasks/:idTask/rating → Valorar tareas finalizadas.
 
-    ● POST /api/tasks/:idTask → Finalizar una tarea.
+  ● DELETE /api/tasks/:idTask → Eliminar una tarea.
 
-    ● PATCH /api/tasks/timePassed → Finalizar tarea a través del ID.
+- - SubTareas
 
-    ● POST /api/tasks/:idTask/rating → Valorar tareas finalizadas.
-    
-    ● DELETE /api/tasks/:idTask → Eliminar una tarea.
+  ● POST /api/tasks/:idTask/subtask → Crear una subtarea.
 
+  ● POST /api/tasks/subtask/:idSubTask → Finalizar una subtarea.
 
- * * SubTareas
+  ● DELETE /api/tasks/subtask/:idSubTask → Eliminar una subtarea.
 
-    ● POST /api/tasks/:idTask/subtask → Crear una subtarea.
+  ● DELETE /api/tasks/:idTask/subtask → Eliminar todas las subtareas.
 
-    ● POST /api/tasks/subtask/:idSubTask → Finalizar una subtarea.
+- - Notas
 
-    ● DELETE /api/tasks/subtask/:idSubTask → Eliminar una subtarea.
+  ● POST /api/tasks/:idTask/notes → Crear una nota.
 
-    ● DELETE /api/tasks/:idTask/subtask → Eliminar todas las subtareas.
+  ● PATCH /api/tasks/notes/:idNote → Editar una nota.
 
+  ● DELETE /api/tasks/notes/:idNote → Eliminar una nota.
 
- * * Notas
+- - Familias
 
-    ● POST /api/tasks/:idTask/notes → Crear una nota.
+  ● GET /api/family/ → Listar las familias de las tareas.
 
-    ● PATCH /api/tasks/notes/:idNote → Editar una nota.
+  ● POST /api/family/:idTask → Crear una lista con las familias de las tareas.
 
-    ● DELETE /api/tasks/notes/:idNote → Eliminar una nota.   
+- - Anotaciones
 
+  ● POST /api/annotations/ → Crear una anotación genérica.
 
- * * Familias
+  ● PATCH /api/annotations/:idAnnotation → Editar una anotación genérica.
 
-    ● GET /api/family/ → Listar las familias de las tareas.
- 
-    ● POST /api/family/:idTask → Crear una lista con las familias de las tareas.
+  ● DELETE /api/annotations/:idAnnotation → Eliminar una anotación genérica.
 
+- - Colores
 
- * * Anotaciones
+  ● GET /api/colors/ → Listar colores.
 
-    ● POST /api/annotations/ → Crear una anotación genérica.
+- - Imágenes
 
-    ● PATCH /api/annotations/:idAnnotation → Editar una anotación genérica.
-
-    ● DELETE /api/annotations/:idAnnotation → Eliminar una anotación genérica.  
-
-
- * * Colores
-   
-    ● GET /api/colors/ → Listar colores.
-
-
- * * Imágenes
-   
-    ● GET /api/images/ → Subir imágenes.
-
-
+  ● GET /api/images/ → Subir imágenes.
 
 # DESARROLLADORES:
-
 
     ● Yassin Benyaiche
     ● Juan Coronado
