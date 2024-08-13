@@ -40,6 +40,9 @@ app.use("/annotations", annotationRoutes);
 app.use("/image", imagesRoutes);
 app.use("/colors", colorsRoutes);
 
+app.get("/ping", (req, res) => {
+  res.send("hello world");
+});
 // middleware 404 not founded
 app.use((req, res) => {
   return res.status(404).json({
